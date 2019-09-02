@@ -2,7 +2,7 @@
 This website can be found at https://vithop.github.io/Vithuran-s-Portfolio/
 ## Projects
 ### [2019 IoT Garden Gnome](https://github.com/saamirt/IOT-Garden-Gnome)
-Automated Gardening System built on the NodeMCU, which measures soil moisture, soil and air temperature, and sunlight to determine the best time to water the garden while displaying all the information online. The Frontend(website) can be found [here](https://github.com/saamirt/garden-gnome-app), and the hardware side can be found [here](https://github.com/saamirt/IOT-Garden-Gnome)
+Automated Gardening System built on the NodeMCU, which measures soil moisture, soil and air temperature, and sunlight to determine the best time to water the garden while displaying all the information online. The Frontend(website) can be found [here](https://github.com/saamirt/garden-gnome-app), and the hardware side can be found [here](https://github.com/saamirt/IOT-Garden-Gnome).
 
 
 ### [2018 Whack-A-Mole](https://github.com/Vithop/Wack-A-Bok)
