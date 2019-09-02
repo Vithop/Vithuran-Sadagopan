@@ -1,40 +1,23 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/Vithop/Vithuran-s-Portfolio/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Vithop/Vithuran-s-Portfolio/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
-### Vithu
+# Vithu
 This website can be found at https://vithop.github.io/Vithuran-s-Portfolio/
+## Projects
+### [2019 IoT Garden Gnome](https://github.com/saamirt/IOT-Garden-Gnome)
+Automated Gardening System built on the NodeMCU, which measures soil moisture, soil and air temperature, and sunlight to determine the best time to water the garden while displaying all the information online. The Frontend(website) can be found [here](https://github.com/saamirt/garden-gnome-app), and the hardware side can be found [here](https://github.com/saamirt/IOT-Garden-Gnome)
+
+
+### [2018 Whack-A-Mole](https://github.com/Vithop/Wack-A-Bok)
+Arcade Style whack-a-mole in augmented reality. Uses Google ARcore to interact with the environment and do multiplayer gameplay in real-time.
+ 
+
+### [2018 Firelytics](https://test1-fc794.firebaseapp.com/)
+Marketing Analytic Software to optimize the design of marketable products using machine learning. Built during the Google Cloud Sprint Hackathon.
+ 
+### [2018 Wearable BioSensor System](https://github.com/Mathuran/Myo_Arduino_3DLEDcube)
+Used hand gesture control features of the Myo band to play a game on a LED Cube. Created during Delta-Hacks IV.
+![](Wearable-BioSensor.gif)
+### 2017 Single Axis CNC with Robotic Arm
+An arduino based Robotic Arm used to help remove clothes from a closet. Through CADing and prototyping achieved functional model of the machine.
+
+![](Single-Axis-CNC.jpg)
+
+![](Single-Axis-CNC-prototype.gif)
