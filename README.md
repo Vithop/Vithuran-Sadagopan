@@ -14,7 +14,9 @@ Marketing Analytic Software to optimize the design of marketable products using 
  
 ### [2018 Wearable BioSensor System](https://github.com/Mathuran/Myo_Arduino_3DLEDcube)
 Used hand gesture control features of the Myo band to play a game on a LED Cube. Created during Delta-Hacks IV.
+
 ![](Wearable-BioSensor.gif)
+
 ### 2017 Single Axis CNC with Robotic Arm
 An arduino based Robotic Arm used to help remove clothes from a closet. Through CADing and prototyping achieved functional model of the machine.
 
