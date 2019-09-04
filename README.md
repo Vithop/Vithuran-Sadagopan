@@ -49,5 +49,7 @@ An arduino based Robotic Arm used to help remove clothes from a closet. This pro
 Feel free to contact me!
 
 ![](phone.svg) 647-444-4099
+
 ![](email.svg) vithuran.sada@gmail.com
-![](linkedin.png) linkedin.com/in/vithuran-sada/
+
+![](linkedin-logo.png) linkedin.com/in/vithuran-sada/
