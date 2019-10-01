@@ -2,7 +2,7 @@
 
 ## About Me
 
-I am currently doing my undergrade at McMaster University for Computer Engineering with the graduating class of 2021. I am a tech pioneer, who is always looking for new technologies to discover and try. Although my hobbies do include trying new techs, I also enjoy playing soccer, basketball, biking, cooking and having fun! I hope you find my portfolio intresting and if you have any questions please feel free to [email me](vithuran.sada@gmail.com).
+I am currently doing my undergrad at McMaster University for Computer Engineering with the graduating class of 2021. I am a tech pioneer, who is always looking for new technologies to discover and try. Although my hobbies do include trying new techs, I also enjoy playing soccer, basketball, biking, cooking and having fun! I hope you find my portfolio interesting and if you have any questions please feel free to [email me](vithuran.sada@gmail.com).
 
 ## Skills
 
