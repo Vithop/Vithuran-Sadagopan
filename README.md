@@ -11,6 +11,9 @@ I am currently doing my undergrad at McMaster University for Computer Engineerin
 | C++, C\#, C, Go, Python, Java, Mathlab, ReactJs, VueJs, HTML, CSS, Git 	| Pspice, Verilog, Simulink, Arduino, Raspberry Pie 	| Inventor, Solidworks, 3d printing 	|
 
 ## Work Experiences
+### 05-06 2020 Amazon Mentorship
+
+During the first 2 months of my summer of 2020, I was lucky enough to be mentored by an Amazon Web Engineer. This mentorship experience was an amazing experience to learn about AWS services and test automation. During this mentorship, I developed a continuous integration tool to test and deploy Amazon Synthetic Canaries from a local environment to gamma and production environments, in multiple regions. This tool greatly improved the software development experience to a single click and also improved development speed. As well as the continuous integration tool, I also developed a real-time multi-regional dashboard that reports website dropouts in real-time. 
 
 ### 05-08 2019 Full Stack Developer at Ellis Don
 
