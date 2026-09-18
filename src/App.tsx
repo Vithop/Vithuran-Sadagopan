@@ -30,8 +30,6 @@ const App: Component = () => {
           color: "var(--ink-secondary)",
         }}
       >
-        <div class="cedar-louver" style={{ "margin-bottom": "2.5rem" }}></div>
-
         <div
           style={{
             display: "flex",
@@ -76,12 +74,13 @@ const App: Component = () => {
             </div>
             <div
               style={{
-                color: "var(--cedar-dark)",
+                color: "var(--ink-muted)",
                 "font-size": "0.75rem",
                 "font-weight": "600",
               }}
             >
-              ARTHUR ERICKSON LIGHT-CONCRETE BRUTALIST EDITION
+              ARTHUR ERICKSON LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE
+              TYPEFACE
             </div>
           </div>
         </div>

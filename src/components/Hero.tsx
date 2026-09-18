@@ -49,8 +49,7 @@ const Hero: Component = () => {
               style={{
                 width: "10px",
                 height: "10px",
-                "background-color": "var(--cedar-wood)",
-                border: "1px solid var(--grid-border)",
+                "background-color": "var(--grid-border)",
                 "border-radius": "50%",
               }}
             ></span>
@@ -71,7 +70,7 @@ const Hero: Component = () => {
             href="#about"
             style={{
               color: "var(--ink-primary)",
-              "font-weight": "600",
+              "font-weight": "700",
               transition: "color 0.2s",
             }}
           >
@@ -81,7 +80,7 @@ const Hero: Component = () => {
             href="#experience"
             style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--cedar-wood)")
+              (e.currentTarget.style.color = "var(--ink-primary)")
             }
             onMouseLeave={(e) =>
               (e.currentTarget.style.color = "var(--ink-secondary)")
@@ -93,7 +92,7 @@ const Hero: Component = () => {
             href="#portfolio"
             style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--cedar-wood)")
+              (e.currentTarget.style.color = "var(--ink-primary)")
             }
             onMouseLeave={(e) =>
               (e.currentTarget.style.color = "var(--ink-secondary)")
@@ -105,7 +104,7 @@ const Hero: Component = () => {
             href="#contact"
             style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--cedar-wood)")
+              (e.currentTarget.style.color = "var(--ink-primary)")
             }
             onMouseLeave={(e) =>
               (e.currentTarget.style.color = "var(--ink-secondary)")
@@ -120,8 +119,8 @@ const Hero: Component = () => {
             display: "flex",
             "align-items": "center",
             gap: "0.6rem",
-            color: "var(--cedar-dark)",
-            "font-weight": "600",
+            color: "var(--ink-primary)",
+            "font-weight": "700",
           }}
         >
           <span>PACIFIC TIME {time() || "12:00:00"}</span>
@@ -141,7 +140,7 @@ const Hero: Component = () => {
 
         <div class="section-header-beam">
           <div class="section-header-title">
-            <span>ABOUT ME // WEST COAST BRUTALISM</span>
+            <span>ABOUT // ARTHUR ERICKSON BRUTALISM</span>
           </div>
           <div class="section-telemetry-tag">
             SECTOR 01 // LIGHT CONCRETE EDITION
@@ -162,10 +161,10 @@ const Hero: Component = () => {
             <h1
               style={{
                 "font-size": "clamp(3.5rem, 8.5vw, 7.5rem)",
-                "line-height": "0.9",
-                "letter-spacing": "-0.04em",
+                "line-height": "0.95",
+                "letter-spacing": "0.01em",
                 color: "var(--ink-primary)",
-                "margin-bottom": "1.5rem",
+                "margin-bottom": "2rem",
               }}
             >
               VITHURAN
@@ -173,14 +172,12 @@ const Hero: Component = () => {
               SADAGOPAN
             </h1>
 
-            <div class="cedar-louver" style={{ "margin-bottom": "2rem" }}></div>
-
             <p
               style={{
                 "font-size": "1.25rem",
                 color: "var(--ink-secondary)",
                 "line-height": "1.6",
-                "margin-bottom": "2rem",
+                "margin-bottom": "2.5rem",
               }}
             >
               Software Development Engineer architecting high-availability
@@ -203,7 +200,7 @@ const Hero: Component = () => {
             </div>
           </div>
 
-          {/* Rounded Profile Vitrine with Cedar Accent & Emissive Light Effect */}
+          {/* Rounded Profile Vitrine with Emissive Light Effect */}
           <div
             class="erickson-lantern"
             style={{
@@ -226,7 +223,7 @@ const Hero: Component = () => {
                 style={{
                   "font-family": "var(--font-telemetry)",
                   "font-size": "0.75rem",
-                  color: "var(--cedar-wood)",
+                  color: "var(--ink-primary)",
                   "font-weight": "700",
                   "letter-spacing": "0.1em",
                 }}
@@ -235,11 +232,10 @@ const Hero: Component = () => {
               </span>
               <div
                 style={{
-                  width: "40px",
-                  height: "18px",
-                  background: "var(--cedar-wood)",
+                  width: "30px",
+                  height: "14px",
+                  background: "var(--grid-border)",
                   "border-radius": "9999px",
-                  border: "1px solid var(--grid-border)",
                 }}
               ></div>
             </div>
@@ -261,7 +257,7 @@ const Hero: Component = () => {
                   style={{
                     "font-family": "var(--font-monumental)",
                     "font-size": "2.2rem",
-                    "font-weight": "800",
+                    "font-weight": "700",
                     color: "var(--ink-primary)",
                   }}
                 >
@@ -289,7 +285,7 @@ const Hero: Component = () => {
                   style={{
                     "font-family": "var(--font-monumental)",
                     "font-size": "2.2rem",
-                    "font-weight": "800",
+                    "font-weight": "700",
                     color: "var(--ink-primary)",
                   }}
                 >
@@ -309,7 +305,7 @@ const Hero: Component = () => {
 
               <div
                 style={{
-                  "border-left": "3px solid var(--cedar-wood)",
+                  "border-left": "3px solid var(--grid-border)",
                   "padding-left": "1rem",
                 }}
               >
@@ -317,7 +313,7 @@ const Hero: Component = () => {
                   style={{
                     "font-family": "var(--font-monumental)",
                     "font-size": "2.2rem",
-                    "font-weight": "800",
+                    "font-weight": "700",
                     color: "var(--ink-primary)",
                   }}
                 >
@@ -337,7 +333,7 @@ const Hero: Component = () => {
 
               <div
                 style={{
-                  "border-left": "3px solid var(--cedar-wood)",
+                  "border-left": "3px solid var(--grid-border)",
                   "padding-left": "1rem",
                 }}
               >
@@ -345,7 +341,7 @@ const Hero: Component = () => {
                   style={{
                     "font-family": "var(--font-monumental)",
                     "font-size": "2.2rem",
-                    "font-weight": "800",
+                    "font-weight": "700",
                     color: "var(--ink-primary)",
                   }}
                 >
@@ -377,7 +373,7 @@ const Hero: Component = () => {
             >
               <span>DISCIPLINE: DISTRIBUTED SYSTEMS</span>
               <span
-                style={{ color: "var(--cedar-wood)", "font-weight": "600" }}
+                style={{ color: "var(--ink-primary)", "font-weight": "700" }}
               >
                 AMAZON SDE II
               </span>

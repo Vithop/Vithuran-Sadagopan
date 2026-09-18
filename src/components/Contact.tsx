@@ -22,7 +22,7 @@ const Contact: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>CONTACT ME // COMMUNICATIONS BAY</span>
+          <span>CONTACT // COMMUNICATIONS BAY</span>
         </div>
         <div class="section-telemetry-tag">DIRECT CHANNEL // VANCOUVER, BC</div>
       </div>
@@ -40,17 +40,15 @@ const Contact: Component = () => {
         <div>
           <h2
             style={{
-              "font-size": "clamp(2.5rem, 5vw, 4rem)",
+              "font-size": "clamp(2.5rem, 5vw, 4.5rem)",
               color: "var(--ink-primary)",
-              "margin-bottom": "1.5rem",
+              "margin-bottom": "2rem",
             }}
           >
             INITIATE
             <br />
             TRANSMISSION
           </h2>
-
-          <div class="cedar-louver" style={{ "margin-bottom": "2rem" }}></div>
 
           <p
             style={{
@@ -81,7 +79,9 @@ const Contact: Component = () => {
               <span>
                 {copied() ? "COPIED TO CLIPBOARD!" : "vithuran.sada@gmail.com"}
               </span>
-              <span style={{ color: "var(--cedar-wood)" }}>
+              <span
+                style={{ color: "var(--ink-primary)", "font-weight": "700" }}
+              >
                 {copied() ? "✓" : "COPY"}
               </span>
             </button>
@@ -94,7 +94,11 @@ const Contact: Component = () => {
               style={{ width: "100%", "justify-content": "space-between" }}
             >
               <span>LINKEDIN // PROFILE</span>
-              <span style={{ color: "var(--cedar-wood)" }}>↗</span>
+              <span
+                style={{ color: "var(--ink-primary)", "font-weight": "700" }}
+              >
+                ↗
+              </span>
             </a>
 
             <a
@@ -105,7 +109,11 @@ const Contact: Component = () => {
               style={{ width: "100%", "justify-content": "space-between" }}
             >
               <span>GITHUB // REPOSITORIES</span>
-              <span style={{ color: "var(--cedar-wood)" }}>↗</span>
+              <span
+                style={{ color: "var(--ink-primary)", "font-weight": "700" }}
+              >
+                ↗
+              </span>
             </a>
           </div>
         </div>
@@ -133,7 +141,7 @@ const Contact: Component = () => {
               style={{
                 "font-family": "var(--font-telemetry)",
                 "font-size": "0.75rem",
-                color: "var(--cedar-wood)",
+                color: "var(--ink-primary)",
                 "font-weight": "700",
               }}
             >
@@ -144,7 +152,7 @@ const Contact: Component = () => {
                 width: "10px",
                 height: "10px",
                 "border-radius": "50%",
-                background: "var(--cedar-wood)",
+                background: "var(--grid-border)",
               }}
             ></span>
           </div>
@@ -193,10 +201,18 @@ const Contact: Component = () => {
             href="mailto:vithuran.sada@gmail.com"
             class="pill-button"
             style={{
-              background: "var(--cedar-wood)",
+              background: "var(--grid-border)",
               color: "#fff",
               "border-color": "var(--grid-border)",
               "font-size": "0.95rem",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--concrete-pylon-hover)";
+              e.currentTarget.style.color = "var(--ink-primary)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "var(--grid-border)";
+              e.currentTarget.style.color = "#fff";
             }}
           >
             SEND DIRECT MESSAGE ✉

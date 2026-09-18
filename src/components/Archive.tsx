@@ -96,7 +96,7 @@ const Archive: Component = () => {
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.75rem",
-                    color: "var(--cedar-dark)",
+                    color: "var(--ink-primary)",
                     "font-weight": "700",
                   }}
                 >
@@ -130,8 +130,9 @@ const Archive: Component = () => {
                 style={{
                   "font-family": "var(--font-telemetry)",
                   "font-size": "0.8rem",
-                  color: "var(--cedar-wood)",
+                  color: "var(--ink-secondary)",
                   "margin-bottom": "1.25rem",
+                  "font-weight": "600",
                 }}
               >
                 {item.stack}
@@ -240,7 +241,7 @@ const Archive: Component = () => {
                   "font-family": "var(--font-telemetry)",
                   "font-size": "0.8rem",
                   "font-weight": "700",
-                  color: "var(--cedar-wood)",
+                  color: "var(--ink-primary)",
                 }}
               >
                 ACTIVE ↗

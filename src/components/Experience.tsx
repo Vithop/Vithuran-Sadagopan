@@ -93,7 +93,7 @@ const Experience: Component = () => {
               padding: "2.75rem",
               "margin-left": `${index * 2.5}rem`,
               "border-radius": "32px",
-              "border-left": "8px solid var(--cedar-wood)",
+              "border-left": "8px solid var(--grid-border)",
             }}
           >
             {/* Top Meta Beam */}
@@ -146,7 +146,7 @@ const Experience: Component = () => {
                   "font-family": "var(--font-telemetry)",
                   "font-size": "0.85rem",
                   "font-weight": "700",
-                  color: "var(--cedar-dark)",
+                  color: "var(--ink-primary)",
                   "letter-spacing": "0.05em",
                 }}
               >
@@ -221,7 +221,7 @@ const Experience: Component = () => {
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.75rem",
-                    color: "var(--cedar-dark)",
+                    color: "var(--ink-primary)",
                     "font-weight": "700",
                     "margin-bottom": "1.25rem",
                     "letter-spacing": "0.1em",
@@ -249,7 +249,7 @@ const Experience: Component = () => {
                     >
                       <span
                         style={{
-                          color: "var(--cedar-wood)",
+                          color: "var(--grid-border)",
                           "font-weight": "800",
                         }}
                       >
