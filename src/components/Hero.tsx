@@ -22,101 +22,96 @@ const Hero: Component = () => {
   });
 
   return (
-    <div>
-      {/* Top Monumental Lintel Beam / Navigation */}
+    <div id="about">
+      {/* Top Post-and-Beam Header Lintel */}
       <header
-        class="board-formed-surface"
         style={{
-          padding: "1.25rem 2rem",
+          padding: "1.25rem 2.5rem",
           display: "flex",
           "justify-content": "space-between",
           "align-items": "center",
           "flex-wrap": "wrap",
-          gap: "1rem",
-          "border-top": "none",
-          "border-left": "none",
-          "border-right": "none",
+          gap: "1.25rem",
+          "border-bottom": "2px solid var(--grid-border)",
+          "background-color": "var(--concrete-slab)",
           "font-family": "var(--font-telemetry)",
-          "font-size": "0.8rem",
+          "font-size": "0.85rem",
           "letter-spacing": "0.08em",
         }}
       >
         <div
-          style={{ display: "flex", "align-items": "center", gap: "1.5rem" }}
+          style={{ display: "flex", "align-items": "center", gap: "1.25rem" }}
         >
           <div
             style={{ display: "flex", "align-items": "center", gap: "0.5rem" }}
           >
             <span
               style={{
-                width: "8px",
-                height: "8px",
-                "background-color": "var(--pool-cyan)",
-                display: "inline-block",
+                width: "10px",
+                height: "10px",
+                "background-color": "var(--cedar-wood)",
+                border: "1px solid var(--grid-border)",
+                "border-radius": "50%",
               }}
             ></span>
-            <span
-              style={{ "font-weight": "600", color: "var(--stone-aggregate)" }}
-            >
-              VITHURAN.DEV
+            <span style={{ "font-weight": "700", color: "var(--ink-primary)" }}>
+              VITHURAN SADAGOPAN
             </span>
           </div>
-          <span style={{ color: "var(--stone-dim)" }}>|</span>
-          <span style={{ color: "var(--stone-muted)" }}>
-            VANCOUVER, BC // LAT 49.28°N
+          <span style={{ color: "var(--ink-dim)" }}>|</span>
+          <span style={{ color: "var(--ink-secondary)" }}>
+            VANCOUVER, BC // 49°16'N 123°07'W
           </span>
         </div>
 
         <nav
-          style={{ display: "flex", gap: "1.75rem", "align-items": "center" }}
+          style={{ display: "flex", gap: "1.5rem", "align-items": "center" }}
         >
           <a
+            href="#about"
+            style={{
+              color: "var(--ink-primary)",
+              "font-weight": "600",
+              transition: "color 0.2s",
+            }}
+          >
+            01 // ABOUT
+          </a>
+          <a
             href="#experience"
-            style={{ color: "var(--stone-muted)", transition: "color 0.2s" }}
+            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--stone-aggregate)")
+              (e.currentTarget.style.color = "var(--cedar-wood)")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--stone-muted)")
+              (e.currentTarget.style.color = "var(--ink-secondary)")
             }
           >
-            01 // EXPERIENCE
+            02 // EXPERIENCE
           </a>
           <a
-            href="#skills"
-            style={{ color: "var(--stone-muted)", transition: "color 0.2s" }}
+            href="#portfolio"
+            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--stone-aggregate)")
+              (e.currentTarget.style.color = "var(--cedar-wood)")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--stone-muted)")
+              (e.currentTarget.style.color = "var(--ink-secondary)")
             }
           >
-            02 // SYSTEMS
+            03 // PORTFOLIO
           </a>
           <a
-            href="#github"
-            style={{ color: "var(--stone-muted)", transition: "color 0.2s" }}
+            href="#contact"
+            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--stone-aggregate)")
+              (e.currentTarget.style.color = "var(--cedar-wood)")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--stone-muted)")
+              (e.currentTarget.style.color = "var(--ink-secondary)")
             }
           >
-            03 // TELEMETRY
-          </a>
-          <a
-            href="#archive"
-            style={{ color: "var(--stone-muted)", transition: "color 0.2s" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--stone-aggregate)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--stone-muted)")
-            }
-          >
-            04 // ARCHIVE
+            04 // CONTACT
           </a>
         </nav>
 
@@ -124,20 +119,17 @@ const Hero: Component = () => {
           style={{
             display: "flex",
             "align-items": "center",
-            gap: "0.75rem",
-            color: "var(--cedar-wood)",
+            gap: "0.6rem",
+            color: "var(--cedar-dark)",
+            "font-weight": "600",
           }}
         >
-          <span>PT {time() || "12:00:00"}</span>
+          <span>PACIFIC TIME {time() || "12:00:00"}</span>
         </div>
       </header>
 
-      {/* Main Monumental Concrete Pavilion Hero */}
-      <section
-        class="hero-section"
-        style={{ padding: "6rem 3rem 5rem 3rem", position: "relative" }}
-      >
-        {/* Architectural Grid Crosshairs */}
+      {/* Main About Me Section */}
+      <section style={{ padding: "5rem 3rem" }}>
         <div
           class="grid-crosshair"
           style={{ top: "1.5rem", left: "1.5rem" }}
@@ -147,352 +139,248 @@ const Hero: Component = () => {
           style={{ top: "1.5rem", right: "1.5rem" }}
         ></div>
 
-        <div
-          style={{
-            "margin-bottom": "1.5rem",
-            display: "flex",
-            "justify-content": "space-between",
-            "align-items": "flex-end",
-          }}
-        >
-          <div
-            style={{
-              "font-family": "var(--font-telemetry)",
-              "font-size": "0.75rem",
-              color: "var(--cedar-wood)",
-              "letter-spacing": "0.15em",
-            }}
-          >
-            WEST COAST BRUTALIST ARCHITECTURE // SECTOR 01
+        <div class="section-header-beam">
+          <div class="section-header-title">
+            <span>ABOUT ME // WEST COAST BRUTALISM</span>
           </div>
-          <div
-            style={{
-              "font-family": "var(--font-telemetry)",
-              "font-size": "0.75rem",
-              color: "var(--stone-dim)",
-            }}
-          >
-            SCALE [ 0m ─── 5m ─── 10m ]
+          <div class="section-telemetry-tag">
+            SECTOR 01 // LIGHT CONCRETE EDITION
           </div>
         </div>
 
-        {/* Monolithic Name Heading */}
-        <h1
-          style={{
-            "font-size": "clamp(3.2rem, 9.5vw, 8.5rem)",
-            "line-height": "0.88",
-            "letter-spacing": "-0.04em",
-            color: "var(--stone-aggregate)",
-            "margin-bottom": "2rem",
-            "text-shadow": "0 2px 40px rgba(0,0,0,0.8)",
-          }}
-        >
-          VITHURAN
-          <br />
-          SADAGOPAN
-        </h1>
-
-        {/* Cedar Louver Structural Divider */}
-        <div class="cedar-louver" style={{ "margin-bottom": "2.5rem" }}></div>
-
-        {/* Terraced Content Layout */}
         <div
           style={{
             display: "grid",
             "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "2.5rem",
-            "align-items": "stretch",
+            gap: "3rem",
+            "align-items": "center",
           }}
+          class="interactive-cluster"
         >
-          {/* Mission & Architectural Statement */}
-          <div
-            class="board-formed-surface terrace-card"
-            style={{
-              padding: "2.5rem",
-              display: "flex",
-              "flex-direction": "column",
-              "justify-content": "space-between",
-              gap: "2rem",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  "font-family": "var(--font-telemetry)",
-                  "font-size": "0.75rem",
-                  color: "var(--pool-cyan)",
-                  "margin-bottom": "1rem",
-                }}
-              >
-                SPEC // SYSTEMS ENGINEERING & UX
-              </div>
-              <p
-                style={{
-                  "font-size": "1.25rem",
-                  color: "var(--stone-aggregate)",
-                  "line-height": "1.5",
-                }}
-              >
-                Software Development Engineer building highly available,
-                low-latency distributed systems and premium frontend
-                experiences.
-              </p>
-            </div>
-
-            <div
+          {/* Monumental Typography & Bio */}
+          <div>
+            <h1
               style={{
-                display: "flex",
-                gap: "1.5rem",
-                "font-family": "var(--font-telemetry)",
-                "font-size": "0.85rem",
+                "font-size": "clamp(3.5rem, 8.5vw, 7.5rem)",
+                "line-height": "0.9",
+                "letter-spacing": "-0.04em",
+                color: "var(--ink-primary)",
+                "margin-bottom": "1.5rem",
               }}
             >
-              <a
-                href="mailto:vithuran.sada@gmail.com"
-                style={{
-                  padding: "0.6rem 1.25rem",
-                  background: "rgba(225, 221, 213, 0.06)",
-                  border: "1px solid var(--border-prominent)",
-                  color: "var(--stone-aggregate)",
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--cedar-wood)";
-                  e.currentTarget.style.color = "#fff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background =
-                    "rgba(225, 221, 213, 0.06)";
-                  e.currentTarget.style.color = "var(--stone-aggregate)";
-                }}
-              >
-                EMAIL // CONTACT
+              VITHURAN
+              <br />
+              SADAGOPAN
+            </h1>
+
+            <div class="cedar-louver" style={{ "margin-bottom": "2rem" }}></div>
+
+            <p
+              style={{
+                "font-size": "1.25rem",
+                color: "var(--ink-secondary)",
+                "line-height": "1.6",
+                "margin-bottom": "2rem",
+              }}
+            >
+              Software Development Engineer architecting high-availability
+              distributed systems and deterministic frontend state machines at
+              Amazon. Focused on low-latency microservices, developer
+              acceleration, and tactile web interfaces.
+            </p>
+
+            <div style={{ display: "flex", "flex-wrap": "wrap", gap: "1rem" }}>
+              <a href="#contact" class="pill-button">
+                GET IN TOUCH ↗
               </a>
               <a
-                href="https://linkedin.com/in/vithuran-sada"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  padding: "0.6rem 1.25rem",
-                  background: "rgba(225, 221, 213, 0.06)",
-                  border: "1px solid var(--border-prominent)",
-                  color: "var(--stone-aggregate)",
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--cedar-wood)";
-                  e.currentTarget.style.color = "#fff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background =
-                    "rgba(225, 221, 213, 0.06)";
-                  e.currentTarget.style.color = "var(--stone-aggregate)";
-                }}
+                href="#experience"
+                class="pill-button"
+                style={{ background: "transparent" }}
               >
-                LINKEDIN
-              </a>
-              <a
-                href="https://github.com/vithop"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  padding: "0.6rem 1.25rem",
-                  background: "rgba(225, 221, 213, 0.06)",
-                  border: "1px solid var(--border-prominent)",
-                  color: "var(--stone-aggregate)",
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--cedar-wood)";
-                  e.currentTarget.style.color = "#fff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background =
-                    "rgba(225, 221, 213, 0.06)";
-                  e.currentTarget.style.color = "var(--stone-aggregate)";
-                }}
-              >
-                GITHUB
+                VIEW WORK EXPERIENCE ↓
               </a>
             </div>
           </div>
 
-          {/* Structural Telemetry & Metrics Block (Reflecting Glass) */}
+          {/* Rounded Profile Vitrine with Cedar Accent & Emissive Light Effect */}
           <div
-            class="reflecting-glass terrace-card"
+            class="erickson-lantern"
             style={{
               padding: "2.5rem",
               display: "flex",
               "flex-direction": "column",
-              "justify-content": "space-between",
+              gap: "2rem",
+              "border-radius": "32px",
+              background: "var(--concrete-pylon)",
             }}
           >
-            <div>
-              <div
+            <div
+              style={{
+                display: "flex",
+                "justify-content": "space-between",
+                "align-items": "center",
+              }}
+            >
+              <span
                 style={{
-                  display: "flex",
-                  "justify-content": "space-between",
-                  "align-items": "center",
-                  "margin-bottom": "1.5rem",
+                  "font-family": "var(--font-telemetry)",
+                  "font-size": "0.75rem",
+                  color: "var(--cedar-wood)",
+                  "font-weight": "700",
+                  "letter-spacing": "0.1em",
                 }}
               >
-                <span
+                PROFILE VITRINE // TELEMETRY
+              </span>
+              <div
+                style={{
+                  width: "40px",
+                  height: "18px",
+                  background: "var(--cedar-wood)",
+                  "border-radius": "9999px",
+                  border: "1px solid var(--grid-border)",
+                }}
+              ></div>
+            </div>
+
+            <div
+              style={{
+                display: "grid",
+                "grid-template-columns": "1fr 1fr",
+                gap: "1.5rem",
+              }}
+            >
+              <div
+                style={{
+                  "border-left": "3px solid var(--grid-border)",
+                  "padding-left": "1rem",
+                }}
+              >
+                <div
+                  style={{
+                    "font-family": "var(--font-monumental)",
+                    "font-size": "2.2rem",
+                    "font-weight": "800",
+                    color: "var(--ink-primary)",
+                  }}
+                >
+                  $300M
+                </div>
+                <div
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.75rem",
-                    color: "var(--pool-cyan)",
-                    "letter-spacing": "0.1em",
+                    color: "var(--ink-muted)",
+                    "margin-top": "0.25rem",
                   }}
                 >
-                  TELEMETRY READOUT // KEY IMPACT
-                </span>
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    "border-radius": "50%",
-                    "background-color": "var(--pool-cyan)",
-                    "box-shadow": "0 0 8px var(--pool-cyan)",
-                  }}
-                ></span>
+                  Incremental Revenue Driven
+                </div>
               </div>
 
               <div
                 style={{
-                  display: "grid",
-                  "grid-template-columns": "1fr 1fr",
-                  gap: "1.5rem",
-                  "margin-top": "1rem",
+                  "border-left": "3px solid var(--grid-border)",
+                  "padding-left": "1rem",
                 }}
               >
                 <div
                   style={{
-                    "border-left": "2px solid var(--pool-cyan)",
-                    "padding-left": "1rem",
+                    "font-family": "var(--font-monumental)",
+                    "font-size": "2.2rem",
+                    "font-weight": "800",
+                    color: "var(--ink-primary)",
                   }}
                 >
-                  <div
-                    style={{
-                      "font-family": "var(--font-monumental)",
-                      "font-size": "2rem",
-                      "font-weight": "700",
-                      color: "var(--stone-aggregate)",
-                    }}
-                  >
-                    $300M
-                  </div>
-                  <div
-                    style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.75rem",
-                      color: "var(--stone-muted)",
-                      "margin-top": "0.25rem",
-                    }}
-                  >
-                    Incremental Revenue Driven
-                  </div>
+                  ~40%
                 </div>
-
                 <div
                   style={{
-                    "border-left": "2px solid var(--pool-cyan)",
-                    "padding-left": "1rem",
+                    "font-family": "var(--font-telemetry)",
+                    "font-size": "0.75rem",
+                    color: "var(--ink-muted)",
+                    "margin-top": "0.25rem",
                   }}
                 >
-                  <div
-                    style={{
-                      "font-family": "var(--font-monumental)",
-                      "font-size": "2rem",
-                      "font-weight": "700",
-                      color: "var(--stone-aggregate)",
-                    }}
-                  >
-                    ~40%
-                  </div>
-                  <div
-                    style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.75rem",
-                      color: "var(--stone-muted)",
-                      "margin-top": "0.25rem",
-                    }}
-                  >
-                    SSR Runtime Reduction
-                  </div>
+                  SSR Lambda Latency Cut
                 </div>
+              </div>
 
+              <div
+                style={{
+                  "border-left": "3px solid var(--cedar-wood)",
+                  "padding-left": "1rem",
+                }}
+              >
                 <div
                   style={{
-                    "border-left": "2px solid var(--cedar-wood)",
-                    "padding-left": "1rem",
+                    "font-family": "var(--font-monumental)",
+                    "font-size": "2.2rem",
+                    "font-weight": "800",
+                    color: "var(--ink-primary)",
                   }}
                 >
-                  <div
-                    style={{
-                      "font-family": "var(--font-monumental)",
-                      "font-size": "2rem",
-                      "font-weight": "700",
-                      color: "var(--stone-aggregate)",
-                    }}
-                  >
-                    150+
-                  </div>
-                  <div
-                    style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.75rem",
-                      color: "var(--stone-muted)",
-                      "margin-top": "0.25rem",
-                    }}
-                  >
-                    Engineers on Daily Dev Loop
-                  </div>
+                  150+
                 </div>
-
                 <div
                   style={{
-                    "border-left": "2px solid var(--cedar-wood)",
-                    "padding-left": "1rem",
+                    "font-family": "var(--font-telemetry)",
+                    "font-size": "0.75rem",
+                    color: "var(--ink-muted)",
+                    "margin-top": "0.25rem",
                   }}
                 >
-                  <div
-                    style={{
-                      "font-family": "var(--font-monumental)",
-                      "font-size": "2rem",
-                      "font-weight": "700",
-                      color: "var(--stone-aggregate)",
-                    }}
-                  >
-                    1 Mo→1 Wk
-                  </div>
-                  <div
-                    style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.75rem",
-                      color: "var(--stone-muted)",
-                      "margin-top": "0.25rem",
-                    }}
-                  >
-                    Payment Onboarding Velocity
-                  </div>
+                  Engineers Daily Loop
+                </div>
+              </div>
+
+              <div
+                style={{
+                  "border-left": "3px solid var(--cedar-wood)",
+                  "padding-left": "1rem",
+                }}
+              >
+                <div
+                  style={{
+                    "font-family": "var(--font-monumental)",
+                    "font-size": "2.2rem",
+                    "font-weight": "800",
+                    color: "var(--ink-primary)",
+                  }}
+                >
+                  1 Mo→1 Wk
+                </div>
+                <div
+                  style={{
+                    "font-family": "var(--font-telemetry)",
+                    "font-size": "0.75rem",
+                    color: "var(--ink-muted)",
+                    "margin-top": "0.25rem",
+                  }}
+                >
+                  Payment Onboarding Cycle
                 </div>
               </div>
             </div>
 
             <div
               style={{
-                "margin-top": "2rem",
-                "padding-top": "1rem",
-                "border-top": "1px solid rgba(78, 194, 184, 0.2)",
+                "border-top": "2px solid var(--grid-border)",
+                "padding-top": "1.25rem",
                 "font-family": "var(--font-telemetry)",
-                "font-size": "0.75rem",
-                color: "var(--stone-dim)",
+                "font-size": "0.8rem",
+                color: "var(--ink-secondary)",
                 display: "flex",
                 "justify-content": "space-between",
               }}
             >
-              <span>CURRENT STATUS: ACTIVE</span>
-              <span>AMAZON SDE II // PAYMENTS UX</span>
+              <span>DISCIPLINE: DISTRIBUTED SYSTEMS</span>
+              <span
+                style={{ color: "var(--cedar-wood)", "font-weight": "600" }}
+              >
+                AMAZON SDE II
+              </span>
             </div>
           </div>
         </div>

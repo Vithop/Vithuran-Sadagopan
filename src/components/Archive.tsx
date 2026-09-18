@@ -1,41 +1,53 @@
 import type { Component } from "solid-js";
 
-const archiveProjects = [
+const portfolioItems = [
   {
-    specId: "ARTIFACT // 01",
-    year: "2019",
+    code: "PORTFOLIO // 01",
     title: "IoT Garden Gnome",
     stack: "React, C, NodeMCU, AWS IoT, DynamoDB",
-    desc: "Autonomous environmental cultivation system capturing soil moisture, ambient humidity, and solar flux with real-time distributed telemetry and alerting APIs.",
+    category: "CONNECTED SYSTEMS",
+    description:
+      "Autonomous agricultural monitoring system with embedded microcontrollers transmitting environmental telemetry over MQTT to AWS DynamoDB with real-time alerting APIs.",
+    specs: [
+      "Hardware: ESP8266 NodeMCU, Soil & Light Sensors",
+      "Telemetry: MQTT via AWS IoT Core",
+      "Latency: Sub-second live data ingestion",
+    ],
     img: "/GardenGnomePrototype1.jpg",
-    details:
-      "Custom embedded firmware communicating over MQTT to AWS IoT Core with sub-second dashboard updates.",
   },
   {
-    specId: "ARTIFACT // 02",
-    year: "2018",
+    code: "PORTFOLIO // 02",
     title: "Wearable BioSensor System",
     stack: "C#, C, Myo Band, EMG Sensors",
-    desc: "Gesture-controlled volumetric 3D LED cube using surface electromyography muscle signals, real-time Fourier analysis, and spatial mapping.",
+    category: "PHYSICAL COMPUTING",
+    description:
+      "Gesture-controlled volumetric 3D LED cube powered by electromyography signals, signal processing algorithms, and spatial gesture vector mapping.",
+    specs: [
+      "Sensors: 8-channel medical-grade EMG",
+      "Algorithm: Fast Fourier transform gesture filtering",
+      "Output: 8x8x8 volumetric LED matrix",
+    ],
     img: "/Wearable-BioSensor.gif",
-    details:
-      "Low-latency gesture decoding pipeline mapping biological electrical impulses to physical light arrays.",
   },
   {
-    specId: "ARTIFACT // 03",
-    year: "2017",
+    code: "PORTFOLIO // 03",
     title: "Single Axis CNC Prototype",
-    stack: "Arduino, CAD Modeling, 3D Printing",
-    desc: "Robotic arm hardware prototype specifically engineered to assist clients with cerebral palsy, featuring tactile feedback and dampening controls.",
+    stack: "Arduino, CAD, Stepper Motors, 3D Print",
+    category: "ASSISTIVE ROBOTICS",
+    description:
+      "Precision assistive robotic arm prototype engineered for clients with cerebral palsy, incorporating high-torque dampening and tactile control limiters.",
+    specs: [
+      "Chassis: Custom CAD parametric 3D print",
+      "Actuation: NEMA-17 stepper with microstepping",
+      "Firmware: Embedded C with real-time stops",
+    ],
     img: "/Single-Axis-CNC-prototype.gif",
-    details:
-      "Parametric 3D-printed structural chassis with precision stepper actuation and safety limit stops.",
   },
 ];
 
 const Archive: Component = () => {
   return (
-    <section id="archive">
+    <section id="portfolio">
       <div
         class="grid-crosshair"
         style={{ top: "1.5rem", right: "1.5rem" }}
@@ -43,158 +55,196 @@ const Archive: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>04 // Museum Vitrines — Physical & Hardware Archive</span>
+          <span>PORTFOLIO // PILL-SHAPED MODULAR VITRINES</span>
         </div>
-        <div class="section-telemetry-tag">
-          HISTORICAL ARTIFACTS // UBC MOA INSPIRATION
-        </div>
+        <div class="section-telemetry-tag">HARDWARE & DISTRIBUTED SYSTEMS</div>
       </div>
 
-      <div style={{ display: "flex", "flex-direction": "column", gap: "4rem" }}>
-        {archiveProjects.map((project, idx) => (
+      <div
+        style={{
+          display: "grid",
+          "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: "2.5rem",
+        }}
+        class="interactive-cluster"
+      >
+        {portfolioItems.map((item) => (
           <div
-            class="board-formed-surface terrace-card"
+            class="erickson-lantern"
             style={{
-              padding: "2.5rem",
-              display: "grid",
-              "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "3rem",
-              "align-items": "center",
-              "border-left":
-                idx % 2 === 0
-                  ? "4px solid var(--pool-cyan)"
-                  : "4px solid var(--cedar-wood)",
+              padding: "2.25rem",
+              display: "flex",
+              "flex-direction": "column",
+              "justify-content": "space-between",
+              gap: "1.75rem",
+              "border-radius": "28px",
             }}
           >
-            {/* Project Details */}
-            <div style={{ order: idx % 2 === 0 ? 1 : 2 }}>
+            <div>
+              {/* Card Meta Bar */}
               <div
                 style={{
                   display: "flex",
-                  gap: "1rem",
+                  "justify-content": "space-between",
                   "align-items": "center",
-                  "font-family": "var(--font-telemetry)",
-                  "font-size": "0.75rem",
-                  "margin-bottom": "1rem",
+                  "margin-bottom": "1.25rem",
+                  "border-bottom": "2px solid var(--grid-hairline)",
+                  "padding-bottom": "0.75rem",
                 }}
               >
                 <span
                   style={{
-                    color: "var(--cedar-wood)",
-                    "letter-spacing": "0.1em",
+                    "font-family": "var(--font-telemetry)",
+                    "font-size": "0.75rem",
+                    color: "var(--cedar-dark)",
+                    "font-weight": "700",
                   }}
                 >
-                  {project.specId}
+                  {item.code}
                 </span>
-                <span style={{ color: "var(--stone-dim)" }}>|</span>
-                <span style={{ color: "var(--stone-muted)" }}>
-                  {project.year}
+                <span
+                  style={{
+                    "font-family": "var(--font-telemetry)",
+                    "font-size": "0.7rem",
+                    color: "var(--ink-secondary)",
+                    background: "var(--concrete-slab)",
+                    padding: "0.25rem 0.6rem",
+                    "border-radius": "9999px",
+                  }}
+                >
+                  {item.category}
                 </span>
               </div>
 
               <h3
                 style={{
-                  "font-size": "2rem",
-                  color: "var(--stone-aggregate)",
-                  "margin-bottom": "1rem",
+                  "font-size": "1.75rem",
+                  color: "var(--ink-primary)",
+                  "margin-bottom": "0.75rem",
                 }}
               >
-                {project.title}
+                {item.title}
               </h3>
 
               <div
                 style={{
                   "font-family": "var(--font-telemetry)",
                   "font-size": "0.8rem",
-                  color: "var(--pool-cyan)",
+                  color: "var(--cedar-wood)",
                   "margin-bottom": "1.25rem",
                 }}
               >
-                {project.stack}
+                {item.stack}
               </div>
 
               <p
                 style={{
-                  "font-size": "1.05rem",
-                  color: "var(--stone-aggregate)",
+                  "font-size": "0.95rem",
+                  color: "var(--ink-secondary)",
                   "line-height": "1.6",
                   "margin-bottom": "1.5rem",
                 }}
               >
-                {project.desc}
+                {item.description}
               </p>
 
+              {/* Vitrine Image Container */}
               <div
                 style={{
-                  padding: "1rem",
-                  background: "rgba(0,0,0,0.35)",
-                  border: "1px solid var(--border-subtle)",
-                  "font-family": "var(--font-telemetry)",
-                  "font-size": "0.75rem",
-                  color: "var(--stone-muted)",
+                  border: "2px solid var(--grid-border)",
+                  "border-radius": "16px",
+                  overflow: "hidden",
+                  "margin-bottom": "1.5rem",
+                  background: "#000",
+                  "box-shadow": "var(--shadow-hard-sm)",
                 }}
               >
-                <span
+                <img
+                  src={item.img}
+                  alt={item.title}
                   style={{
-                    color: "var(--stone-aggregate)",
-                    "font-weight": "600",
+                    width: "100%",
+                    height: "190px",
+                    "object-fit": "cover",
+                    display: "block",
+                    filter: "grayscale(50%)",
+                    transition: "filter 0.3s ease, transform 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = "grayscale(0%)";
+                    e.currentTarget.style.transform = "scale(1.03)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = "grayscale(50%)";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                />
+              </div>
+
+              {/* Technical Specifications List */}
+              <div
+                style={{
+                  background: "var(--bg-concrete)",
+                  padding: "1rem 1.25rem",
+                  "border-radius": "16px",
+                  border: "1px solid var(--grid-hairline)",
+                  "font-family": "var(--font-telemetry)",
+                  "font-size": "0.75rem",
+                }}
+              >
+                <div
+                  style={{
+                    color: "var(--ink-primary)",
+                    "font-weight": "700",
+                    "margin-bottom": "0.5rem",
                   }}
                 >
-                  NOTE:{" "}
-                </span>
-                {project.details}
+                  TECHNICAL SPECIFICATIONS:
+                </div>
+                <ul
+                  style={{
+                    "list-style": "none",
+                    display: "flex",
+                    "flex-direction": "column",
+                    gap: "0.35rem",
+                    color: "var(--ink-muted)",
+                  }}
+                >
+                  {item.specs.map((s) => (
+                    <li>• {s}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Vitrine Image Container */}
             <div
               style={{
-                order: idx % 2 === 0 ? 2 : 1,
-                background: "var(--bg-deep)",
-                border: "2px solid var(--border-prominent)",
-                padding: "0.75rem",
-                position: "relative",
-                "box-shadow": "0 12px 30px rgba(0,0,0,0.7)",
+                "border-top": "2px solid var(--grid-hairline)",
+                "padding-top": "1rem",
+                display: "flex",
+                "justify-content": "space-between",
+                "align-items": "center",
               }}
             >
-              <div
+              <span
                 style={{
-                  position: "absolute",
-                  top: "1rem",
-                  left: "1rem",
-                  background: "rgba(17,19,18,0.85)",
-                  padding: "0.25rem 0.6rem",
                   "font-family": "var(--font-telemetry)",
-                  "font-size": "0.65rem",
-                  color: "var(--stone-aggregate)",
-                  border: "1px solid var(--border-subtle)",
-                  "z-index": 2,
+                  "font-size": "0.75rem",
+                  color: "var(--ink-muted)",
                 }}
               >
-                EXHIBIT {idx + 1}
-              </div>
-
-              <img
-                src={project.img}
-                alt={project.title}
+                INTERACTABLE LANTERN
+              </span>
+              <span
                 style={{
-                  width: "100%",
-                  height: "260px",
-                  "object-fit": "cover",
-                  display: "block",
-                  filter: "grayscale(70%) contrast(110%)",
-                  transition: "filter 0.4s ease, transform 0.4s ease",
+                  "font-family": "var(--font-telemetry)",
+                  "font-size": "0.8rem",
+                  "font-weight": "700",
+                  color: "var(--cedar-wood)",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.filter = "grayscale(0%) contrast(100%)";
-                  e.currentTarget.style.transform = "scale(1.02)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.filter =
-                    "grayscale(70%) contrast(110%)";
-                  e.currentTarget.style.transform = "scale(1)";
-                }}
-              />
+              >
+                ACTIVE ↗
+              </span>
             </div>
           </div>
         ))}

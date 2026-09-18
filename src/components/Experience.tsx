@@ -2,64 +2,60 @@ import type { Component } from "solid-js";
 
 const experiences = [
   {
-    elevation: "EL +10.5M",
-    terraceNumber: "TERRACE 03",
+    tier: "TIER 03 // EL +10.5M",
     role: "Software Development Engineer II",
     company: "AMAZON",
     period: "OCT 2023 – PRESENT",
     location: "VANCOUVER, BC",
     description:
-      "Architected a plugin-based extensibility framework for Amazon's payments user interface platform, enabling cross-org federated contributions without core regression risks.",
-    highlights: [
-      "Cut SSR Lambda runtime ~40% via end-to-end Node 14 → Node 20 architecture migration.",
-      "Engineered the daily local dev loop and mock telemetry harnesses used by ~150 engineers.",
-      "Spearheaded reliability engineering achieving five-nines uptime across global payment funnels.",
+      "Architected an extensible plugin platform for Amazon's multi-region payment interfaces, decoupling merchant onboarding from core releases.",
+    achievements: [
+      "Reduced SSR Lambda execution runtime by ~40% through Node 14 → 20 architectural migration.",
+      "Engineered mock harnesses and daily development loops supporting ~150 frontend and backend engineers.",
+      "Maintained five-nines availability across high-concurrency peak retail shopping events.",
     ],
-    stack: [
+    tech: [
       "TypeScript",
       "Node.js 20",
       "AWS Lambda",
       "Distributed Systems",
-      "SSR Performance",
+      "SSR",
     ],
   },
   {
-    elevation: "EL +7.0M",
-    terraceNumber: "TERRACE 02",
+    tier: "TIER 02 // EL +7.0M",
     role: "Software Development Engineer I",
     company: "AMAZON",
     period: "MAY 2021 – OCT 2023",
     location: "VANCOUVER, BC",
     description:
-      "Generated over $300M in incremental annual revenue by modernizing payments UX and architecting declarative state machine workflows.",
-    highlights: [
-      "Built resilient finite state machine engine cutting payment method onboarding from ~1 month to ~1 week.",
-      "Redesigned critical checkout paths with high-concurrency event telemetry and zero-data-loss validation.",
-      "Mentored junior engineers and interns in distributed systems patterns and frontend architecture.",
+      "Modernized payment checkout UX and built robust finite state machine architectures, driving $300M in incremental annual revenue.",
+    achievements: [
+      "Built declarative state machine engine reducing payment method integration cycle from ~1 month to ~1 week.",
+      "Automated event telemetry and validation layers ensuring zero transaction loss during checkout failures.",
+      "Mentored junior engineers on frontend architecture patterns and AWS event-driven paradigms.",
     ],
-    stack: [
+    tech: [
       "React",
       "TypeScript",
       "State Machines",
       "AWS Step Functions",
       "GraphQL",
-      "Jest",
     ],
   },
   {
-    elevation: "EL +3.5M",
-    terraceNumber: "TERRACE 01",
+    tier: "TIER 01 // EL +3.5M",
     role: "Full Stack Developer (Co-op)",
     company: "ELLISDON",
     period: "MAY 2019 – AUG 2019",
     location: "TORONTO, ON",
     description:
-      "Built enterprise construction technology microservices and cross-discipline developer tooling for one of Canada's premier builders.",
-    highlights: [
-      "Shipped microservice from blank slate to production beta in 4 months, leading a 4-person engineering team.",
-      "Standardized enterprise project scaffolding with automated one-click templates (React, Java, Go).",
+      "Built construction technology microservices and multi-tenant developer scaffolding for one of Canada's premier civil infrastructure builders.",
+    achievements: [
+      "Delivered production beta microservice from inception in 4 months leading a 4-engineer pod.",
+      "Standardized enterprise project scaffolding with automated one-click starters (React, Java, Go).",
     ],
-    stack: ["React", "Java", "Go", "Docker", "CI/CD Microservices"],
+    tech: ["React", "Java", "Go", "Docker", "CI/CD Microservices"],
   },
 ];
 
@@ -73,7 +69,7 @@ const Experience: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>01 // Stepped Terraces — Experience</span>
+          <span>WORK EXPERIENCE // STEPPED CYLINDRICAL TERRACES</span>
         </div>
         <div class="section-telemetry-tag">
           STRUCTURAL RECORD // 2019 — 2026
@@ -81,27 +77,34 @@ const Experience: Component = () => {
       </div>
 
       <div
-        style={{ display: "flex", "flex-direction": "column", gap: "2.5rem" }}
+        style={{
+          display: "flex",
+          "flex-direction": "column",
+          gap: "2.75rem",
+          "max-width": "1100px",
+          margin: "0 auto",
+        }}
+        class="interactive-cluster"
       >
         {experiences.map((exp, index) => (
           <div
-            class="board-formed-surface terrace-card"
+            class="erickson-lantern"
             style={{
-              padding: "2.5rem",
-              "margin-left": `${index * 1.5}rem`,
-              "border-left": "4px solid var(--cedar-wood)",
-              position: "relative",
+              padding: "2.75rem",
+              "margin-left": `${index * 2.5}rem`,
+              "border-radius": "32px",
+              "border-left": "8px solid var(--cedar-wood)",
             }}
           >
-            {/* Top Structural Plinth / Metadata */}
+            {/* Top Meta Beam */}
             <div
               style={{
                 display: "flex",
                 "justify-content": "space-between",
-                "align-items": "baseline",
+                "align-items": "center",
                 "flex-wrap": "wrap",
                 gap: "1rem",
-                "border-bottom": "1px solid var(--border-subtle)",
+                "border-bottom": "2px solid var(--grid-hairline)",
                 "padding-bottom": "1.25rem",
                 "margin-bottom": "1.75rem",
               }}
@@ -109,7 +112,7 @@ const Experience: Component = () => {
               <div
                 style={{
                   display: "flex",
-                  "align-items": "baseline",
+                  "align-items": "center",
                   gap: "1rem",
                 }}
               >
@@ -117,50 +120,53 @@ const Experience: Component = () => {
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.75rem",
-                    color: "var(--pool-cyan)",
-                    background: "rgba(55, 139, 132, 0.15)",
-                    padding: "0.25rem 0.6rem",
-                    border: "1px solid rgba(78, 194, 184, 0.3)",
+                    "font-weight": "700",
+                    color: "var(--ink-primary)",
+                    background: "var(--concrete-slab)",
+                    padding: "0.35rem 0.85rem",
+                    "border-radius": "9999px",
+                    border: "1px solid var(--grid-border)",
                   }}
                 >
-                  {exp.elevation}
+                  {exp.tier}
                 </span>
                 <span
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.8rem",
-                    color: "var(--stone-muted)",
+                    color: "var(--ink-secondary)",
                   }}
                 >
-                  {exp.terraceNumber}
+                  {exp.location}
                 </span>
               </div>
 
               <div
                 style={{
                   "font-family": "var(--font-telemetry)",
-                  "font-size": "0.8rem",
-                  color: "var(--cedar-wood)",
-                  "letter-spacing": "0.08em",
+                  "font-size": "0.85rem",
+                  "font-weight": "700",
+                  color: "var(--cedar-dark)",
+                  "letter-spacing": "0.05em",
                 }}
               >
                 {exp.company} // {exp.period}
               </div>
             </div>
 
-            {/* Main Role & Description */}
+            {/* Content & Architectural Details */}
             <div
               style={{
                 display: "grid",
-                "grid-template-columns": "repeat(auto-fit, minmax(280px, 1fr))",
+                "grid-template-columns": "repeat(auto-fit, minmax(300px, 1fr))",
                 gap: "2.5rem",
               }}
             >
               <div>
                 <h3
                   style={{
-                    "font-size": "1.85rem",
-                    color: "var(--stone-aggregate)",
+                    "font-size": "2rem",
+                    color: "var(--ink-primary)",
                     "margin-bottom": "1rem",
                   }}
                 >
@@ -168,16 +174,15 @@ const Experience: Component = () => {
                 </h3>
                 <p
                   style={{
-                    "font-size": "1.05rem",
-                    color: "var(--stone-aggregate)",
+                    "font-size": "1.1rem",
+                    color: "var(--ink-secondary)",
                     "line-height": "1.6",
-                    "margin-bottom": "1.5rem",
+                    "margin-bottom": "1.75rem",
                   }}
                 >
                   {exp.description}
                 </p>
 
-                {/* Stack Badges */}
                 <div
                   style={{
                     display: "flex",
@@ -185,69 +190,72 @@ const Experience: Component = () => {
                     gap: "0.5rem",
                   }}
                 >
-                  {exp.stack.map((tech) => (
+                  {exp.tech.map((t) => (
                     <span
                       style={{
                         "font-family": "var(--font-telemetry)",
                         "font-size": "0.75rem",
-                        padding: "0.3rem 0.7rem",
-                        background: "rgba(0,0,0,0.35)",
-                        border: "1px solid var(--border-structural)",
-                        color: "var(--stone-muted)",
+                        padding: "0.35rem 0.85rem",
+                        background: "var(--concrete-slab)",
+                        border: "1px solid var(--grid-border)",
+                        "border-radius": "9999px",
+                        color: "var(--ink-primary)",
                       }}
                     >
-                      {tech}
+                      {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Engineering Highlights */}
+              {/* Achievements Column */}
               <div
                 style={{
-                  background: "rgba(0,0,0,0.25)",
-                  padding: "1.5rem",
-                  border: "1px solid var(--border-subtle)",
+                  background: "var(--bg-concrete)",
+                  padding: "1.75rem",
+                  "border-radius": "20px",
+                  border: "1px solid var(--grid-hairline)",
                 }}
               >
                 <div
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.75rem",
-                    color: "var(--stone-dim)",
-                    "margin-bottom": "1rem",
+                    color: "var(--cedar-dark)",
+                    "font-weight": "700",
+                    "margin-bottom": "1.25rem",
                     "letter-spacing": "0.1em",
                   }}
                 >
-                  KEY ARCHITECTURAL HIGHLIGHTS
+                  ARCHITECTURAL MILESTONES
                 </div>
                 <ul
                   style={{
                     "list-style": "none",
                     display: "flex",
                     "flex-direction": "column",
-                    gap: "0.85rem",
+                    gap: "1rem",
                   }}
                 >
-                  {exp.highlights.map((point) => (
+                  {exp.achievements.map((item) => (
                     <li
                       style={{
                         display: "flex",
                         gap: "0.85rem",
                         "font-size": "0.95rem",
-                        color: "var(--stone-muted)",
+                        color: "var(--ink-secondary)",
                         "line-height": "1.5",
                       }}
                     >
                       <span
                         style={{
-                          color: "var(--pool-cyan)",
-                          "font-weight": "700",
+                          color: "var(--cedar-wood)",
+                          "font-weight": "800",
                         }}
                       >
                         ▸
                       </span>
-                      <span>{point}</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

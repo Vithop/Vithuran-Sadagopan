@@ -1,32 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap");
 
 :root {
-  /* Arthur Erickson West Coast Brutalist Palette */
-  --bg-basalt: #111312;
-  --bg-deep: #0c0d0c;
-  --concrete-base: #1b1d1c;
-  --concrete-board: #252826;
-  --concrete-light: #323633;
-  --stone-aggregate: #e1ddd5;
-  --stone-muted: #959892;
-  --stone-dim: #626661;
+  /* Arthur Erickson Light-Concrete Brutalist Palette */
+  --bg-concrete: #eae5dc;
+  --bg-canvas: #f0ede6;
+  --concrete-pylon: #f6f3ec;
+  --concrete-pylon-hover: #fffdf8;
+  --concrete-slab: #e2ded5;
 
-  /* Natural Accents: Pacific Cedar & Reflecting Pool */
-  --cedar-wood: #bf733e;
-  --cedar-light: #d88950;
-  --cedar-muted: #824b25;
-  --pool-water: #378b84;
-  --pool-cyan: #4ec2b8;
-  --pool-depth: rgba(35, 78, 74, 0.4);
+  /* High-Contrast Architectural Inks */
+  --ink-primary: #1c1e1d;
+  --ink-secondary: #565954;
+  --ink-muted: #7c7f79;
+  --ink-dim: #a5a8a1;
 
-  /* Architectural Joints & Shadow Reveals */
-  --reveal-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.85);
-  --border-structural: rgba(225, 221, 213, 0.14);
-  --border-prominent: rgba(225, 221, 213, 0.28);
-  --border-subtle: rgba(255, 255, 255, 0.06);
+  /* Natural Pacific Northwest Materials */
+  --cedar-wood: #c47335;
+  --cedar-light: #e5904d;
+  --cedar-dark: #8b4a1b;
+  --reflecting-pool: #2a756e;
+  --pool-tint: rgba(42, 117, 110, 0.12);
 
-  /* Typography */
+  /* Architectural Grid & Sharp Shadow Depth */
+  --grid-border: #1c1e1d;
+  --grid-hairline: rgba(28, 30, 29, 0.18);
+  --shadow-hard-sm: 6px 6px 0px var(--grid-border);
+  --shadow-hard-md: 12px 12px 0px var(--grid-border);
+  --shadow-hard-lg: 16px 16px 0px var(--grid-border);
+  --shadow-stepped: 18px 18px 0px var(--grid-border);
+
+  /* Emissive Warm Tungsten Light Source */
+  --lantern-rim: rgba(217, 130, 54, 0.55);
+  --lantern-glow: 0 0 0 2px var(--cedar-wood), 16px 16px 0px var(--grid-border);
+
+  /* Typography Tokens */
   --font-monumental: "Syne", sans-serif;
   --font-structural:
     "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -44,19 +51,19 @@ html {
 }
 
 body {
-  background-color: var(--bg-basalt);
-  color: var(--stone-aggregate);
+  background-color: var(--bg-concrete);
+  color: var(--ink-primary);
   font-family: var(--font-structural);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
-  /* Architectural drafting grid background */
+  /* Concrete grain & architectural drafting grid */
   background-image:
-    linear-gradient(to right, rgba(225, 221, 213, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(225, 221, 213, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(to right, rgba(28, 30, 29, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 30, 29, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 ::selection {
@@ -73,17 +80,17 @@ a {
 .app-container {
   max-width: 1440px;
   margin: 0 auto;
-  border-left: 2px solid var(--border-structural);
-  border-right: 2px solid var(--border-structural);
+  border-left: 2px solid var(--grid-border);
+  border-right: 2px solid var(--grid-border);
   min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: rgba(17, 19, 18, 0.94);
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+  background-color: var(--bg-concrete);
+  box-shadow: 0 20px 80px rgba(28, 30, 29, 0.12);
 }
 
-/* Structural Post & Beam Grid Lines */
+/* Architectural Post & Beam Datum Line */
 .app-container::before {
   content: "";
   position: absolute;
@@ -93,75 +100,26 @@ a {
   width: 1px;
   background: repeating-linear-gradient(
     to bottom,
-    var(--border-subtle) 0,
-    var(--border-subtle) 12px,
-    transparent 12px,
-    transparent 24px
+    var(--grid-border) 0,
+    var(--grid-border) 8px,
+    transparent 8px,
+    transparent 16px
   );
+  opacity: 0.25;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Board-Formed Concrete Texture Surface */
-.board-formed-surface {
-  background-color: var(--concrete-base);
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px,
-      transparent 32px
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(0, 0, 0, 0.25) 100%
-    );
-  border: 1px solid var(--border-structural);
-  box-shadow: var(--reveal-shadow);
-  position: relative;
-}
-
-/* Cedar Timber Louver Accent */
-.cedar-louver {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--cedar-wood) 0px,
-    var(--cedar-wood) 4px,
-    rgba(0, 0, 0, 0.6) 4px,
-    rgba(0, 0, 0, 0.6) 8px
-  );
-  height: 8px;
-  width: 100%;
-  display: block;
-}
-
-/* Reflecting Pool Glass Surface */
-.reflecting-glass {
-  background: linear-gradient(
-    135deg,
-    rgba(55, 139, 132, 0.08) 0%,
-    rgba(20, 35, 33, 0.45) 100%
-  );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(78, 194, 184, 0.22);
-  box-shadow:
-    0 12px 36px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(78, 194, 184, 0.3);
-}
-
 /* Section Monolith */
 section {
-  border-bottom: 2px solid var(--border-structural);
-  padding: 5rem 3rem;
+  border-bottom: 2px solid var(--grid-border);
+  padding: 4.5rem 3rem;
   position: relative;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 3.5rem 1.5rem;
+    padding: 3rem 1.25rem;
   }
 }
 
@@ -170,7 +128,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-structural);
+  border-bottom: 2px solid var(--grid-border);
   padding-bottom: 1.25rem;
   margin-bottom: 3.5rem;
   font-family: var(--font-telemetry);
@@ -183,8 +141,8 @@ section {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  color: var(--stone-aggregate);
-  font-weight: 600;
+  color: var(--ink-primary);
+  font-weight: 700;
 }
 
 .section-header-title::before {
@@ -193,13 +151,13 @@ section {
   width: 14px;
   height: 14px;
   background-color: var(--cedar-wood);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--grid-border);
 }
 
 .section-telemetry-tag {
-  color: var(--stone-dim);
+  color: var(--ink-muted);
   font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
 }
 
 /* Typography Scale */
@@ -210,14 +168,15 @@ h4 {
   font-family: var(--font-monumental);
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.02;
+  color: var(--ink-primary);
 }
 
 /* Architectural Registration Crosshairs */
 .grid-crosshair {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   pointer-events: none;
   z-index: 5;
 }
@@ -226,33 +185,92 @@ h4 {
   position: absolute;
   top: 7px;
   left: 0;
-  width: 15px;
-  height: 1px;
-  background: var(--stone-muted);
-  opacity: 0.4;
+  width: 16px;
+  height: 2px;
+  background: var(--grid-border);
+  opacity: 0.5;
 }
 .grid-crosshair::after {
   content: "";
   position: absolute;
   top: 0;
   left: 7px;
-  width: 1px;
-  height: 15px;
-  background: var(--stone-muted);
-  opacity: 0.4;
+  width: 2px;
+  height: 16px;
+  background: var(--grid-border);
+  opacity: 0.5;
 }
 
-/* Stepped Cantilever Hover Transition */
-.terrace-card {
-  transition:
-    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.25s ease;
+/* Cedar Timber Louver Accent */
+.cedar-louver {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--cedar-wood) 0px,
+    var(--cedar-wood) 5px,
+    var(--grid-border) 5px,
+    var(--grid-border) 8px
+  );
+  height: 10px;
+  width: 100%;
+  display: block;
+  border-radius: 9999px;
+  border: 1px solid var(--grid-border);
 }
-.terrace-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-prominent);
-  box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+/* Emissive Architectural Lantern (Light Source) */
+.erickson-lantern {
+  background-color: var(--concrete-pylon);
+  border: 2px solid var(--grid-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-hard-sm);
+  transition:
+    background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.erickson-lantern:hover,
+.erickson-lantern:focus-within {
+  background-color: var(--concrete-pylon-hover);
+  border-color: var(--cedar-wood);
+  box-shadow: var(--lantern-glow);
+  transform: translate(-4px, -4px);
+  z-index: 10;
+}
+
+/* Sibling Occlusion: When hovering inside a cluster, unhovered siblings dim slightly */
+.interactive-cluster:hover .erickson-lantern:not(:hover) {
+  opacity: 0.88;
+  filter: brightness(0.97);
+  box-shadow: 2px 2px 0px var(--grid-border);
+  transform: translate(0, 0);
+}
+
+/* Rounded Pill Button */
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: 2px solid var(--grid-border);
+  background-color: var(--concrete-pylon);
+  font-family: var(--font-telemetry);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-primary);
+  box-shadow: var(--shadow-hard-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.pill-button:hover {
+  background-color: var(--concrete-pylon-hover);
+  border-color: var(--cedar-wood);
+  box-shadow: var(--shadow-hard-md);
+  transform: translate(-3px, -3px);
+  color: var(--cedar-dark);
 }
