@@ -75,7 +75,7 @@ const Experience: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>WORK EXPERIENCE // STEPPED CYLINDRICAL TERRACES</span>
+          <span>WORK EXPERIENCE</span>
         </div>
         <div class="section-telemetry-tag">
           STRUCTURAL RECORD // 2019 — 2026

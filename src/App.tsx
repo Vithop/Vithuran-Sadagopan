@@ -79,7 +79,7 @@ const App: Component = () => {
                 "font-weight": "600",
               }}
             >
-              ARTHUR ERICKSON LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE
+              LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE
               TYPEFACE
             </div>
           </div>

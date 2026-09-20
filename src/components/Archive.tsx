@@ -55,7 +55,7 @@ const Archive: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>PORTFOLIO // PILL-SHAPED MODULAR VITRINES</span>
+          <span>PORTFOLIO</span>
         </div>
         <div class="section-telemetry-tag">HARDWARE & DISTRIBUTED SYSTEMS</div>
       </div>

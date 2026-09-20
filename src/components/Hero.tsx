@@ -140,10 +140,10 @@ const Hero: Component = () => {
 
         <div class="section-header-beam">
           <div class="section-header-title">
-            <span>ABOUT // ARTHUR ERICKSON BRUTALISM</span>
+            <span>ABOUT</span>
           </div>
           <div class="section-telemetry-tag">
-            SECTOR 01 // LIGHT CONCRETE EDITION
+            SECTOR 01
           </div>
         </div>
 

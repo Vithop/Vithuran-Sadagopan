@@ -22,7 +22,7 @@ const Contact: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>CONTACT // COMMUNICATIONS BAY</span>
+          <span>CONTACT</span>
         </div>
         <div class="section-telemetry-tag">DIRECT CHANNEL // VANCOUVER, BC</div>
       </div>

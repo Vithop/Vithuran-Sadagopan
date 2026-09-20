@@ -9,7 +9,7 @@
 }
 
 :root {
-  /* Arthur Erickson Light-Concrete Brutalist Palette */
+  /* Light-Concrete Brutalist Palette */
   --bg-concrete: #eae5dc;
   --bg-canvas: #f0ede6;
   --concrete-pylon: #f6f3ec;
@@ -103,15 +103,14 @@ a {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 38.2%; /* Golden ratio structural datum line */
+  left: 38.2%;
+  /* Golden ratio structural datum line */
   width: 1px;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--grid-border) 0,
-    var(--grid-border) 8px,
-    transparent 8px,
-    transparent 16px
-  );
+  background: repeating-linear-gradient(to bottom,
+      var(--grid-border) 0,
+      var(--grid-border) 8px,
+      transparent 8px,
+      transparent 16px);
   opacity: 0.25;
   pointer-events: none;
   z-index: 1;
@@ -187,6 +186,7 @@ h4 {
   pointer-events: none;
   z-index: 5;
 }
+
 .grid-crosshair::before {
   content: "";
   position: absolute;
@@ -197,6 +197,7 @@ h4 {
   background: var(--grid-border);
   opacity: 0.5;
 }
+
 .grid-crosshair::after {
   content: "";
   position: absolute;
