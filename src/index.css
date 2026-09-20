@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Maqive";
-  src: url("/fonts/Maqive-q2gn2.ttf") format("truetype");
+  src: url("./assets/fonts/Maqive-q2gn2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -106,11 +106,13 @@ a {
   left: 38.2%;
   /* Golden ratio structural datum line */
   width: 1px;
-  background: repeating-linear-gradient(to bottom,
-      var(--grid-border) 0,
-      var(--grid-border) 8px,
-      transparent 8px,
-      transparent 16px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--grid-border) 0,
+    var(--grid-border) 8px,
+    transparent 8px,
+    transparent 16px
+  );
   opacity: 0.25;
   pointer-events: none;
   z-index: 1;

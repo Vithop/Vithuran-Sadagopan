@@ -13,7 +13,7 @@ const portfolioItems = [
       "Telemetry: MQTT via AWS IoT Core",
       "Latency: Sub-second live data ingestion",
     ],
-    img: "/GardenGnomePrototype1.jpg",
+    img: `${import.meta.env.BASE_URL}GardenGnomePrototype1.jpg`,
   },
   {
     code: "PORTFOLIO // 02",
@@ -27,7 +27,7 @@ const portfolioItems = [
       "Algorithm: Fast Fourier transform gesture filtering",
       "Output: 8x8x8 volumetric LED matrix",
     ],
-    img: "/Wearable-BioSensor.gif",
+    img: `${import.meta.env.BASE_URL}Wearable-BioSensor.gif`,
   },
   {
     code: "PORTFOLIO // 03",
@@ -41,7 +41,7 @@ const portfolioItems = [
       "Actuation: NEMA-17 stepper with microstepping",
       "Firmware: Embedded C with real-time stops",
     ],
-    img: "/Single-Axis-CNC-prototype.gif",
+    img: `${import.meta.env.BASE_URL}Single-Axis-CNC-prototype.gif`,
   },
 ];
 

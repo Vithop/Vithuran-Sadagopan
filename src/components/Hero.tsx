@@ -142,9 +142,7 @@ const Hero: Component = () => {
           <div class="section-header-title">
             <span>ABOUT</span>
           </div>
-          <div class="section-telemetry-tag">
-            SECTOR 01
-          </div>
+          <div class="section-telemetry-tag">SECTOR 01</div>
         </div>
 
         <div

@@ -79,8 +79,7 @@ const App: Component = () => {
                 "font-weight": "600",
               }}
             >
-              LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE
-              TYPEFACE
+              LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE TYPEFACE
             </div>
           </div>
         </div>
