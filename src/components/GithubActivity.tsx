@@ -14,10 +14,7 @@ const GithubActivity: Component = () => {
 
   return (
     <section id="github">
-      <div
-        class="grid-crosshair"
-        style={{ top: "1.5rem", left: "1.5rem" }}
-      ></div>
+      <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
 
       <div class="section-header-beam">
         <div class="section-header-title">

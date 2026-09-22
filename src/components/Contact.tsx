@@ -11,14 +11,8 @@ const Contact: Component = () => {
 
   return (
     <section id="contact">
-      <div
-        class="grid-crosshair"
-        style={{ top: "1.5rem", left: "1.5rem" }}
-      ></div>
-      <div
-        class="grid-crosshair"
-        style={{ top: "1.5rem", right: "1.5rem" }}
-      ></div>
+      <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
+      <div class="grid-crosshair" style={{ top: "1.5rem", right: "1.5rem" }} />
 
       <div class="section-header-beam">
         <div class="section-header-title">
@@ -154,7 +148,7 @@ const Contact: Component = () => {
                 "border-radius": "50%",
                 background: "var(--grid-border)",
               }}
-            ></span>
+            />
           </div>
 
           <div>

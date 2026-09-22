@@ -1,6 +1,10 @@
 import { createSignal, onCleanup, onMount, type Component } from "solid-js";
 
-const Hero: Component = () => {
+interface HeroProps {
+  onOpenArchive?: () => void;
+}
+
+const Hero: Component<HeroProps> = (props) => {
   const [time, setTime] = createSignal("");
 
   onMount(() => {
@@ -52,7 +56,7 @@ const Hero: Component = () => {
                 "background-color": "var(--grid-border)",
                 "border-radius": "50%",
               }}
-            ></span>
+            />
             <span style={{ "font-weight": "700", color: "var(--ink-primary)" }}>
               VITHURAN SADAGOPAN
             </span>
@@ -64,7 +68,12 @@ const Hero: Component = () => {
         </div>
 
         <nav
-          style={{ display: "flex", gap: "1.5rem", "align-items": "center" }}
+          style={{
+            display: "flex",
+            gap: "1.5rem",
+            "align-items": "center",
+            "flex-wrap": "wrap",
+          }}
         >
           <a
             href="#about"
@@ -89,6 +98,18 @@ const Hero: Component = () => {
             02 // EXPERIENCE
           </a>
           <a
+            href="#skills"
+            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.color = "var(--ink-primary)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "var(--ink-secondary)")
+            }
+          >
+            03 // SKILLS
+          </a>
+          <a
             href="#portfolio"
             style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
             onMouseEnter={(e) =>
@@ -98,8 +119,30 @@ const Hero: Component = () => {
               (e.currentTarget.style.color = "var(--ink-secondary)")
             }
           >
-            03 // PORTFOLIO
+            04 // PORTFOLIO
           </a>
+          <button
+            onClick={() => props.onOpenArchive?.()}
+            style={{
+              background: "none",
+              border: "none",
+              padding: "0",
+              color: "var(--ink-secondary)",
+              "font-family": "var(--font-telemetry)",
+              "font-size": "0.85rem",
+              "letter-spacing": "0.08em",
+              cursor: "pointer",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.color = "var(--ink-primary)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "var(--ink-secondary)")
+            }
+          >
+            ARCHIVE ↗
+          </button>
           <a
             href="#contact"
             style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
@@ -110,7 +153,7 @@ const Hero: Component = () => {
               (e.currentTarget.style.color = "var(--ink-secondary)")
             }
           >
-            04 // CONTACT
+            05 // CONTACT
           </a>
         </nav>
 
@@ -129,14 +172,11 @@ const Hero: Component = () => {
 
       {/* Main About Me Section */}
       <section style={{ padding: "5rem 3rem" }}>
-        <div
-          class="grid-crosshair"
-          style={{ top: "1.5rem", left: "1.5rem" }}
-        ></div>
+        <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
         <div
           class="grid-crosshair"
           style={{ top: "1.5rem", right: "1.5rem" }}
-        ></div>
+        />
 
         <div class="section-header-beam">
           <div class="section-header-title">
@@ -195,6 +235,27 @@ const Hero: Component = () => {
               >
                 VIEW WORK EXPERIENCE ↓
               </a>
+              <a
+                href="https://linkedin.com/in/vithuran-sada"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pill-button"
+                style={{
+                  background: "var(--grid-border)",
+                  color: "#ffffff",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background =
+                    "var(--concrete-pylon-hover)";
+                  e.currentTarget.style.color = "var(--ink-primary)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "var(--grid-border)";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
+              >
+                VIEW RESUME / CV ↓
+              </a>
             </div>
           </div>
 
@@ -235,7 +296,7 @@ const Hero: Component = () => {
                   background: "var(--grid-border)",
                   "border-radius": "9999px",
                 }}
-              ></div>
+              />
             </div>
 
             <div
@@ -269,7 +330,7 @@ const Hero: Component = () => {
                     "margin-top": "0.25rem",
                   }}
                 >
-                  Incremental Revenue Driven
+                  Incremental Revenue Driven // Payment Services
                 </div>
               </div>
 
@@ -325,7 +386,7 @@ const Hero: Component = () => {
                     "margin-top": "0.25rem",
                   }}
                 >
-                  Engineers Daily Loop
+                  Engineers Dev Loop Tooling
                 </div>
               </div>
 
