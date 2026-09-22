@@ -1,23 +1,66 @@
-import type { Component } from "solid-js";
+import {
+  createSignal,
+  onCleanup,
+  onMount,
+  Show,
+  type Component,
+} from "solid-js";
 import Hero from "./components/Hero";
 import Experience from "./components/Experience";
-import Archive from "./components/Archive";
+import Skills from "./components/Skills";
+import Portfolio from "./components/Portfolio";
+import ArchivePage from "./components/ArchivePage";
 import Contact from "./components/Contact";
 
 const App: Component = () => {
+  const [currentRoute, setCurrentRoute] = createSignal<"home" | "archive">(
+    "home"
+  );
+
+  const navigateTo = (hash: string) => {
+    window.location.hash = hash;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  onMount(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === "#/archive") {
+        setCurrentRoute("archive");
+      } else {
+        setCurrentRoute("home");
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    onCleanup(() => window.removeEventListener("hashchange", handleHashChange));
+  });
+
   return (
     <div class="app-container">
-      {/* 01 // ABOUT ME */}
-      <Hero />
+      <Show
+        when={currentRoute() === "archive"}
+        fallback={
+          <>
+            {/* 01 // ABOUT ME */}
+            <Hero onOpenArchive={() => navigateTo("#/archive")} />
 
-      {/* 02 // WORK EXPERIENCE */}
-      <Experience />
+            {/* 02 // WORK EXPERIENCE */}
+            <Experience />
 
-      {/* 03 // PORTFOLIO */}
-      <Archive />
+            {/* 03 // SKILLS & ARCHITECTURE */}
+            <Skills />
 
-      {/* 04 // CONTACT ME */}
-      <Contact />
+            {/* 04 // PORTFOLIO */}
+            <Portfolio onOpenArchive={() => navigateTo("#/archive")} />
+
+            {/* 05 // CONTACT ME */}
+            <Contact />
+          </>
+        }
+      >
+        <ArchivePage onBack={() => navigateTo("#/")} />
+      </Show>
 
       {/* Foundational Plinth Architectural Footer */}
       <footer
