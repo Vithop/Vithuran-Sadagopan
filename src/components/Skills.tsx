@@ -1,11 +1,11 @@
-import type { Component } from "solid-js";
+import { For, type Component } from "solid-js";
 
 const skillModules = [
   {
     moduleCode: "COFFER 01",
     title: "DISTRIBUTED SYSTEMS & CLOUD",
     description:
-      "Serverless architectures, high-concurrency event ingestion, and resilient storage tiers.",
+      "Serverless microservices, high-concurrency event ingestion backbones, and resilient distributed data tiers.",
     skills: [
       { name: "AWS Lambda", level: "Production Standard" },
       { name: "AWS CDK / CloudFormation", level: "Infrastructure as Code" },
@@ -19,21 +19,21 @@ const skillModules = [
     moduleCode: "COFFER 02",
     title: "CORE LANGUAGES & RUNTIMES",
     description:
-      "Type-safe systems programming and high-performance backend runtimes.",
+      "Type-safe systems programming, modern compiled runtimes, and high-throughput server backends.",
     skills: [
       { name: "TypeScript", level: "Advanced / Strict" },
       { name: "Node.js (v14-v20+)", level: "Runtime Optimization" },
       { name: "Java & Scala", level: "JVM Distributed Systems" },
-      { name: "Python", level: "Automation & Data" },
+      { name: "Rust & C", level: "Systems & Memory Safety" },
       { name: "GraphQL & REST", level: "Schema Design & Federation" },
-      { name: "Rust / C", level: "Systems Exploration" },
+      { name: "Python", level: "Automation & Data" },
     ],
   },
   {
     moduleCode: "COFFER 03",
     title: "CLIENT ARCHITECTURE & WEB",
     description:
-      "Deterministic UI state machines, fine-grained reactivity, and sub-second web performance.",
+      "Deterministic UI state machines, fine-grained reactivity, and sub-second rendering performance.",
     skills: [
       { name: "SolidJS", level: "Fine-Grained Reactivity" },
       { name: "React & React Native", level: "Enterprise Scale" },
@@ -47,7 +47,7 @@ const skillModules = [
     moduleCode: "COFFER 04",
     title: "RELIABILITY & TELEMETRY",
     description:
-      "Comprehensive automated verification and end-to-end telemetry harnesses.",
+      "Comprehensive automated verification, synthetic monitoring, and end-to-end telemetry harnesses.",
     skills: [
       { name: "Playwright", level: "E2E Browser Automation" },
       { name: "Jest / Vitest", level: "Unit & Integration Testing" },
@@ -65,143 +65,150 @@ const skillModules = [
 const Skills: Component = () => {
   return (
     <section id="skills">
-      <div
-        class="grid-crosshair"
-        style={{ top: "1.5rem", right: "1.5rem" }}
-      ></div>
+      <div class="grid-crosshair" style={{ top: "1.5rem", right: "1.5rem" }} />
+      <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>02 // Coffered Waffle Slab — Systems & Tech</span>
+          <span>03 // SKILLS & ARCHITECTURE</span>
         </div>
         <div class="section-telemetry-tag">
-          STRUCTURAL SPEC 033000 // CONCRETE REINFORCED
+          TECHNICAL SPECIFICATIONS // SYSTEM CAPABILITIES
         </div>
       </div>
 
       <div
         style={{
           display: "grid",
-          "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "2rem",
+          "grid-template-columns": "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2.25rem",
         }}
+        class="interactive-cluster"
       >
-        {skillModules.map((module) => (
-          <div
-            class="board-formed-surface terrace-card"
-            style={{
-              padding: "2.5rem",
-              display: "flex",
-              "flex-direction": "column",
-              "justify-content": "space-between",
-              border: "1px solid var(--border-structural)",
-              "box-shadow":
-                "inset 0 0 40px rgba(0,0,0,0.5), var(--reveal-shadow)",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  "justify-content": "space-between",
-                  "align-items": "center",
-                  "margin-bottom": "1.25rem",
-                  "border-bottom": "1px solid var(--border-subtle)",
-                  "padding-bottom": "0.75rem",
-                }}
-              >
-                <span
-                  style={{
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.75rem",
-                    color: "var(--pool-cyan)",
-                  }}
-                >
-                  {module.moduleCode}
-                </span>
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    background: "var(--cedar-wood)",
-                  }}
-                ></span>
-              </div>
-
-              <h3
-                style={{
-                  "font-size": "1.35rem",
-                  color: "var(--stone-aggregate)",
-                  "margin-bottom": "0.75rem",
-                }}
-              >
-                {module.title}
-              </h3>
-
-              <p
-                style={{
-                  "font-size": "0.9rem",
-                  color: "var(--stone-muted)",
-                  "margin-bottom": "2rem",
-                  "line-height": "1.5",
-                }}
-              >
-                {module.description}
-              </p>
-            </div>
-
+        <For each={skillModules}>
+          {(module) => (
             <div
+              class="erickson-lantern"
               style={{
+                padding: "2.25rem",
                 display: "flex",
                 "flex-direction": "column",
-                gap: "0.75rem",
+                "justify-content": "space-between",
+                "border-radius": "28px",
               }}
             >
-              {module.skills.map((skill) => (
+              <div>
                 <div
                   style={{
                     display: "flex",
                     "justify-content": "space-between",
-                    "align-items": "baseline",
-                    padding: "0.5rem 0.75rem",
-                    background: "rgba(0,0,0,0.3)",
-                    border: "1px solid var(--border-subtle)",
-                    transition: "all 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--pool-cyan)";
-                    e.currentTarget.style.background =
-                      "rgba(55, 139, 132, 0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "var(--border-subtle)";
-                    e.currentTarget.style.background = "rgba(0,0,0,0.3)";
+                    "align-items": "center",
+                    "margin-bottom": "1.25rem",
+                    "border-bottom": "2px solid var(--grid-hairline)",
+                    "padding-bottom": "0.75rem",
                   }}
                 >
                   <span
                     style={{
-                      "font-family": "var(--font-structural)",
-                      "font-size": "0.95rem",
-                      "font-weight": "500",
-                      color: "var(--stone-aggregate)",
+                      "font-family": "var(--font-telemetry)",
+                      "font-size": "0.75rem",
+                      color: "var(--ink-primary)",
+                      "font-weight": "700",
                     }}
                   >
-                    {skill.name}
+                    {module.moduleCode}
                   </span>
                   <span
                     style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.7rem",
-                      color: "var(--stone-dim)",
+                      width: "8px",
+                      height: "8px",
+                      "border-radius": "50%",
+                      background: "var(--grid-border)",
                     }}
-                  >
-                    {skill.level}
-                  </span>
+                  />
                 </div>
-              ))}
+
+                <h3
+                  style={{
+                    "font-size": "1.45rem",
+                    color: "var(--ink-primary)",
+                    "margin-bottom": "0.75rem",
+                  }}
+                >
+                  {module.title}
+                </h3>
+
+                <p
+                  style={{
+                    "font-size": "0.95rem",
+                    color: "var(--ink-secondary)",
+                    "margin-bottom": "1.75rem",
+                    "line-height": "1.55",
+                  }}
+                >
+                  {module.description}
+                </p>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  "flex-direction": "column",
+                  gap: "0.5rem",
+                }}
+              >
+                <For each={module.skills}>
+                  {(skill) => (
+                    <div
+                      style={{
+                        display: "flex",
+                        "justify-content": "space-between",
+                        "align-items": "center",
+                        padding: "0.6rem 0.85rem",
+                        background: "var(--bg-concrete)",
+                        border: "1px solid var(--grid-hairline)",
+                        "border-radius": "10px",
+                        transition: "all 0.2s",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor =
+                          "var(--grid-border)";
+                        e.currentTarget.style.background =
+                          "var(--concrete-pylon-hover)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor =
+                          "var(--grid-hairline)";
+                        e.currentTarget.style.background = "var(--bg-concrete)";
+                      }}
+                    >
+                      <span
+                        style={{
+                          "font-family": "var(--font-structural)",
+                          "font-size": "0.9rem",
+                          "font-weight": "600",
+                          color: "var(--ink-primary)",
+                        }}
+                      >
+                        {skill.name}
+                      </span>
+                      <span
+                        style={{
+                          "font-family": "var(--font-telemetry)",
+                          "font-size": "0.72rem",
+                          color: "var(--ink-muted)",
+                          "font-weight": "500",
+                        }}
+                      >
+                        {skill.level}
+                      </span>
+                    </div>
+                  )}
+                </For>
+              </div>
             </div>
-          </div>
-        ))}
+          )}
+        </For>
       </div>
     </section>
   );
