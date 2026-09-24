@@ -76,6 +76,7 @@ export interface ExperienceContent {
   sectionNumber: string;
   sectionTitle: string;
   sectorTag: string;
+  milestonesTitle: string;
   items: ExperienceItem[];
 }
 
@@ -245,6 +246,7 @@ export const experienceContent: ExperienceContent = {
   sectionNumber: "02",
   sectionTitle: "WORK EXPERIENCE",
   sectorTag: "STRUCTURAL RECORD // 2019 — 2026",
+  milestonesTitle: "ARCHITECTURAL MILESTONES",
   items: [
     {
       tier: "TIER 03 // ELEVATION +10.5M // SDE II",

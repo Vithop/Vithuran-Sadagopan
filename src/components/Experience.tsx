@@ -1,69 +1,12 @@
-import { For, createSignal, onMount, onCleanup, Show, type Component } from "solid-js";
-
-const experiences = [
-  {
-    tier: "TIER 03 // ELEVATION +10.5M // SDE II",
-    role: "Software Development Engineer II",
-    company: "AMAZON",
-    period: "OCT 2023 – PRESENT",
-    location: "VANCOUVER, BC",
-    description:
-      "Architected an extensible plugin platform and declarative state machine engine for Amazon's multi-region payment interfaces, decoupling merchant onboarding from core releases.",
-    achievements: [
-      "Built declarative state machine workflows cutting payment method onboarding from ~1 month to ~1 week.",
-      "Integrated federated GraphQL APIs and reduced SSR Lambda execution runtime by ~40% through Node 14 → 20 migration.",
-      "Engineered mock harnesses and daily development loops supporting ~150 frontend and backend engineers.",
-      "Maintained five-nines availability across high-concurrency peak retail shopping events.",
-    ],
-    tech: [
-      "TypeScript",
-      "GraphQL",
-      "State Machines",
-      "Node.js 20",
-      "AWS Lambda",
-      "Distributed Systems",
-      "SSR",
-    ],
-  },
-  {
-    tier: "TIER 02 // ELEVATION +7.0M // SDE I",
-    role: "Software Development Engineer I",
-    company: "AMAZON",
-    period: "MAY 2021 – OCT 2023",
-    location: "VANCOUVER, BC",
-    description:
-      "Modernized payment checkout architecture and high-throughput backend services handling massive transaction volumes, driving $300M in incremental annual revenue across multi-region retail checkout.",
-    achievements: [
-      "Scaled and maintained mission-critical payment services built with Java, Scala, and Apache Tomcat.",
-      "Engineered comprehensive AWS CloudWatch observability alarms, synthetic monitors, and operational dashboards.",
-      "Spearheaded rigorous test engineering and automated regression pipelines ensuring zero transaction loss during failures.",
-      "Mentored junior engineers and interns on backend architecture patterns and operational excellence.",
-    ],
-    tech: [
-      "Java",
-      "Scala",
-      "Apache Tomcat",
-      "AWS CloudWatch",
-      "Test Engineering",
-      "TypeScript",
-      "React",
-    ],
-  },
-  {
-    tier: "TIER 01 // ELEVATION +3.5M // CO-OP",
-    role: "Full Stack Developer (Co-op)",
-    company: "ELLISDON",
-    period: "MAY 2019 – AUG 2019",
-    location: "TORONTO, ON",
-    description:
-      "Built construction technology microservices and multi-tenant developer scaffolding for one of Canada's premier civil infrastructure builders.",
-    achievements: [
-      "Delivered production beta microservice from inception in 4 months leading a 4-engineer pod.",
-      "Standardized enterprise project scaffolding with automated one-click starters (React, Java, Go).",
-    ],
-    tech: ["React", "Java", "Go", "Docker", "CI/CD Microservices"],
-  },
-];
+import {
+  For,
+  createSignal,
+  onMount,
+  onCleanup,
+  Show,
+  type Component,
+} from "solid-js";
+import { experienceContent } from "../data/content";
 
 const Experience: Component = () => {
   const [expandedIndex, setExpandedIndex] = createSignal<number | null>(0);
@@ -82,11 +25,12 @@ const Experience: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>02 // WORK EXPERIENCE</span>
+          <span>
+            {experienceContent.sectionNumber} //{" "}
+            {experienceContent.sectionTitle}
+          </span>
         </div>
-        <div class="section-telemetry-tag">
-          STRUCTURAL RECORD // 2019 — 2026
-        </div>
+        <div class="section-telemetry-tag">{experienceContent.sectorTag}</div>
       </div>
 
       <div
@@ -99,7 +43,7 @@ const Experience: Component = () => {
         }}
         class="interactive-cluster"
       >
-        <For each={experiences}>
+        <For each={experienceContent.items}>
           {(exp, index) => {
             const isExpanded = () => !isMobile() || expandedIndex() === index();
             const isActive = () => isMobile() && expandedIndex() === index();
@@ -112,7 +56,9 @@ const Experience: Component = () => {
                   "margin-left": isMobile() ? "0" : `${index() * 2.5}rem`,
                   "border-radius": "32px",
                   "border-left": "8px solid var(--grid-border)",
-                  "border-color": isActive() ? "var(--lantern-amber)" : "var(--grid-border)",
+                  "border-color": isActive()
+                    ? "var(--lantern-amber)"
+                    : "var(--grid-border)",
                 }}
               >
                 {/* Top Meta Beam */}
@@ -178,7 +124,9 @@ const Experience: Component = () => {
                         "font-family": "var(--font-telemetry)",
                         "font-size": "0.85rem",
                         "font-weight": "700",
-                        color: isActive() ? "var(--lantern-amber)" : "var(--ink-primary)",
+                        color: isActive()
+                          ? "var(--lantern-amber)"
+                          : "var(--ink-primary)",
                         "letter-spacing": "0.05em",
                       }}
                     >
@@ -190,7 +138,9 @@ const Experience: Component = () => {
                           "font-family": "var(--font-telemetry)",
                           "font-size": "0.85rem",
                           "font-weight": "700",
-                          color: isActive() ? "var(--lantern-amber)" : "var(--ink-primary)",
+                          color: isActive()
+                            ? "var(--lantern-amber)"
+                            : "var(--ink-primary)",
                         }}
                       >
                         {isActive() ? "COLLAPSE [-]" : "[+]"}
@@ -276,7 +226,7 @@ const Experience: Component = () => {
                           "letter-spacing": "0.1em",
                         }}
                       >
-                        ARCHITECTURAL MILESTONES
+                        {experienceContent.milestonesTitle}
                       </div>
                       <ul
                         style={{
