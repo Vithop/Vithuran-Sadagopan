@@ -186,7 +186,7 @@ export const socialsContent: SocialLinks = {
   email: "vithuran.sada@gmail.com",
   githubUrl: "https://github.com/vithop",
   linkedinUrl: "https://linkedin.com/in/vithuran-sada",
-  resumeUrl: "https://linkedin.com/in/vithuran-sada",
+  resumeUrl: `${import.meta.env.BASE_URL}Vithuran_Sadagopan_Resume.pdf`,
 };
 
 /* ==========================================================================
@@ -231,18 +231,19 @@ export const heroContent: HeroContent = {
   actions: {
     getInTouch: "GET IN TOUCH ↗",
     viewExperience: "VIEW WORK EXPERIENCE ↓",
-    viewResume: "VIEW RESUME / CV ↓",
+    viewResume: "DOWNLOAD RESUME / CV ↓",
   },
   vitrine: {
-    header: "PROFILE VITRINE // TELEMETRY",
+    header: "PROFILE OVERVIEW",
     metrics: [
       {
         value: "$300M",
-        label: "Incremental Revenue Driven // Payment Services",
+        label:
+          "Incremental revenue driven through modernizing customer experiences",
       },
       {
         value: "~40%",
-        label: "SSR Lambda Latency Cut",
+        label: "Overrall system latency reduction",
       },
       {
         value: "150+",

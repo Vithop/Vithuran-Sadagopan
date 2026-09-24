@@ -227,6 +227,7 @@ const Hero: Component<HeroProps> = (props) => {
               </a>
               <a
                 href={socialsContent.resumeUrl}
+                download="Vithuran_Sadagopan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pill-button"
