@@ -115,10 +115,17 @@ export interface ProjectsContent {
   sectionNumber: string;
   sectionTitle: string;
   sectorTag: string;
+  cardLabels: {
+    specsTitle: string;
+    publicRepo: string;
+    viewRepo: string;
+  };
   items: FeaturedProject[];
-  archiveAction: {
-    text: string;
-    subtext: string;
+  archiveBanner: {
+    tag: string;
+    headline: string;
+    description: string;
+    cta: string;
   };
 }
 
@@ -392,6 +399,11 @@ export const projectsContent: ProjectsContent = {
   sectionNumber: "04",
   sectionTitle: "FEATURED SOFTWARE ARCHITECTURES",
   sectorTag: "OPEN SOURCE & DISTRIBUTED SYSTEMS",
+  cardLabels: {
+    specsTitle: "TECHNICAL SPECIFICATIONS:",
+    publicRepo: "PUBLIC REPOSITORY",
+    viewRepo: "VIEW GITHUB REPO ↗",
+  },
   items: [
     {
       code: "PROJECT // 01",
@@ -469,9 +481,12 @@ export const projectsContent: ProjectsContent = {
       badge: "GAME SYSTEMS",
     },
   ],
-  archiveAction: {
-    text: "ACCESS COMPLETE ARCHIVE →",
-    subtext: "15+ TECHNICAL SPECIFICATIONS (2017—2026)",
+  archiveBanner: {
+    tag: "HISTORICAL TIMELINE // 2018 — 2026",
+    headline: "LOOKING FOR EARLIER HARDWARE & SYSTEMS PROTOTYPES?",
+    description:
+      "Explore the complete chronological archive including the IoT Garden Gnome, Wearable EMG BioSensor, Assistive CNC Robotics, and McMaster engineering projects.",
+    cta: "VIEW CHRONOLOGICAL ARCHIVE (15+ PROJECTS) →",
   },
 };
 

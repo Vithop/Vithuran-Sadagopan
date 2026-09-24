@@ -1,86 +1,9 @@
 import { For, type Component } from "solid-js";
+import { projectsContent } from "../data/content";
 
 interface PortfolioProps {
   onOpenArchive?: () => void;
 }
-
-const featuredProjects = [
-  {
-    code: "PROJECT // 01",
-    title: "Antigravity Agentic Workflows",
-    stack: ["TypeScript", "Node.js", "AI Agent SDK", "State Machines"],
-    category: "DISTRIBUTED & CLOUD",
-    description:
-      "Autonomous agent pairing workflows, tool synthesis engines, and deterministic state orchestration for advanced software engineering assistance and developer acceleration.",
-    specs: [
-      "Protocol: Model Context Protocol (MCP) tool integration",
-      "Architecture: Deterministic state machines with transactional recovery",
-      "Velocity: Integrated with high-velocity TypeScript development harnesses",
-    ],
-    githubUrl: "https://github.com/Vithop/Antigravity",
-    badge: "LATEST // 2025–2026",
-  },
-  {
-    code: "PROJECT // 02",
-    title: "BigRustyInteger & WASM Systems",
-    stack: ["Rust", "Systems Programming", "WebAssembly", "Cargo"],
-    category: "SYSTEMS & RUNTIMES",
-    description:
-      "Arbitrary-precision integer arithmetic engine implemented in Rust, engineered for high-performance mathematical computation with zero allocation overhead and linear memory safety.",
-    specs: [
-      "Engine: Memory-safe arbitrary-precision unsigned and signed arithmetic",
-      "Algorithms: Custom bit manipulation and Karatsuba multiplication pipelines",
-      "Compilation: Zero-copy bindings to WebAssembly and Canvas targets",
-    ],
-    githubUrl: "https://github.com/Vithop/BigRustyInteger",
-    badge: "RUST SYSTEMS",
-  },
-  {
-    code: "PROJECT // 03",
-    title: "Siren-Sense Acoustic Attenuation",
-    stack: ["TypeScript", "Web Audio API", "Audio DSP", "Tone Classification"],
-    category: "ASSISTIVE & SYSTEMS",
-    description:
-      "Assistive acoustic intelligence system that continuously monitors ambient acoustic feeds for emergency sirens or horns, automatically attenuating active headphone audio.",
-    specs: [
-      "Signal Processing: Real-time spectral FFT analysis to isolate emergency frequency profiles",
-      "Safety: Automated headphone audio ducking to protect user situational awareness",
-      "Deployment: Cross-platform desktop integration harness",
-    ],
-    githubUrl: "https://github.com/Vithop/Siren-Sense",
-    badge: "ASSISTIVE TECH",
-  },
-  {
-    code: "PROJECT // 04",
-    title: "Accessible Deterministic Calculator",
-    stack: ["Svelte", "TypeScript", "WCAG AAA", "ARIA Live"],
-    category: "CLIENT ARCHITECTURE",
-    description:
-      "Cross-platform calculator web application designed with the goal of being the most accessible, screen-reader-friendly calculator on the internet, built with deterministic state machines.",
-    specs: [
-      "Accessibility: Full keyboard navigation with dynamic ARIA Live state narration",
-      "Precision: Decimal floating-point invariant engine preventing precision degradation",
-      "Reactivity: Compile-time optimized UI bundle with sub-5ms input response",
-    ],
-    githubUrl: "https://github.com/Vithop/CalculatorApp",
-    badge: "ACCESSIBILITY",
-  },
-  {
-    code: "PROJECT // 05",
-    title: "TicTacToe Interactive Game Engine",
-    stack: ["TypeScript", "State Machines", "Game Logic", "UI Architecture"],
-    category: "CLIENT & ALGORITHMS",
-    description:
-      "Deterministic interactive game implementation with turn-based state machine transitions, heuristic evaluation, and responsive tactile interface feedback.",
-    specs: [
-      "Validation: Strict turn verification with instantaneous win/draw detection",
-      "Heuristics: Algorithmic move evaluation for state transitions",
-      "Interface: Tactile brutalist grid design with keyboard accessibility",
-    ],
-    githubUrl: "https://github.com/Vithop/TicTacToe",
-    badge: "GAME SYSTEMS",
-  },
-];
 
 const Portfolio: Component<PortfolioProps> = (props) => {
   return (
@@ -90,11 +13,11 @@ const Portfolio: Component<PortfolioProps> = (props) => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>04 // FEATURED SOFTWARE ARCHITECTURES</span>
+          <span>
+            {projectsContent.sectionNumber} // {projectsContent.sectionTitle}
+          </span>
         </div>
-        <div class="section-telemetry-tag">
-          OPEN SOURCE & DISTRIBUTED SYSTEMS
-        </div>
+        <div class="section-telemetry-tag">{projectsContent.sectorTag}</div>
       </div>
 
       <div
@@ -106,7 +29,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
         }}
         class="interactive-cluster"
       >
-        <For each={featuredProjects}>
+        <For each={projectsContent.items}>
           {(item) => (
             <div
               class="erickson-lantern"
@@ -246,7 +169,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                       "margin-bottom": "0.5rem",
                     }}
                   >
-                    TECHNICAL SPECIFICATIONS:
+                    {projectsContent.cardLabels.specsTitle}
                   </div>
                   <ul
                     style={{
@@ -279,7 +202,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                     color: "var(--ink-muted)",
                   }}
                 >
-                  PUBLIC REPOSITORY
+                  {projectsContent.cardLabels.publicRepo}
                 </span>
                 <a
                   href={item.githubUrl}
@@ -291,7 +214,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                     "font-size": "0.75rem",
                   }}
                 >
-                  VIEW GITHUB REPO ↗
+                  {projectsContent.cardLabels.viewRepo}
                 </a>
               </div>
             </div>
@@ -324,7 +247,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
               "margin-bottom": "0.5rem",
             }}
           >
-            HISTORICAL TIMELINE // 2018 — 2026
+            {projectsContent.archiveBanner.tag}
           </div>
           <h3
             style={{
@@ -333,12 +256,10 @@ const Portfolio: Component<PortfolioProps> = (props) => {
               "margin-bottom": "0.5rem",
             }}
           >
-            LOOKING FOR EARLIER HARDWARE & SYSTEMS PROTOTYPES?
+            {projectsContent.archiveBanner.headline}
           </h3>
           <p style={{ color: "var(--ink-secondary)", "font-size": "0.95rem" }}>
-            Explore the complete chronological archive including the IoT Garden
-            Gnome, Wearable EMG BioSensor, Assistive CNC Robotics, and McMaster
-            engineering projects.
+            {projectsContent.archiveBanner.description}
           </p>
         </div>
 
@@ -361,7 +282,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
             e.currentTarget.style.color = "#ffffff";
           }}
         >
-          VIEW CHRONOLOGICAL ARCHIVE (15+ PROJECTS) →
+          {projectsContent.archiveBanner.cta}
         </button>
       </div>
     </section>
