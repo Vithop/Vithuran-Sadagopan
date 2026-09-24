@@ -1,5 +1,5 @@
 import { For, type Component } from "solid-js";
-import type { ArchiveProject } from "../data/archiveData";
+import type { ArchiveProject } from "../data/archiveContent";
 
 interface ArchiveCardProps {
   project: ArchiveProject;

@@ -1,5 +1,5 @@
 import { createSignal, createMemo, For, type Component } from "solid-js";
-import { archiveProjects } from "../data/archiveData";
+import { archiveProjects } from "../data/archiveContent";
 import ArchiveCard from "./ArchiveCard";
 
 interface ArchivePageProps {
