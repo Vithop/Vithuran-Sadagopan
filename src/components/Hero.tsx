@@ -202,7 +202,6 @@ const Hero: Component<HeroProps> = (props) => {
                 "letter-spacing": "0.01em",
                 color: "var(--ink-primary)",
                 "margin-bottom": "2rem",
-                "word-wrap": "break-word",
               }}
             >
               VITHURAN
