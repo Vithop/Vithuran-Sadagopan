@@ -1,4 +1,12 @@
-import { createSignal, onCleanup, onMount, type Component } from "solid-js";
+import {
+  createSignal,
+  onCleanup,
+  onMount,
+  For,
+  Show,
+  type Component,
+} from "solid-js";
+import { heroContent, navContent, socialsContent } from "../data/content";
 
 interface HeroProps {
   onOpenArchive?: () => void;
@@ -12,7 +20,7 @@ const Hero: Component<HeroProps> = (props) => {
       const now = new Date();
       setTime(
         now.toLocaleTimeString("en-US", {
-          timeZone: "America/Vancouver",
+          timeZone: navContent.timeZone,
           hour12: false,
           hour: "2-digit",
           minute: "2-digit",
@@ -44,7 +52,12 @@ const Hero: Component<HeroProps> = (props) => {
         }}
       >
         <div
-          style={{ display: "flex", "align-items": "center", gap: "1.25rem", "flex-wrap": "wrap" }}
+          style={{
+            display: "flex",
+            "align-items": "center",
+            gap: "1.25rem",
+            "flex-wrap": "wrap",
+          }}
         >
           <div
             style={{ display: "flex", "align-items": "center", gap: "0.5rem" }}
@@ -58,11 +71,11 @@ const Hero: Component<HeroProps> = (props) => {
               }}
             />
             <span style={{ "font-weight": "700", color: "var(--ink-primary)" }}>
-              VITHURAN SADAGOPAN
+              {navContent.brand.name}
             </span>
           </div>
           <span style={{ color: "var(--ink-secondary)" }}>
-            VANCOUVER, BC // 49°16'N 123°07'W
+            {navContent.brand.location}
           </span>
         </div>
 
@@ -74,86 +87,62 @@ const Hero: Component<HeroProps> = (props) => {
             "flex-wrap": "wrap",
           }}
         >
-          <a
-            href="#about"
-            style={{
-              color: "var(--ink-primary)",
-              "font-weight": "700",
-              transition: "color 0.2s",
-            }}
-          >
-            01 // ABOUT
-          </a>
-          <a
-            href="#experience"
-            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--ink-primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--ink-secondary)")
-            }
-          >
-            02 // EXPERIENCE
-          </a>
-          <a
-            href="#skills"
-            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--ink-primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--ink-secondary)")
-            }
-          >
-            03 // SKILLS
-          </a>
-          <a
-            href="#portfolio"
-            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--ink-primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--ink-secondary)")
-            }
-          >
-            04 // PORTFOLIO
-          </a>
-          <button
-            onClick={() => props.onOpenArchive?.()}
-            style={{
-              background: "none",
-              border: "none",
-              padding: "0",
-              color: "var(--ink-secondary)",
-              "font-family": "var(--font-telemetry)",
-              "font-size": "0.85rem",
-              "letter-spacing": "0.08em",
-              cursor: "pointer",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--ink-primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--ink-secondary)")
-            }
-          >
-            ARCHIVE ↗
-          </button>
-          <a
-            href="#contact"
-            style={{ color: "var(--ink-secondary)", transition: "color 0.2s" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--ink-primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--ink-secondary)")
-            }
-          >
-            05 // CONTACT
-          </a>
+          <For each={navContent.items}>
+            {(item) => (
+              <Show
+                when={item.isArchiveTrigger}
+                fallback={
+                  <a
+                    href={item.href}
+                    style={{
+                      color:
+                        item.id === "about"
+                          ? "var(--ink-primary)"
+                          : "var(--ink-secondary)",
+                      "font-weight": item.id === "about" ? "700" : "normal",
+                      transition: "color 0.2s",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--ink-primary)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color =
+                        item.id === "about"
+                          ? "var(--ink-primary)"
+                          : "var(--ink-secondary)")
+                    }
+                  >
+                    {item.number
+                      ? `${item.number} // ${item.label}`
+                      : item.label}
+                  </a>
+                }
+              >
+                <button
+                  onClick={() => props.onOpenArchive?.()}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: "0",
+                    color: "var(--ink-secondary)",
+                    "font-family": "var(--font-telemetry)",
+                    "font-size": "0.85rem",
+                    "letter-spacing": "0.08em",
+                    cursor: "pointer",
+                    transition: "color 0.2s",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = "var(--ink-primary)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "var(--ink-secondary)")
+                  }
+                >
+                  {item.label}
+                </button>
+              </Show>
+            )}
+          </For>
         </nav>
 
         <div
@@ -165,7 +154,9 @@ const Hero: Component<HeroProps> = (props) => {
             "font-weight": "700",
           }}
         >
-          <span>PACIFIC TIME {time() || "12:00:00"}</span>
+          <span>
+            {navContent.timeZoneLabel} {time() || "12:00:00"}
+          </span>
         </div>
       </header>
 
@@ -179,9 +170,9 @@ const Hero: Component<HeroProps> = (props) => {
 
         <div class="section-header-beam">
           <div class="section-header-title">
-            <span>ABOUT</span>
+            <span>{heroContent.sectionTitle}</span>
           </div>
-          <div class="section-telemetry-tag">SECTOR 01</div>
+          <div class="section-telemetry-tag">{heroContent.sectorTag}</div>
         </div>
 
         <div
@@ -204,9 +195,9 @@ const Hero: Component<HeroProps> = (props) => {
                 "margin-bottom": "2rem",
               }}
             >
-              VITHURAN
+              {heroContent.headline.first}
               <br />
-              SADAGOPAN
+              {heroContent.headline.second}
             </h1>
 
             <p
@@ -217,25 +208,25 @@ const Hero: Component<HeroProps> = (props) => {
                 "margin-bottom": "2.5rem",
               }}
             >
-              Software Development Engineer architecting high-availability
-              distributed systems and deterministic frontend state machines at
-              Amazon. Focused on low-latency microservices, developer
-              acceleration, and tactile web interfaces.
+              {heroContent.bio}
             </p>
 
-            <div class="pill-button-group" style={{ display: "flex", "flex-wrap": "wrap", gap: "1rem" }}>
+            <div
+              class="pill-button-group"
+              style={{ display: "flex", "flex-wrap": "wrap", gap: "1rem" }}
+            >
               <a href="#contact" class="pill-button">
-                GET IN TOUCH ↗
+                {heroContent.actions.getInTouch}
               </a>
               <a
                 href="#experience"
                 class="pill-button"
                 style={{ background: "transparent" }}
               >
-                VIEW WORK EXPERIENCE ↓
+                {heroContent.actions.viewExperience}
               </a>
               <a
-                href="https://linkedin.com/in/vithuran-sada"
+                href={socialsContent.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pill-button"
@@ -252,7 +243,7 @@ const Hero: Component<HeroProps> = (props) => {
                   e.currentTarget.style.color = "#ffffff";
                 }}
               >
-                VIEW RESUME / CV ↓
+                {heroContent.actions.viewResume}
               </a>
             </div>
           </div>
@@ -285,7 +276,7 @@ const Hero: Component<HeroProps> = (props) => {
                   "letter-spacing": "0.1em",
                 }}
               >
-                PROFILE VITRINE // TELEMETRY
+                {heroContent.vitrine.header}
               </span>
               <div
                 style={{
@@ -304,117 +295,37 @@ const Hero: Component<HeroProps> = (props) => {
                 gap: "1.5rem",
               }}
             >
-              <div
-                style={{
-                  "border-left": "3px solid var(--grid-border)",
-                  "padding-left": "1rem",
-                }}
-              >
-                <div
-                  style={{
-                    "font-family": "var(--font-monumental)",
-                    "font-size": "2.2rem",
-                    "font-weight": "700",
-                    color: "var(--ink-primary)",
-                  }}
-                >
-                  $300M
-                </div>
-                <div
-                  style={{
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.75rem",
-                    color: "var(--ink-muted)",
-                    "margin-top": "0.25rem",
-                  }}
-                >
-                  Incremental Revenue Driven // Payment Services
-                </div>
-              </div>
-
-              <div
-                style={{
-                  "border-left": "3px solid var(--grid-border)",
-                  "padding-left": "1rem",
-                }}
-              >
-                <div
-                  style={{
-                    "font-family": "var(--font-monumental)",
-                    "font-size": "2.2rem",
-                    "font-weight": "700",
-                    color: "var(--ink-primary)",
-                  }}
-                >
-                  ~40%
-                </div>
-                <div
-                  style={{
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.75rem",
-                    color: "var(--ink-muted)",
-                    "margin-top": "0.25rem",
-                  }}
-                >
-                  SSR Lambda Latency Cut
-                </div>
-              </div>
-
-              <div
-                style={{
-                  "border-left": "3px solid var(--grid-border)",
-                  "padding-left": "1rem",
-                }}
-              >
-                <div
-                  style={{
-                    "font-family": "var(--font-monumental)",
-                    "font-size": "2.2rem",
-                    "font-weight": "700",
-                    color: "var(--ink-primary)",
-                  }}
-                >
-                  150+
-                </div>
-                <div
-                  style={{
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.75rem",
-                    color: "var(--ink-muted)",
-                    "margin-top": "0.25rem",
-                  }}
-                >
-                  Engineers Dev Loop Tooling
-                </div>
-              </div>
-
-              <div
-                style={{
-                  "border-left": "3px solid var(--grid-border)",
-                  "padding-left": "1rem",
-                }}
-              >
-                <div
-                  style={{
-                    "font-family": "var(--font-monumental)",
-                    "font-size": "2.2rem",
-                    "font-weight": "700",
-                    color: "var(--ink-primary)",
-                  }}
-                >
-                  1 Mo→1 Wk
-                </div>
-                <div
-                  style={{
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.75rem",
-                    color: "var(--ink-muted)",
-                    "margin-top": "0.25rem",
-                  }}
-                >
-                  Payment Onboarding Cycle
-                </div>
-              </div>
+              <For each={heroContent.vitrine.metrics}>
+                {(metric) => (
+                  <div
+                    style={{
+                      "border-left": "3px solid var(--grid-border)",
+                      "padding-left": "1rem",
+                    }}
+                  >
+                    <div
+                      style={{
+                        "font-family": "var(--font-monumental)",
+                        "font-size": "2.2rem",
+                        "font-weight": "700",
+                        color: "var(--ink-primary)",
+                      }}
+                    >
+                      {metric.value}
+                    </div>
+                    <div
+                      style={{
+                        "font-family": "var(--font-telemetry)",
+                        "font-size": "0.75rem",
+                        color: "var(--ink-muted)",
+                        "margin-top": "0.25rem",
+                      }}
+                    >
+                      {metric.label}
+                    </div>
+                  </div>
+                )}
+              </For>
             </div>
 
             <div
@@ -428,11 +339,11 @@ const Hero: Component<HeroProps> = (props) => {
                 "justify-content": "space-between",
               }}
             >
-              <span>DISCIPLINE: DISTRIBUTED SYSTEMS</span>
+              <span>{heroContent.vitrine.discipline}</span>
               <span
                 style={{ color: "var(--ink-primary)", "font-weight": "700" }}
               >
-                AMAZON SDE II
+                {heroContent.vitrine.currentRole}
               </span>
             </div>
           </div>
