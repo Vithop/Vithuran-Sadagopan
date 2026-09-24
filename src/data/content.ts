@@ -135,6 +135,15 @@ export interface ContactChannel {
   url: string;
 }
 
+export interface ContactPortalContent {
+  tag: string;
+  title: string;
+  description: string;
+  location: string;
+  status: string;
+  sendAction: string;
+}
+
 export interface ContactContent {
   sectionNumber: string;
   sectionTitle: string;
@@ -149,8 +158,7 @@ export interface ContactContent {
     copiedLabel: string;
   };
   channels: ContactChannel[];
-  availabilityNotice: string;
-  locationNotice: string;
+  portal: ContactPortalContent;
 }
 
 export interface FooterContent {
@@ -194,7 +202,12 @@ export const navContent: NavContent = {
   timeZone: "America/Vancouver",
   items: [
     { id: "about", number: "01", label: "ABOUT", href: "#about" },
-    { id: "experience", number: "02", label: "EXPERIENCE", href: "#experience" },
+    {
+      id: "experience",
+      number: "02",
+      label: "EXPERIENCE",
+      href: "#experience",
+    },
     { id: "skills", number: "03", label: "SKILLS", href: "#skills" },
     { id: "portfolio", number: "04", label: "PORTFOLIO", href: "#portfolio" },
     { id: "archive", label: "ARCHIVE ↗", isArchiveTrigger: true },
@@ -438,7 +451,12 @@ export const projectsContent: ProjectsContent = {
     {
       code: "PROJECT // 03",
       title: "Siren-Sense Acoustic Attenuation",
-      stack: ["TypeScript", "Web Audio API", "Audio DSP", "Tone Classification"],
+      stack: [
+        "TypeScript",
+        "Web Audio API",
+        "Audio DSP",
+        "Tone Classification",
+      ],
       category: "ASSISTIVE & SYSTEMS",
       description:
         "Assistive acoustic intelligence system that continuously monitors ambient acoustic feeds for emergency sirens or horns, automatically attenuating active headphone audio.",
@@ -505,23 +523,30 @@ export const contactContent: ContactContent = {
   description:
     "Open to senior engineering roles, distributed systems consulting, and high-craft UI/UX collaborations. Based in Vancouver, BC (Pacific Time).",
   emailAction: {
-    copyLabel: "COPY EMAIL",
-    copiedLabel: "EMAIL COPIED // CLIPBOARD",
+    copyLabel: "COPY",
+    copiedLabel: "COPIED TO CLIPBOARD!",
   },
   channels: [
     {
       platform: "LINKEDIN",
-      label: "linkedin.com/in/vithuran-sada",
+      label: "LINKEDIN // PROFILE",
       url: socialsContent.linkedinUrl,
     },
     {
       platform: "GITHUB",
-      label: "github.com/vithop",
+      label: "GITHUB // REPOSITORIES",
       url: socialsContent.githubUrl,
     },
   ],
-  availabilityNotice: "CURRENT STATUS: ENGAGED // OPEN TO SELECTIVE CONVERSATIONS",
-  locationNotice: "VANCOUVER, BC, CANADA // 49°16'N 123°07'W",
+  portal: {
+    tag: "CONTACT PORTAL // SECTOR 05",
+    title: "AVAILABLE CHANNELS",
+    description:
+      "Reach out via email or LinkedIn for technical inquiries, architecture design reviews, or distributed systems opportunities. Responses typically within 24 hours.",
+    location: "LOCATION: VANCOUVER, BC",
+    status: "STATUS: ACTIVE TRANSMISSION",
+    sendAction: "SEND DIRECT MESSAGE ✉",
+  },
 };
 
 /* ==========================================================================

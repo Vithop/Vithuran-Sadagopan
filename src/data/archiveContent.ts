@@ -1,3 +1,63 @@
+export const archiveCategories = [
+  "All",
+  "Distributed & Cloud",
+  "Systems & Runtimes",
+  "Assistive & Hardware",
+  "Client & Web",
+] as const;
+
+export type FilterCategory = (typeof archiveCategories)[number];
+
+export interface ArchiveCardLabels {
+  highlightsTitle: string;
+  recordTag: string;
+  githubButton: string;
+  demoButton: string;
+}
+
+export interface ArchivePageContent {
+  returnTopButton: string;
+  headerTag: string;
+  sectionTitle: string;
+  systemsSuffix: string;
+  headline: {
+    first: string;
+    second: string;
+  };
+  intro: string;
+  filterQueryLabel: string;
+  searchPlaceholder: string;
+  clearButton: string;
+  disciplineLabel: string;
+  returnBottomButton: string;
+  cardLabels: ArchiveCardLabels;
+}
+
+export const archivePageContent: ArchivePageContent = {
+  returnTopButton: "RETURN TO OVERVIEW",
+  headerTag: "HISTORICAL ARCHIVE // 2018 — 2026",
+  sectionTitle: "PROJECT ARCHIVE & CHRONOLOGY",
+  systemsSuffix: "RECORDED SYSTEMS",
+  headline: {
+    first: "CHRONOLOGICAL",
+    second: "PROJECT INDEX",
+  },
+  intro:
+    "An exhaustive record of software architectures, embedded firmware, systems engineering, and physical computing prototypes created between 2018 and 2026.",
+  filterQueryLabel: "FILTER QUERY:",
+  searchPlaceholder:
+    "Search by technology (Rust, TypeScript, AWS), year, or keyword...",
+  clearButton: "CLEAR",
+  disciplineLabel: "DISCIPLINE:",
+  returnBottomButton: "← RETURN TO MAIN TERMINAL",
+  cardLabels: {
+    highlightsTitle: "KEY HIGHLIGHTS:",
+    recordTag: "ARCHIVE RECORD",
+    githubButton: "GITHUB REPO ↗",
+    demoButton: "LIVE DEMO ↗",
+  },
+};
+
 export interface ArchiveProject {
   id: string;
   year: string;

@@ -1,25 +1,15 @@
 import { createSignal, createMemo, For, type Component } from "solid-js";
-import { archiveProjects } from "../data/archiveContent";
+import {
+  archiveProjects,
+  archiveCategories,
+  archivePageContent,
+  type FilterCategory,
+} from "../data/archiveContent";
 import ArchiveCard from "./ArchiveCard";
 
 interface ArchivePageProps {
   onBack: () => void;
 }
-
-type FilterCategory =
-  | "All"
-  | "Distributed & Cloud"
-  | "Systems & Runtimes"
-  | "Assistive & Hardware"
-  | "Client & Web";
-
-const categories: FilterCategory[] = [
-  "All",
-  "Distributed & Cloud",
-  "Systems & Runtimes",
-  "Assistive & Hardware",
-  "Client & Web",
-];
 
 const ArchivePage: Component<ArchivePageProps> = (props) => {
   const [selectedCategory, setSelectedCategory] =
@@ -72,7 +62,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
           }}
         >
           <span>←</span>
-          <span>RETURN TO OVERVIEW</span>
+          <span>{archivePageContent.returnTopButton}</span>
         </button>
 
         <div
@@ -92,7 +82,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
               "border-radius": "50%",
             }}
           />
-          <span>HISTORICAL ARCHIVE // 2018 — 2026</span>
+          <span>{archivePageContent.headerTag}</span>
         </div>
       </header>
 
@@ -106,10 +96,10 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
 
         <div class="section-header-beam">
           <div class="section-header-title">
-            <span>PROJECT ARCHIVE & CHRONOLOGY</span>
+            <span>{archivePageContent.sectionTitle}</span>
           </div>
           <div class="section-telemetry-tag">
-            {filteredProjects().length} RECORDED SYSTEMS
+            {filteredProjects().length} {archivePageContent.systemsSuffix}
           </div>
         </div>
 
@@ -123,9 +113,9 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
               "line-height": "1",
             }}
           >
-            CHRONOLOGICAL
+            {archivePageContent.headline.first}
             <br />
-            PROJECT INDEX
+            {archivePageContent.headline.second}
           </h1>
           <p
             style={{
@@ -134,9 +124,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
               "line-height": "1.6",
             }}
           >
-            An exhaustive record of software architectures, embedded firmware,
-            systems engineering, and physical computing prototypes created
-            between 2018 and 2026.
+            {archivePageContent.intro}
           </p>
         </div>
 
@@ -166,11 +154,11 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
                 color: "var(--ink-primary)",
               }}
             >
-              FILTER QUERY:
+              {archivePageContent.filterQueryLabel}
             </span>
             <input
               type="text"
-              placeholder="Search by technology (Rust, TypeScript, AWS), year, or keyword..."
+              placeholder={archivePageContent.searchPlaceholder}
               value={searchQuery()}
               onInput={(e) => setSearchQuery(e.currentTarget.value)}
               style={{
@@ -191,7 +179,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
                 class="pill-button"
                 style={{ padding: "0.4rem 0.8rem", "font-size": "0.75rem" }}
               >
-                CLEAR
+                {archivePageContent.clearButton}
               </button>
             )}
           </div>
@@ -214,9 +202,9 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
                 "margin-right": "0.5rem",
               }}
             >
-              DISCIPLINE:
+              {archivePageContent.disciplineLabel}
             </span>
-            <For each={categories}>
+            <For each={archiveCategories}>
               {(cat) => {
                 const active = () => selectedCategory() === cat;
                 return (
@@ -270,7 +258,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
               "font-weight": "700",
             }}
           >
-            ← RETURN TO MAIN TERMINAL
+            {archivePageContent.returnBottomButton}
           </button>
         </div>
       </section>

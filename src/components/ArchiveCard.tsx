@@ -1,5 +1,8 @@
 import { For, type Component } from "solid-js";
-import type { ArchiveProject } from "../data/archiveContent";
+import {
+  type ArchiveProject,
+  archivePageContent,
+} from "../data/archiveContent";
 
 interface ArchiveCardProps {
   project: ArchiveProject;
@@ -166,7 +169,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
               "margin-bottom": "0.5rem",
             }}
           >
-            KEY HIGHLIGHTS:
+            {archivePageContent.cardLabels.highlightsTitle}
           </div>
           <ul
             style={{
@@ -201,7 +204,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
             color: "var(--ink-muted)",
           }}
         >
-          ARCHIVE RECORD
+          {archivePageContent.cardLabels.recordTag}
         </span>
 
         <div style={{ display: "flex", gap: "0.75rem" }}>
@@ -216,7 +219,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
                 "font-size": "0.75rem",
               }}
             >
-              GITHUB REPO ↗
+              {archivePageContent.cardLabels.githubButton}
             </a>
           )}
           {p().demoUrl && (
@@ -232,7 +235,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
                 color: "#fff",
               }}
             >
-              LIVE DEMO ↗
+              {archivePageContent.cardLabels.demoButton}
             </a>
           )}
         </div>

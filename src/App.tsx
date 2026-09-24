@@ -11,6 +11,7 @@ import Skills from "./components/Skills";
 import Portfolio from "./components/Portfolio";
 import ArchivePage from "./components/ArchivePage";
 import Contact from "./components/Contact";
+import { footerContent, navContent } from "./data/content";
 
 const App: Component = () => {
   const [currentRoute, setCurrentRoute] = createSignal<"home" | "archive">(
@@ -91,7 +92,7 @@ const App: Component = () => {
                 "margin-bottom": "0.5rem",
               }}
             >
-              VITHURAN SADAGOPAN &copy; {new Date().getFullYear()}
+              {navContent.brand.name} &copy; {new Date().getFullYear()}
             </div>
             <div
               style={{
@@ -100,7 +101,7 @@ const App: Component = () => {
                 "letter-spacing": "0.08em",
               }}
             >
-              DISTRIBUTED SYSTEMS & EXPERIMENTAL CLIENT ARCHITECTURES
+              {footerContent.tagline}
             </div>
           </div>
 
@@ -113,7 +114,7 @@ const App: Component = () => {
             }}
           >
             <div style={{ color: "var(--ink-primary)", "font-weight": "600" }}>
-              VANCOUVER, BRITISH COLUMBIA, CANADA
+              {footerContent.location}
             </div>
             <div
               style={{
@@ -122,7 +123,7 @@ const App: Component = () => {
                 "font-weight": "600",
               }}
             >
-              LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE TYPEFACE
+              {footerContent.edition}
             </div>
           </div>
         </div>

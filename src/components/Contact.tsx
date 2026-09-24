@@ -1,10 +1,11 @@
-import { createSignal, type Component } from "solid-js";
+import { createSignal, For, type Component } from "solid-js";
+import { contactContent, socialsContent } from "../data/content";
 
 const Contact: Component = () => {
   const [copied, setCopied] = createSignal(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("vithuran.sada@gmail.com");
+    navigator.clipboard.writeText(socialsContent.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -16,9 +17,9 @@ const Contact: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>CONTACT</span>
+          <span>{contactContent.sectionTitle}</span>
         </div>
-        <div class="section-telemetry-tag">DIRECT CHANNEL // VANCOUVER, BC</div>
+        <div class="section-telemetry-tag">{contactContent.sectorTag}</div>
       </div>
 
       <div
@@ -39,9 +40,9 @@ const Contact: Component = () => {
               "margin-bottom": "2rem",
             }}
           >
-            INITIATE
+            {contactContent.headline.first}
             <br />
-            TRANSMISSION
+            {contactContent.headline.second}
           </h2>
 
           <p
@@ -52,9 +53,7 @@ const Contact: Component = () => {
               "margin-bottom": "2.5rem",
             }}
           >
-            Open to senior engineering roles, distributed systems consulting,
-            and high-craft UI/UX collaborations. Based in Vancouver, BC (Pacific
-            Time).
+            {contactContent.description}
           </p>
 
           <div
@@ -71,44 +70,38 @@ const Contact: Component = () => {
               style={{ width: "100%", "justify-content": "space-between" }}
             >
               <span>
-                {copied() ? "COPIED TO CLIPBOARD!" : "vithuran.sada@gmail.com"}
+                {copied()
+                  ? contactContent.emailAction.copiedLabel
+                  : socialsContent.email}
               </span>
               <span
                 style={{ color: "var(--ink-primary)", "font-weight": "700" }}
               >
-                {copied() ? "✓" : "COPY"}
+                {copied() ? "✓" : contactContent.emailAction.copyLabel}
               </span>
             </button>
 
-            <a
-              href="https://linkedin.com/in/vithuran-sada"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="pill-button"
-              style={{ width: "100%", "justify-content": "space-between" }}
-            >
-              <span>LINKEDIN // PROFILE</span>
-              <span
-                style={{ color: "var(--ink-primary)", "font-weight": "700" }}
-              >
-                ↗
-              </span>
-            </a>
-
-            <a
-              href="https://github.com/vithop"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="pill-button"
-              style={{ width: "100%", "justify-content": "space-between" }}
-            >
-              <span>GITHUB // REPOSITORIES</span>
-              <span
-                style={{ color: "var(--ink-primary)", "font-weight": "700" }}
-              >
-                ↗
-              </span>
-            </a>
+            <For each={contactContent.channels}>
+              {(channel) => (
+                <a
+                  href={channel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pill-button"
+                  style={{ width: "100%", "justify-content": "space-between" }}
+                >
+                  <span>{channel.label}</span>
+                  <span
+                    style={{
+                      color: "var(--ink-primary)",
+                      "font-weight": "700",
+                    }}
+                  >
+                    ↗
+                  </span>
+                </a>
+              )}
+            </For>
           </div>
         </div>
 
@@ -139,7 +132,7 @@ const Contact: Component = () => {
                 "font-weight": "700",
               }}
             >
-              CONTACT PORTAL // SECTOR 04
+              {contactContent.portal.tag}
             </span>
             <span
               style={{
@@ -159,7 +152,7 @@ const Contact: Component = () => {
                 "margin-bottom": "1rem",
               }}
             >
-              AVAILABLE CHANNELS
+              {contactContent.portal.title}
             </h3>
             <p
               style={{
@@ -168,9 +161,7 @@ const Contact: Component = () => {
                 "line-height": "1.6",
               }}
             >
-              Reach out via email or LinkedIn for technical inquiries,
-              architecture design reviews, or distributed systems opportunities.
-              Responses typically within 24 hours.
+              {contactContent.portal.description}
             </p>
           </div>
 
@@ -187,12 +178,12 @@ const Contact: Component = () => {
               "justify-content": "space-between",
             }}
           >
-            <span>LOCATION: VANCOUVER, BC</span>
-            <span>STATUS: ACTIVE TRANSMISSION</span>
+            <span>{contactContent.portal.location}</span>
+            <span>{contactContent.portal.status}</span>
           </div>
 
           <a
-            href="mailto:vithuran.sada@gmail.com"
+            href={`mailto:${socialsContent.email}`}
             class="pill-button"
             style={{
               background: "var(--grid-border)",
@@ -209,7 +200,7 @@ const Contact: Component = () => {
               e.currentTarget.style.color = "#fff";
             }}
           >
-            SEND DIRECT MESSAGE ✉
+            {contactContent.portal.sendAction}
           </a>
         </div>
       </div>
