@@ -225,21 +225,23 @@ h4 {
   position: relative;
 }
 
-.erickson-lantern:hover,
-.erickson-lantern:focus-within {
-  background-color: var(--concrete-pylon-hover);
-  border-color: var(--lantern-amber);
-  box-shadow: var(--lantern-glow);
-  transform: translate(-4px, -4px);
-  z-index: 10;
-}
+@media (hover: hover) and (pointer: fine) {
+  .erickson-lantern:hover,
+  .erickson-lantern:focus-within {
+    background-color: var(--concrete-pylon-hover);
+    border-color: var(--lantern-amber);
+    box-shadow: var(--lantern-glow);
+    transform: translate(-4px, -4px);
+    z-index: 10;
+  }
 
-/* Sibling Occlusion: When hovering inside a cluster, unhovered siblings dim slightly */
-.interactive-cluster:hover .erickson-lantern:not(:hover) {
-  opacity: 0.88;
-  filter: brightness(0.97);
-  box-shadow: 2px 2px 0px var(--grid-border);
-  transform: translate(0, 0);
+  /* Sibling Occlusion: When hovering inside a cluster, unhovered siblings dim slightly */
+  .interactive-cluster:hover .erickson-lantern:not(:hover) {
+    opacity: 0.88;
+    filter: brightness(0.97);
+    box-shadow: 2px 2px 0px var(--grid-border);
+    transform: translate(0, 0);
+  }
 }
 
 /* Rounded Pill Button */
@@ -261,10 +263,33 @@ h4 {
   cursor: pointer;
 }
 
-.pill-button:hover {
-  background-color: var(--concrete-pylon-hover);
-  border-color: var(--lantern-amber);
-  box-shadow: var(--shadow-hard-md);
-  transform: translate(-3px, -3px);
-  color: var(--ink-primary);
+@media (hover: hover) and (pointer: fine) {
+  .pill-button:hover {
+    background-color: var(--concrete-pylon-hover);
+    box-shadow: var(--shadow-hard-md);
+    transform: translate(-3px, -3px);
+    color: var(--ink-primary);
+  }
+}
+
+/* Mobile Interaction States */
+@media (max-width: 768px) {
+  .pill-button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pill-button:active,
+  .erickson-lantern:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--grid-border);
+    transition: all 0.05s ease-out;
+  }
+  
+  .pill-button-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0 !important;
+  }
 }
