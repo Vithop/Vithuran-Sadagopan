@@ -80,7 +80,7 @@ const Skills: Component = () => {
       <div
         style={{
           display: "grid",
-          "grid-template-columns": "repeat(auto-fit, minmax(300px, 1fr))",
+          "grid-template-columns": "repeat(auto-fit, minmax(250px, 1fr))",
           gap: "2.25rem",
         }}
         class="interactive-cluster"
@@ -90,7 +90,7 @@ const Skills: Component = () => {
             <div
               class="erickson-lantern"
               style={{
-                padding: "2.25rem",
+                padding: "clamp(1.5rem, 5vw, 2.25rem)",
                 display: "flex",
                 "flex-direction": "column",
                 "justify-content": "space-between",

@@ -100,7 +100,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
       <div
         style={{
           display: "grid",
-          "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
+          "grid-template-columns": "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "2.5rem",
           "margin-bottom": "3.5rem",
         }}
@@ -111,7 +111,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
             <div
               class="erickson-lantern"
               style={{
-                padding: "2.25rem",
+                padding: "clamp(1.5rem, 5vw, 2.25rem)",
                 display: "flex",
                 "flex-direction": "column",
                 "justify-content": "space-between",
@@ -303,7 +303,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
       <div
         class="erickson-lantern"
         style={{
-          padding: "2.5rem 3rem",
+          padding: "clamp(1.5rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 3rem)",
           display: "flex",
           "justify-content": "space-between",
           "align-items": "center",
@@ -350,11 +350,11 @@ const Portfolio: Component<PortfolioProps> = (props) => {
             "font-size": "0.9rem",
             background: "var(--grid-border)",
             color: "#ffffff",
-            "white-space": "nowrap",
+            "white-space": "normal",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "var(--concrete-pylon-hover)";
-            e.currentTarget.style.color = "var(--ink-primary)";
+            e.currentTarget.style.background = "var(--ink-secondary)";
+            e.currentTarget.style.color = "#ffffff";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = "var(--grid-border)";

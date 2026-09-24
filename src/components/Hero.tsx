@@ -30,7 +30,7 @@ const Hero: Component<HeroProps> = (props) => {
       {/* Top Post-and-Beam Header Lintel */}
       <header
         style={{
-          padding: "1.25rem 2.5rem",
+          padding: "1.25rem clamp(1rem, 5vw, 2.5rem)",
           display: "flex",
           "justify-content": "space-between",
           "align-items": "center",
@@ -44,7 +44,7 @@ const Hero: Component<HeroProps> = (props) => {
         }}
       >
         <div
-          style={{ display: "flex", "align-items": "center", gap: "1.25rem" }}
+          style={{ display: "flex", "align-items": "center", gap: "1.25rem", "flex-wrap": "wrap" }}
         >
           <div
             style={{ display: "flex", "align-items": "center", gap: "0.5rem" }}
@@ -61,7 +61,6 @@ const Hero: Component<HeroProps> = (props) => {
               VITHURAN SADAGOPAN
             </span>
           </div>
-          <span style={{ color: "var(--ink-dim)" }}>|</span>
           <span style={{ color: "var(--ink-secondary)" }}>
             VANCOUVER, BC // 49°16'N 123°07'W
           </span>
@@ -171,7 +170,7 @@ const Hero: Component<HeroProps> = (props) => {
       </header>
 
       {/* Main About Me Section */}
-      <section style={{ padding: "5rem 3rem" }}>
+      <section>
         <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
         <div
           class="grid-crosshair"
@@ -188,7 +187,7 @@ const Hero: Component<HeroProps> = (props) => {
         <div
           style={{
             display: "grid",
-            "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
+            "grid-template-columns": "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "3rem",
             "align-items": "center",
           }}
@@ -198,11 +197,12 @@ const Hero: Component<HeroProps> = (props) => {
           <div>
             <h1
               style={{
-                "font-size": "clamp(3.5rem, 8.5vw, 7.5rem)",
+                "font-size": "clamp(2rem, 11vw, 7.5rem)",
                 "line-height": "0.95",
                 "letter-spacing": "0.01em",
                 color: "var(--ink-primary)",
                 "margin-bottom": "2rem",
+                "word-wrap": "break-word",
               }}
             >
               VITHURAN
@@ -224,7 +224,7 @@ const Hero: Component<HeroProps> = (props) => {
               acceleration, and tactile web interfaces.
             </p>
 
-            <div style={{ display: "flex", "flex-wrap": "wrap", gap: "1rem" }}>
+            <div class="pill-button-group" style={{ display: "flex", "flex-wrap": "wrap", gap: "1rem" }}>
               <a href="#contact" class="pill-button">
                 GET IN TOUCH ↗
               </a>
@@ -245,9 +245,8 @@ const Hero: Component<HeroProps> = (props) => {
                   color: "#ffffff",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background =
-                    "var(--concrete-pylon-hover)";
-                  e.currentTarget.style.color = "var(--ink-primary)";
+                  e.currentTarget.style.background = "var(--ink-secondary)";
+                  e.currentTarget.style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "var(--grid-border)";
@@ -302,7 +301,7 @@ const Hero: Component<HeroProps> = (props) => {
             <div
               style={{
                 display: "grid",
-                "grid-template-columns": "1fr 1fr",
+                "grid-template-columns": "repeat(auto-fit, minmax(180px, 1fr))",
                 gap: "1.5rem",
               }}
             >

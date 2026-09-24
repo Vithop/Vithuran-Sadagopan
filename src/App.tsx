@@ -65,7 +65,7 @@ const App: Component = () => {
       {/* Foundational Plinth Architectural Footer */}
       <footer
         style={{
-          padding: "3.5rem 3rem",
+          padding: "clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem)",
           "background-color": "var(--concrete-slab)",
           "border-top": "2px solid var(--grid-border)",
           "font-family": "var(--font-telemetry)",
