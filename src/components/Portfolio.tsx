@@ -12,11 +12,14 @@ const Portfolio: Component<PortfolioProps> = (props) => {
       <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
 
       <div class="section-header-beam">
-        <div class="section-header-title">
+        <h2
+          class="section-header-title"
+          style={{ "font-size": "inherit", margin: "0" }}
+        >
           <span>
             {projectsContent.sectionNumber} // {projectsContent.sectionTitle}
           </span>
-        </div>
+        </h2>
         <div class="section-telemetry-tag">{projectsContent.sectorTag}</div>
       </div>
 
@@ -177,7 +180,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                       display: "flex",
                       "flex-direction": "column",
                       gap: "0.35rem",
-                      color: "var(--ink-muted)",
+                      color: "var(--ink-secondary)",
                     }}
                   >
                     <For each={item.specs}>{(s) => <li>• {s}</li>}</For>
@@ -199,7 +202,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                   style={{
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.75rem",
-                    color: "var(--ink-muted)",
+                    color: "var(--ink-secondary)",
                   }}
                 >
                   {projectsContent.cardLabels.publicRepo}
@@ -209,6 +212,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   class="pill-button"
+                  aria-label={`View GitHub repository for ${item.title}`}
                   style={{
                     padding: "0.4rem 0.95rem",
                     "font-size": "0.75rem",
@@ -266,6 +270,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
         <button
           onClick={() => props.onOpenArchive?.()}
           class="pill-button"
+          aria-label="Open complete chronological project archive with over 15 projects"
           style={{
             padding: "0.85rem 2rem",
             "font-size": "0.9rem",

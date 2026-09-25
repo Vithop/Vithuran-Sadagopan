@@ -129,7 +129,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
           >
             <img
               src={imageSrc()}
-              alt={p().title}
+              alt={`Screenshot of ${p().title}`}
               style={{
                 width: "100%",
                 height: "180px",
@@ -201,7 +201,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
           style={{
             "font-family": "var(--font-telemetry)",
             "font-size": "0.75rem",
-            color: "var(--ink-muted)",
+            color: "var(--ink-secondary)",
           }}
         >
           {archivePageContent.cardLabels.recordTag}
@@ -214,6 +214,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
               target="_blank"
               rel="noopener noreferrer"
               class="pill-button"
+              aria-label={`View GitHub repository for ${p().title}`}
               style={{
                 padding: "0.4rem 0.9rem",
                 "font-size": "0.75rem",
@@ -228,6 +229,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
               target="_blank"
               rel="noopener noreferrer"
               class="pill-button"
+              aria-label={`View live demo for ${p().title}`}
               style={{
                 padding: "0.4rem 0.9rem",
                 "font-size": "0.75rem",

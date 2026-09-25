@@ -53,6 +53,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
         <button
           onClick={() => props.onBack()}
           class="pill-button"
+          aria-label="Return to main portfolio overview"
           style={{
             padding: "0.5rem 1.25rem",
             "font-size": "0.8rem",
@@ -95,9 +96,12 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
         />
 
         <div class="section-header-beam">
-          <div class="section-header-title">
+          <h2
+            class="section-header-title"
+            style={{ "font-size": "inherit", margin: "0" }}
+          >
             <span>{archivePageContent.sectionTitle}</span>
-          </div>
+          </h2>
           <div class="section-telemetry-tag">
             {filteredProjects().length} {archivePageContent.systemsSuffix}
           </div>
@@ -146,18 +150,22 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
           <div
             style={{ display: "flex", gap: "1rem", "align-items": "center" }}
           >
-            <span
+            <label
+              for="archive-search-input"
               style={{
                 "font-family": "var(--font-telemetry)",
                 "font-size": "0.8rem",
                 "font-weight": "700",
                 color: "var(--ink-primary)",
+                cursor: "pointer",
               }}
             >
               {archivePageContent.filterQueryLabel}
-            </span>
+            </label>
             <input
+              id="archive-search-input"
               type="text"
+              aria-label={archivePageContent.filterQueryLabel}
               placeholder={archivePageContent.searchPlaceholder}
               value={searchQuery()}
               onInput={(e) => setSearchQuery(e.currentTarget.value)}
@@ -170,13 +178,13 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
                 "border-radius": "9999px",
                 background: "var(--bg-concrete)",
                 color: "var(--ink-primary)",
-                outline: "none",
               }}
             />
             {searchQuery() && (
               <button
                 onClick={() => setSearchQuery("")}
                 class="pill-button"
+                aria-label="Clear search input"
                 style={{ padding: "0.4rem 0.8rem", "font-size": "0.75rem" }}
               >
                 {archivePageContent.clearButton}
@@ -186,6 +194,8 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
 
           {/* Category Chips */}
           <div
+            role="group"
+            aria-label="Filter archive projects by discipline"
             style={{
               display: "flex",
               "flex-wrap": "wrap",
@@ -194,6 +204,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
             }}
           >
             <span
+              id="discipline-filter-label"
               style={{
                 "font-family": "var(--font-telemetry)",
                 "font-size": "0.8rem",
@@ -210,6 +221,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
                 return (
                   <button
                     onClick={() => setSelectedCategory(cat)}
+                    aria-pressed={active()}
                     style={{
                       padding: "0.45rem 1rem",
                       "border-radius": "9999px",
@@ -252,6 +264,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
           <button
             onClick={() => props.onBack()}
             class="pill-button"
+            aria-label="Return to top of portfolio"
             style={{
               padding: "0.9rem 2.5rem",
               "font-size": "0.9rem",

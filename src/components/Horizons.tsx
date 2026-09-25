@@ -9,11 +9,14 @@ const Horizons: Component = () => {
 
       {/* Section Header Datum Beam */}
       <div class="section-header-beam">
-        <div class="section-header-title">
+        <h2
+          class="section-header-title"
+          style={{ "font-size": "inherit", margin: "0" }}
+        >
           <span>
             {horizonsContent.sectionNumber} // {horizonsContent.sectionTitle}
           </span>
-        </div>
+        </h2>
         <div class="section-telemetry-tag">{horizonsContent.sectorTag}</div>
       </div>
 
@@ -123,9 +126,10 @@ const Horizons: Component = () => {
                 <div
                   style={{
                     "font-family": "var(--font-telemetry)",
-                    "font-size": "0.72rem",
+                    "font-size": "0.75rem",
                     "letter-spacing": "0.08em",
-                    color: "var(--ink-muted)",
+                    "font-weight": "600",
+                    color: "var(--ink-secondary)",
                     "margin-bottom": "1.25rem",
                   }}
                 >
@@ -145,9 +149,9 @@ const Horizons: Component = () => {
                   <div
                     style={{
                       "font-family": "var(--font-telemetry)",
-                      "font-size": "0.68rem",
+                      "font-size": "0.7rem",
                       "letter-spacing": "0.1em",
-                      color: "var(--ink-muted)",
+                      color: "var(--ink-secondary)",
                       "font-weight": "700",
                       "margin-bottom": "0.35rem",
                     }}
@@ -234,7 +238,7 @@ const Horizons: Component = () => {
                         >
                           <span
                             style={{
-                              color: "var(--lantern-amber)",
+                              color: "var(--lantern-amber-ink)",
                               "font-weight": "700",
                             }}
                           >
@@ -324,7 +328,7 @@ const Horizons: Component = () => {
               "font-family": "var(--font-telemetry)",
               "font-size": "0.75rem",
               "letter-spacing": "0.1em",
-              color: "var(--ink-muted)",
+              color: "var(--ink-secondary)",
               "font-weight": "700",
               "margin-bottom": "0.5rem",
             }}
@@ -345,7 +349,11 @@ const Horizons: Component = () => {
           </div>
         </div>
 
-        <a href="#contact" class="pill-button">
+        <a
+          href="#contact"
+          class="pill-button"
+          aria-label="Discuss research collaborations via contact form"
+        >
           DISCUSS COLLABORATIONS ↗
         </a>
       </div>

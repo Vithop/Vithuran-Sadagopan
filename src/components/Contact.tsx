@@ -16,11 +16,14 @@ const Contact: Component = () => {
       <div class="grid-crosshair" style={{ top: "1.5rem", right: "1.5rem" }} />
 
       <div class="section-header-beam">
-        <div class="section-header-title">
+        <h2
+          class="section-header-title"
+          style={{ "font-size": "inherit", margin: "0" }}
+        >
           <span>
             {contactContent.sectionNumber} // {contactContent.sectionTitle}
           </span>
-        </div>
+        </h2>
         <div class="section-telemetry-tag">{contactContent.sectorTag}</div>
       </div>
 
@@ -35,9 +38,13 @@ const Contact: Component = () => {
       >
         {/* Left Column: Contact Philosophy & Details */}
         <div>
-          <h2
+          <div
             style={{
+              "font-family": "var(--font-monumental)",
               "font-size": "clamp(2.5rem, 5vw, 4.5rem)",
+              "text-transform": "uppercase",
+              "letter-spacing": "0.02em",
+              "line-height": "1.05",
               color: "var(--ink-primary)",
               "margin-bottom": "2rem",
             }}
@@ -45,7 +52,7 @@ const Contact: Component = () => {
             {contactContent.headline.first}
             <br />
             {contactContent.headline.second}
-          </h2>
+          </div>
 
           <p
             style={{
@@ -69,6 +76,7 @@ const Contact: Component = () => {
             <button
               onClick={copyEmail}
               class="pill-button"
+              aria-label="Copy email address to clipboard"
               style={{ width: "100%", "justify-content": "space-between" }}
             >
               <span>
@@ -82,6 +90,9 @@ const Contact: Component = () => {
                 {copied() ? "✓" : contactContent.emailAction.copyLabel}
               </span>
             </button>
+            <span class="sr-only" aria-live="polite">
+              {copied() ? "Email address copied to clipboard" : ""}
+            </span>
 
             <For each={contactContent.channels}>
               {(channel) => (
@@ -90,6 +101,7 @@ const Contact: Component = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   class="pill-button"
+                  aria-label={`Visit Vithuran on ${channel.label}`}
                   style={{ width: "100%", "justify-content": "space-between" }}
                 >
                   <span>{channel.label}</span>
@@ -175,7 +187,8 @@ const Contact: Component = () => {
               "border-radius": "16px",
               "font-family": "var(--font-telemetry)",
               "font-size": "0.8rem",
-              color: "var(--ink-muted)",
+              "font-weight": "600",
+              color: "var(--ink-secondary)",
               display: "flex",
               "justify-content": "space-between",
             }}
@@ -187,6 +200,7 @@ const Contact: Component = () => {
           <a
             href={`mailto:${socialsContent.email}`}
             class="pill-button"
+            aria-label="Send direct email to Vithuran Sadagopan"
             style={{
               background: "var(--grid-border)",
               color: "#fff",

@@ -24,12 +24,15 @@ const Experience: Component = () => {
       <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
 
       <div class="section-header-beam">
-        <div class="section-header-title">
+        <h2
+          class="section-header-title"
+          style={{ "font-size": "inherit", margin: "0" }}
+        >
           <span>
             {experienceContent.sectionNumber} //{" "}
             {experienceContent.sectionTitle}
           </span>
-        </div>
+        </h2>
         <div class="section-telemetry-tag">{experienceContent.sectorTag}</div>
       </div>
 
@@ -63,6 +66,15 @@ const Experience: Component = () => {
               >
                 {/* Top Meta Beam */}
                 <div
+                  role={isMobile() ? "button" : undefined}
+                  tabIndex={isMobile() ? 0 : undefined}
+                  aria-expanded={isMobile() ? isExpanded() : undefined}
+                  aria-controls={`exp-details-${index()}`}
+                  aria-label={
+                    isMobile()
+                      ? `${exp.role} at ${exp.company}, ${isExpanded() ? "expanded" : "collapsed"}. Click or press Enter to toggle.`
+                      : undefined
+                  }
                   style={{
                     display: "flex",
                     "justify-content": "space-between",
@@ -76,6 +88,12 @@ const Experience: Component = () => {
                   }}
                   onClick={() => {
                     if (isMobile()) {
+                      setExpandedIndex(isActive() ? null : index());
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (isMobile() && (e.key === "Enter" || e.key === " ")) {
+                      e.preventDefault();
                       setExpandedIndex(isActive() ? null : index());
                     }
                   }}
@@ -125,7 +143,7 @@ const Experience: Component = () => {
                         "font-size": "0.85rem",
                         "font-weight": "700",
                         color: isActive()
-                          ? "var(--lantern-amber)"
+                          ? "var(--lantern-amber-ink)"
                           : "var(--ink-primary)",
                         "letter-spacing": "0.05em",
                       }}
@@ -139,7 +157,7 @@ const Experience: Component = () => {
                           "font-size": "0.85rem",
                           "font-weight": "700",
                           color: isActive()
-                            ? "var(--lantern-amber)"
+                            ? "var(--lantern-amber-ink)"
                             : "var(--ink-primary)",
                         }}
                       >
@@ -152,6 +170,7 @@ const Experience: Component = () => {
                 <Show when={isExpanded()}>
                   {/* Content & Architectural Details */}
                   <div
+                    id={`exp-details-${index()}`}
                     style={{
                       display: "grid",
                       "grid-template-columns":

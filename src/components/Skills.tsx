@@ -8,11 +8,14 @@ const Skills: Component = () => {
       <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
 
       <div class="section-header-beam">
-        <div class="section-header-title">
+        <h2
+          class="section-header-title"
+          style={{ "font-size": "inherit", margin: "0" }}
+        >
           <span>
             {skillsContent.sectionNumber} // {skillsContent.sectionTitle}
           </span>
-        </div>
+        </h2>
         <div class="section-telemetry-tag">{skillsContent.sectorTag}</div>
       </div>
 
@@ -122,8 +125,9 @@ const Skills: Component = () => {
                       <span
                         style={{
                           "font-family": "var(--font-telemetry)",
-                          "font-size": "0.7rem",
-                          color: "var(--ink-muted)",
+                          "font-size": "0.75rem",
+                          "font-weight": "600",
+                          color: "var(--ink-secondary)",
                         }}
                       >
                         {s.level}
