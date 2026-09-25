@@ -76,7 +76,6 @@ const Contact: Component = () => {
             <button
               onClick={copyEmail}
               class="pill-button"
-              aria-label="Copy email address to clipboard"
               style={{ width: "100%", "justify-content": "space-between" }}
             >
               <span>
@@ -200,7 +199,6 @@ const Contact: Component = () => {
           <a
             href={`mailto:${socialsContent.email}`}
             class="pill-button"
-            aria-label="Send direct email to Vithuran Sadagopan"
             style={{
               background: "var(--grid-border)",
               color: "#fff",

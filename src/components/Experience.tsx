@@ -13,10 +13,11 @@ const Experience: Component = () => {
   const [isMobile, setIsMobile] = createSignal(false);
 
   onMount(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    onCleanup(() => window.removeEventListener("resize", checkMobile));
+    const mql = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    onCleanup(() => mql.removeEventListener("change", handler));
   });
 
   return (
@@ -70,11 +71,6 @@ const Experience: Component = () => {
                   tabIndex={isMobile() ? 0 : undefined}
                   aria-expanded={isMobile() ? isExpanded() : undefined}
                   aria-controls={`exp-details-${index()}`}
-                  aria-label={
-                    isMobile()
-                      ? `${exp.role} at ${exp.company}, ${isExpanded() ? "expanded" : "collapsed"}. Click or press Enter to toggle.`
-                      : undefined
-                  }
                   style={{
                     display: "flex",
                     "justify-content": "space-between",

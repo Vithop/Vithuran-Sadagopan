@@ -130,6 +130,10 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
             <img
               src={imageSrc()}
               alt={`Screenshot of ${p().title}`}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="180"
               style={{
                 width: "100%",
                 height: "180px",

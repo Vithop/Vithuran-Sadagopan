@@ -349,11 +349,7 @@ const Horizons: Component = () => {
           </div>
         </div>
 
-        <a
-          href="#contact"
-          class="pill-button"
-          aria-label="Discuss research collaborations via contact form"
-        >
+        <a href="#contact" class="pill-button">
           DISCUSS COLLABORATIONS ↗
         </a>
       </div>

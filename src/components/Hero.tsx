@@ -172,12 +172,9 @@ const Hero: Component<HeroProps> = (props) => {
         />
 
         <div class="section-header-beam">
-          <h2
-            class="section-header-title"
-            style={{ "font-size": "inherit", margin: "0" }}
-          >
+          <div class="section-header-title">
             <span>{heroContent.sectionTitle}</span>
-          </h2>
+          </div>
           <div class="section-telemetry-tag">{heroContent.sectorTag}</div>
         </div>
 
@@ -237,7 +234,7 @@ const Hero: Component<HeroProps> = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pill-button"
-                aria-label="Download Vithuran Sadagopan's Resume (PDF)"
+                aria-label="Download Resume / CV (PDF)"
                 style={{
                   background: "var(--grid-border)",
                   color: "#ffffff",

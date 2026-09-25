@@ -270,7 +270,6 @@ const Portfolio: Component<PortfolioProps> = (props) => {
         <button
           onClick={() => props.onOpenArchive?.()}
           class="pill-button"
-          aria-label="Open complete chronological project archive with over 15 projects"
           style={{
             padding: "0.85rem 2rem",
             "font-size": "0.9rem",
