@@ -40,35 +40,42 @@ const App: Component = () => {
 
   return (
     <div class="app-container">
-      <Show
-        when={currentRoute() === "archive"}
-        fallback={
-          <>
-            {/* 01 // ABOUT ME */}
-            <Hero onOpenArchive={() => navigateTo("#/archive")} />
+      <a href="#main-content" class="skip-link">
+        Skip to main content
+      </a>
 
-            {/* 02 // WORK EXPERIENCE */}
-            <Experience />
+      <main id="main-content" tabIndex={-1} style={{ outline: "none" }}>
+        <Show
+          when={currentRoute() === "archive"}
+          fallback={
+            <>
+              {/* 01 // ABOUT ME */}
+              <Hero onOpenArchive={() => navigateTo("#/archive")} />
 
-            {/* 03 // SKILLS & ARCHITECTURE */}
-            <Skills />
+              {/* 02 // WORK EXPERIENCE */}
+              <Experience />
 
-            {/* 04 // PORTFOLIO */}
-            <Portfolio onOpenArchive={() => navigateTo("#/archive")} />
+              {/* 03 // SKILLS & ARCHITECTURE */}
+              <Skills />
 
-            {/* 05 // RESEARCH HORIZONS & FUTURE GOALS */}
-            <Horizons />
+              {/* 04 // PORTFOLIO */}
+              <Portfolio onOpenArchive={() => navigateTo("#/archive")} />
 
-            {/* 06 // CONTACT ME */}
-            <Contact />
-          </>
-        }
-      >
-        <ArchivePage onBack={() => navigateTo("#/")} />
-      </Show>
+              {/* 05 // RESEARCH HORIZONS & FUTURE GOALS */}
+              <Horizons />
+
+              {/* 06 // CONTACT ME */}
+              <Contact />
+            </>
+          }
+        >
+          <ArchivePage onBack={() => navigateTo("#/")} />
+        </Show>
+      </main>
 
       {/* Foundational Plinth Architectural Footer */}
       <footer
+        role="contentinfo"
         style={{
           padding: "clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem)",
           "background-color": "var(--concrete-slab)",

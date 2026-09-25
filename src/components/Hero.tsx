@@ -74,12 +74,13 @@ const Hero: Component<HeroProps> = (props) => {
               {navContent.brand.name}
             </span>
           </div>
-          <span style={{ color: "var(--ink-secondary)" }}>
+          <span style={{ color: "var(--ink-secondary)", "font-weight": "600" }}>
             {navContent.brand.location}
           </span>
         </div>
 
         <nav
+          aria-label="Main Navigation"
           style={{
             display: "flex",
             gap: "1.5rem",
@@ -99,7 +100,7 @@ const Hero: Component<HeroProps> = (props) => {
                         item.id === "about"
                           ? "var(--ink-primary)"
                           : "var(--ink-secondary)",
-                      "font-weight": item.id === "about" ? "700" : "normal",
+                      "font-weight": item.id === "about" ? "700" : "600",
                       transition: "color 0.2s",
                     }}
                     onMouseEnter={(e) =>
@@ -120,6 +121,7 @@ const Hero: Component<HeroProps> = (props) => {
               >
                 <button
                   onClick={() => props.onOpenArchive?.()}
+                  aria-label="View chronological project archive"
                   style={{
                     background: "none",
                     border: "none",
@@ -127,6 +129,7 @@ const Hero: Component<HeroProps> = (props) => {
                     color: "var(--ink-secondary)",
                     "font-family": "var(--font-telemetry)",
                     "font-size": "0.85rem",
+                    "font-weight": "600",
                     "letter-spacing": "0.08em",
                     cursor: "pointer",
                     transition: "color 0.2s",
@@ -169,9 +172,12 @@ const Hero: Component<HeroProps> = (props) => {
         />
 
         <div class="section-header-beam">
-          <div class="section-header-title">
+          <h2
+            class="section-header-title"
+            style={{ "font-size": "inherit", margin: "0" }}
+          >
             <span>{heroContent.sectionTitle}</span>
-          </div>
+          </h2>
           <div class="section-telemetry-tag">{heroContent.sectorTag}</div>
         </div>
 
@@ -231,6 +237,7 @@ const Hero: Component<HeroProps> = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pill-button"
+                aria-label="Download Vithuran Sadagopan's Resume (PDF)"
                 style={{
                   background: "var(--grid-border)",
                   color: "#ffffff",
@@ -317,8 +324,9 @@ const Hero: Component<HeroProps> = (props) => {
                     <div
                       style={{
                         "font-family": "var(--font-telemetry)",
-                        "font-size": "0.75rem",
-                        color: "var(--ink-muted)",
+                        "font-size": "0.8rem",
+                        "font-weight": "500",
+                        color: "var(--ink-secondary)",
                         "margin-top": "0.25rem",
                       }}
                     >
