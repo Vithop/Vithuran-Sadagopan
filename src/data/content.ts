@@ -5,178 +5,19 @@
  * structural telemetry labels, and section configurations across the portfolio.
  */
 
-/* ==========================================================================
-   TypeScript Interfaces
-   ========================================================================== */
+import type {
+  ContactContent,
+  ExperienceContent,
+  FooterContent,
+  HeroContent,
+  NavContent,
+  ProjectsContent,
+  SiteContent,
+  SkillsContent,
+  SocialLinks,
+} from "./types";
 
-export interface SocialLinks {
-  email: string;
-  githubUrl: string;
-  linkedinUrl: string;
-  resumeUrl: string;
-}
-
-export interface NavItem {
-  id: string;
-  number?: string;
-  label: string;
-  href?: string;
-  isArchiveTrigger?: boolean;
-}
-
-export interface NavContent {
-  brand: {
-    name: string;
-    location: string;
-  };
-  timeZoneLabel: string;
-  timeZone: string;
-  items: NavItem[];
-}
-
-export interface TelemetryMetric {
-  value: string;
-  label: string;
-}
-
-export interface HeroContent {
-  sectionNumber: string;
-  sectionTitle: string;
-  sectorTag: string;
-  headline: {
-    first: string;
-    second: string;
-  };
-  bio: string;
-  actions: {
-    getInTouch: string;
-    viewExperience: string;
-    viewResume: string;
-  };
-  vitrine: {
-    header: string;
-    metrics: TelemetryMetric[];
-    discipline: string;
-    currentRole: string;
-  };
-}
-
-export interface ExperienceItem {
-  tier: string;
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  description: string;
-  achievements: string[];
-  tech: string[];
-}
-
-export interface ExperienceContent {
-  sectionNumber: string;
-  sectionTitle: string;
-  sectorTag: string;
-  milestonesTitle: string;
-  items: ExperienceItem[];
-}
-
-export interface SkillItem {
-  name: string;
-  level: string;
-}
-
-export interface SkillModule {
-  moduleCode: string;
-  title: string;
-  description: string;
-  skills: SkillItem[];
-}
-
-export interface SkillsContent {
-  sectionNumber: string;
-  sectionTitle: string;
-  sectorTag: string;
-  modules: SkillModule[];
-}
-
-export interface FeaturedProject {
-  code: string;
-  title: string;
-  stack: string[];
-  category: string;
-  description: string;
-  specs: string[];
-  githubUrl: string;
-  demoUrl?: string;
-  badge: string;
-}
-
-export interface ProjectsContent {
-  sectionNumber: string;
-  sectionTitle: string;
-  sectorTag: string;
-  cardLabels: {
-    specsTitle: string;
-    publicRepo: string;
-    viewRepo: string;
-  };
-  items: FeaturedProject[];
-  archiveBanner: {
-    tag: string;
-    headline: string;
-    description: string;
-    cta: string;
-  };
-}
-
-export interface ContactChannel {
-  platform: string;
-  label: string;
-  url: string;
-}
-
-export interface ContactPortalContent {
-  tag: string;
-  title: string;
-  description: string;
-  location: string;
-  status: string;
-  sendAction: string;
-}
-
-export interface ContactContent {
-  sectionNumber: string;
-  sectionTitle: string;
-  sectorTag: string;
-  headline: {
-    first: string;
-    second: string;
-  };
-  description: string;
-  emailAction: {
-    copyLabel: string;
-    copiedLabel: string;
-  };
-  channels: ContactChannel[];
-  portal: ContactPortalContent;
-}
-
-export interface FooterContent {
-  tagline: string;
-  location: string;
-  edition: string;
-}
-
-export interface SiteContent {
-  socials: SocialLinks;
-  nav: NavContent;
-  hero: HeroContent;
-  experience: ExperienceContent;
-  skills: SkillsContent;
-  projects: ProjectsContent;
-  contact: ContactContent;
-  footer: FooterContent;
-}
+export * from "./types";
 
 /* ==========================================================================
    Shared Socials & Contact Metadata
@@ -210,8 +51,9 @@ export const navContent: NavContent = {
     },
     { id: "skills", number: "03", label: "SKILLS", href: "#skills" },
     { id: "portfolio", number: "04", label: "PORTFOLIO", href: "#portfolio" },
+    { id: "horizons", number: "05", label: "HORIZONS", href: "#horizons" },
     { id: "archive", label: "ARCHIVE ↗", isArchiveTrigger: true },
-    { id: "contact", number: "05", label: "CONTACT", href: "#contact" },
+    { id: "contact", number: "06", label: "CONTACT", href: "#contact" },
   ],
 };
 
@@ -227,7 +69,7 @@ export const heroContent: HeroContent = {
     first: "VITHURAN",
     second: "SADAGOPAN",
   },
-  bio: "Software Development Engineer architecting high-availability distributed systems and deterministic frontend state machines at Amazon. Focused on low-latency microservices, developer acceleration, and tactile web interfaces.",
+  bio: "Software Development Engineer architecting high-availability distributed systems, deterministic frontend state machines, and autonomous developer tooling at Amazon. Focused on low-latency microservices, AI developer acceleration, and tactile web interfaces.",
   actions: {
     getInTouch: "GET IN TOUCH ↗",
     viewExperience: "VIEW WORK EXPERIENCE ↓",
@@ -251,11 +93,11 @@ export const heroContent: HeroContent = {
           "Engineers adopted new tooling, increasing speed of development by 1 month",
       },
       {
-        value: "1 Mo→1 Wk",
+        value: "3 Mo→ 2 Wk",
         label: "Payment Onboarding Cycle",
       },
     ],
-    discipline: "DISCIPLINE: DISTRIBUTED SYSTEMS",
+    discipline: "DISCIPLINE: DISTRIBUTED WEB SERVICES",
     currentRole: "AMAZON SDE II",
   },
 };
@@ -277,9 +119,11 @@ export const experienceContent: ExperienceContent = {
       period: "OCT 2023 – PRESENT",
       location: "VANCOUVER, BC",
       description:
-        "Architected an extensible plugin platform and declarative state machine engine for Amazon's multi-region payment interfaces, decoupling merchant onboarding from core releases.",
+        "Architected an extensible plugin platform, internal AI developer acceleration tooling, and declarative state machine engines for Amazon's multi-region payment interfaces, decoupling merchant onboarding from core releases.",
       achievements: [
-        "Built declarative state machine workflows cutting payment method onboarding from ~1 month to ~1 week.",
+        "Built declarative state machine workflows cutting payment method onboarding from ~1 month to ~2 weeks.",
+        "Engineered and scaled an internal 'Caveman' developer accelerator plugin (inspired by grug brain) for Claude and Kiro across Amazon, streamlining daily dev loops.",
+        "Authored and standardized agent steering documentation and structured knowledge bases across ~50 packages to maintain architectural invariants and code quality.",
         "Integrated federated GraphQL APIs and reduced SSR Lambda execution runtime by ~40% through Node 14 → 20 migration.",
         "Engineered mock harnesses and daily development loops supporting ~150 frontend and backend engineers.",
         "Maintained five-nines availability across high-concurrency peak retail shopping events.",
@@ -288,6 +132,9 @@ export const experienceContent: ExperienceContent = {
         "TypeScript",
         "GraphQL",
         "State Machines",
+        "Claude / Kiro",
+        "AI Developer Tooling",
+        "Agent Steering Docs",
         "Node.js 20",
         "AWS Lambda",
         "Distributed Systems",
@@ -403,6 +250,38 @@ export const skillsContent: SkillsContent = {
         { name: "Five-Nines SLA Engineering", level: "Zero-Downtime Releases" },
       ],
     },
+    {
+      moduleCode: "COFFER 05",
+      title: "AI INFRASTRUCTURE & AGENTIC WORKFLOWS",
+      description:
+        "Autonomous coding agents, Model Context Protocol (MCP) integrations, agent steering documentation, and deterministic guardrails.",
+      skills: [
+        {
+          name: "Model Context Protocol (MCP)",
+          level: "Custom Server Protocol & Synthesis",
+        },
+        {
+          name: "Claude & Kiro Ecosystem",
+          level: "Enterprise Dev Acceleration",
+        },
+        {
+          name: "Agent Steering & Knowledge Bases",
+          level: "Architecture Governance (~50 Packages)",
+        },
+        {
+          name: "Autonomous Agent Harnesses",
+          level: "Multi-Agent Orchestration & Dev Loops",
+        },
+        {
+          name: "Deterministic Guardrails",
+          level: "State Machine Invariants & Rollback",
+        },
+        {
+          name: "Synthetic Testing & Evals",
+          level: "Automated Verification Gates",
+        },
+      ],
+    },
   ],
 };
 
@@ -511,11 +390,11 @@ export const projectsContent: ProjectsContent = {
 };
 
 /* ==========================================================================
-   Contact / Sector 05 Content
+   Contact / Sector 06 Content
    ========================================================================== */
 
 export const contactContent: ContactContent = {
-  sectionNumber: "05",
+  sectionNumber: "06",
   sectionTitle: "CONTACT",
   sectorTag: "DIRECT CHANNEL // VANCOUVER, BC",
   headline: {
@@ -541,7 +420,7 @@ export const contactContent: ContactContent = {
     },
   ],
   portal: {
-    tag: "CONTACT PORTAL // SECTOR 05",
+    tag: "CONTACT PORTAL // SECTOR 06",
     title: "AVAILABLE CHANNELS",
     description:
       "Reach out via email or LinkedIn for technical inquiries, architecture design reviews, or distributed systems opportunities. Responses typically within 24 hours.",
