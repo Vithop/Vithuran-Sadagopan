@@ -247,7 +247,8 @@ export const heroContent: HeroContent = {
       },
       {
         value: "150+",
-        label: "Engineers Dev Loop Tooling",
+        label:
+          "Engineers adopted new tooling, increasing speed of development by 1 month",
       },
       {
         value: "1 Mo→1 Wk",
