@@ -9,6 +9,7 @@ import Hero from "./components/Hero";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Portfolio from "./components/Portfolio";
+import Horizons from "./components/Horizons";
 import ArchivePage from "./components/ArchivePage";
 import Contact from "./components/Contact";
 import { footerContent, navContent } from "./data/content";
@@ -55,7 +56,10 @@ const App: Component = () => {
             {/* 04 // PORTFOLIO */}
             <Portfolio onOpenArchive={() => navigateTo("#/archive")} />
 
-            {/* 05 // CONTACT ME */}
+            {/* 05 // RESEARCH HORIZONS & FUTURE GOALS */}
+            <Horizons />
+
+            {/* 06 // CONTACT ME */}
             <Contact />
           </>
         }

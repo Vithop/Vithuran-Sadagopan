@@ -17,7 +17,9 @@ const Contact: Component = () => {
 
       <div class="section-header-beam">
         <div class="section-header-title">
-          <span>{contactContent.sectionTitle}</span>
+          <span>
+            {contactContent.sectionNumber} // {contactContent.sectionTitle}
+          </span>
         </div>
         <div class="section-telemetry-tag">{contactContent.sectorTag}</div>
       </div>
