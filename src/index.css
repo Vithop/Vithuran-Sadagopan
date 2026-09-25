@@ -16,21 +16,22 @@
   --concrete-pylon-hover: #fffdf8;
   --concrete-slab: #e2ded5;
 
-  /* High-Contrast Architectural Inks */
+  /* High-Contrast Architectural Inks (WCAG AA & AAA Compliant) */
   --ink-primary: #1c1e1d;
-  --ink-secondary: #565954;
-  --ink-muted: #7c7f79;
-  --ink-dim: #a5a8a1;
+  --ink-secondary: #383b36;
+  --ink-muted: #4a4e49;
+  --ink-dim: #525651;
 
   /* Warm Sunbeam & Tungsten Lantern Accents */
   --lantern-amber: #d98236;
+  --lantern-amber-ink: #8a3e08;
   --lantern-rim: rgba(217, 130, 54, 0.45);
-  --reflecting-pool: #2a756e;
-  --pool-tint: rgba(42, 117, 110, 0.12);
+  --reflecting-pool: #175e57;
+  --pool-tint: rgba(23, 94, 87, 0.12);
 
   /* Architectural Grid & Sharp Shadow Depth */
   --grid-border: #1c1e1d;
-  --grid-hairline: rgba(28, 30, 29, 0.18);
+  --grid-hairline: rgba(28, 30, 29, 0.26);
   --shadow-hard-sm: 6px 6px 0px var(--grid-border);
   --shadow-hard-md: 12px 12px 0px var(--grid-border);
   --shadow-hard-lg: 16px 16px 0px var(--grid-border);
@@ -278,18 +279,82 @@ h4 {
     width: 100%;
     margin-bottom: 0.5rem;
   }
-  
+
   .pill-button:active,
   .erickson-lantern:active {
     transform: translate(2px, 2px);
     box-shadow: 0 0 0 var(--grid-border);
     transition: all 0.05s ease-out;
   }
-  
+
   .pill-button-group {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 0 !important;
+  }
+}
+
+/* Accessibility: Skip to Content */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  background: var(--grid-border);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-telemetry);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  z-index: 1000;
+  text-decoration: none;
+  border: 2px solid var(--concrete-pylon);
+  box-shadow: var(--shadow-hard-md);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  top: 1.5rem;
+  outline: 3px solid var(--lantern-amber);
+  outline-offset: 3px;
+}
+
+/* Accessible High-Contrast Focus Indicators */
+:focus-visible {
+  outline: 2px solid var(--grid-border);
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--grid-border);
+  outline-offset: 3px;
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
