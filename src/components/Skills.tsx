@@ -19,7 +19,8 @@ const Skills: Component = () => {
       <div
         style={{
           display: "grid",
-          "grid-template-columns": "repeat(auto-fit, minmax(250px, 1fr))",
+          "grid-template-columns":
+            "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",
           gap: "2.25rem",
         }}
         class="interactive-cluster"

@@ -39,7 +39,8 @@ const Horizons: Component = () => {
       <div
         style={{
           display: "grid",
-          "grid-template-columns": "repeat(auto-fit, minmax(320px, 1fr))",
+          "grid-template-columns":
+            "repeat(auto-fit, minmax(min(100%, 480px), 1fr))",
           gap: "2.5rem",
           "margin-bottom": "3.5rem",
         }}
