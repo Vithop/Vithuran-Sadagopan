@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
-import solid from "vite-plugin-solid";
+import { solidStart } from "@solidjs/start/config";
+import { nitro } from "nitro/vite";
 
 const rawBase = process.env.BASE_PATH;
 const base = rawBase
@@ -11,6 +12,14 @@ const base = rawBase
     : "/";
 
 export default defineConfig({
-  plugins: [solid()],
+  plugins: [
+    solidStart({ ssr: true }),
+    nitro({
+      prerender: {
+        routes: ["/"],
+        crawlLinks: true
+      }
+    })
+  ],
   base,
 });

@@ -1,0 +1,15 @@
+# Vithuran Sadagopan // Software Development Engineer
+
+> Software Development Engineer architecting high-availability distributed systems, deterministic frontend state machines, and autonomous developer tooling.
+
+## Summary
+- Name: Vithuran Sadagopan
+- Role: Software Development Engineer II (Amazon)
+- Locations: Vancouver, BC & Toronto, ON
+- Focus: Distributed Web Services, Low-Latency Microservices, Deterministic State Machines, Tactile Web Interfaces
+
+## Core Sections
+- Work Experience: Amazon (SDE II, SDE I), EllisDon (Full Stack Co-op)
+- Technical Skills: TypeScript, Rust, SolidJS, React, Node.js, AWS (Lambda, DynamoDB, ECS, CloudFront, S3), Distributed Systems
+- Project Portfolio: High-scale distributed tooling, tactile user interfaces, and generative AI developer acceleration
+- Contact: vithuran.sada@gmail.com

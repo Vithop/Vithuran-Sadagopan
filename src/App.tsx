@@ -1,146 +1,40 @@
-import {
-  createSignal,
-  onCleanup,
-  onMount,
-  Show,
-  type Component,
-} from "solid-js";
-import Hero from "./components/Hero";
-import Experience from "./components/Experience";
-import Skills from "./components/Skills";
-import Portfolio from "./components/Portfolio";
-import Horizons from "./components/Horizons";
-import ArchivePage from "./components/ArchivePage";
-import Contact from "./components/Contact";
-import { footerContent, navContent } from "./data/content";
+import { Router, Route } from "@solidjs/router";
+import { Suspense } from "solid-js";
+import { MetaProvider, Title, Meta, Link } from "@solidjs/meta";
+import "./index.css";
+import App from "./routes/index.tsx";
 
-const App: Component = () => {
-  const [currentRoute, setCurrentRoute] = createSignal<"home" | "archive">(
-    "home"
-  );
-
-  const navigateTo = (hash: string) => {
-    window.location.hash = hash;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  onMount(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === "#/archive") {
-        setCurrentRoute("archive");
-      } else {
-        setCurrentRoute("home");
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-    onCleanup(() => window.removeEventListener("hashchange", handleHashChange));
-  });
-
+export default function Root() {
   return (
-    <div class="app-container">
-      <a href="#main-content" class="skip-link">
-        Skip to main content
-      </a>
+    <Router
+      root={(props) => (
+        <MetaProvider>
+          <Title>Vithuran Sadagopan // Software Development Engineer</Title>
+          <Meta name="theme-color" content="#eae5dc" />
+          <Meta
+            name="description"
+            content="Vithuran Sadagopan — Software Development Engineer building highly available distributed systems and high-craft interfaces."
+          />
+          <Meta property="og:title" content="Vithuran Sadagopan // Software Development Engineer" />
+          <Meta property="og:description" content="Software Development Engineer building highly available distributed systems, deterministic state machines, and tactile interfaces." />
+          <Meta property="og:type" content="website" />
+          <Meta name="twitter:card" content="summary" />
+          <Meta name="twitter:title" content="Vithuran Sadagopan // Software Development Engineer" />
+          <Meta name="twitter:description" content="Software Development Engineer building highly available distributed systems and tactile interfaces." />
+          
+          <Link rel="preload" href="/fonts/Maqive-q2gn2.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+          <Link rel="preconnect" href="https://fonts.googleapis.com" />
+          <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+          <Link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          />
 
-      <main id="main-content" tabIndex={-1} style={{ outline: "none" }}>
-        <Show
-          when={currentRoute() === "archive"}
-          fallback={
-            <>
-              {/* 01 // ABOUT ME */}
-              <Hero onOpenArchive={() => navigateTo("#/archive")} />
-
-              {/* 02 // WORK EXPERIENCE */}
-              <Experience />
-
-              {/* 03 // SKILLS & ARCHITECTURE */}
-              <Skills />
-
-              {/* 04 // PORTFOLIO */}
-              <Portfolio onOpenArchive={() => navigateTo("#/archive")} />
-
-              {/* 05 // RESEARCH HORIZONS & FUTURE GOALS */}
-              <Horizons />
-
-              {/* 06 // CONTACT ME */}
-              <Contact />
-            </>
-          }
-        >
-          <ArchivePage onBack={() => navigateTo("#/")} />
-        </Show>
-      </main>
-
-      {/* Foundational Plinth Architectural Footer */}
-      <footer
-        role="contentinfo"
-        style={{
-          padding: "clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem)",
-          "background-color": "var(--concrete-slab)",
-          "border-top": "2px solid var(--grid-border)",
-          "font-family": "var(--font-telemetry)",
-          "font-size": "0.85rem",
-          color: "var(--ink-secondary)",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            "justify-content": "space-between",
-            "align-items": "flex-start",
-            "flex-wrap": "wrap",
-            gap: "2rem",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                color: "var(--ink-primary)",
-                "font-weight": "700",
-                "font-size": "1rem",
-                "margin-bottom": "0.5rem",
-              }}
-            >
-              {navContent.brand.name} &copy; {new Date().getFullYear()}
-            </div>
-            <div
-              style={{
-                color: "var(--ink-muted)",
-                "font-size": "0.75rem",
-                "letter-spacing": "0.08em",
-              }}
-            >
-              {footerContent.tagline}
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              "flex-direction": "column",
-              "align-items": "flex-end",
-              gap: "0.5rem",
-            }}
-          >
-            <div style={{ color: "var(--ink-primary)", "font-weight": "600" }}>
-              {footerContent.location}
-            </div>
-            <div
-              style={{
-                color: "var(--ink-muted)",
-                "font-size": "0.75rem",
-                "font-weight": "600",
-              }}
-            >
-              {footerContent.edition}
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+          <Suspense>{props.children}</Suspense>
+        </MetaProvider>
+      )}
+    >
+      <Route path="/" component={App} />
+    </Router>
   );
-};
-
-export default App;
+}

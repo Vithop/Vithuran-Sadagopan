@@ -37,7 +37,7 @@ export const socialsContent: SocialLinks = {
 export const navContent: NavContent = {
   brand: {
     name: "VITHURAN SADAGOPAN",
-    location: "VANCOUVER, BC // 49°16'N 123°07'W",
+    location: "VANCOUVER, BC ⇄ TORONTO, ON",
   },
   timeZoneLabel: "PACIFIC TIME",
   timeZone: "America/Vancouver",
