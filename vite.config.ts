@@ -16,7 +16,7 @@ export default defineConfig({
     solidStart({ ssr: true }),
     nitro({
       prerender: {
-        routes: ["/"],
+        routes: [base],
         crawlLinks: true
       }
     })
