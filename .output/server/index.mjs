@@ -15,6 +15,13 @@ var public_assets_data_default = {
 		"size": 247,
 		"path": "../public/email.svg"
 	},
+	"/icons.svg": {
+		"type": "image/svg+xml",
+		"etag": "\"13bf-M4VJ6uJb+q9LUqAEgRyRPIsZFaI\"",
+		"mtime": "2026-09-20T08:08:27.284Z",
+		"size": 5055,
+		"path": "../public/icons.svg"
+	},
 	"/github-logo.png": {
 		"type": "image/png",
 		"etag": "\"342-TUhUX/V5Ar3HtvJ++SfN5wbNtwY\"",
@@ -35,13 +42,6 @@ var public_assets_data_default = {
 		"mtime": "2026-09-25T08:13:55.163Z",
 		"size": 828,
 		"path": "../public/llms.txt"
-	},
-	"/icons.svg": {
-		"type": "image/svg+xml",
-		"etag": "\"13bf-M4VJ6uJb+q9LUqAEgRyRPIsZFaI\"",
-		"mtime": "2026-09-20T08:08:27.284Z",
-		"size": 5055,
-		"path": "../public/icons.svg"
 	},
 	"/phone.svg": {
 		"type": "image/svg+xml",
@@ -67,16 +67,9 @@ var public_assets_data_default = {
 	"/index.html": {
 		"type": "text/html; charset=utf-8",
 		"etag": "\"1771d-cvmiTA5ISiI2HDbWNwRkGnU0hpw\"",
-		"mtime": "2026-10-07T20:45:03.624Z",
+		"mtime": "2026-10-07T21:02:53.666Z",
 		"size": 96029,
 		"path": "../public/index.html"
-	},
-	"/Single-Axis-CNC.jpg": {
-		"type": "image/jpeg",
-		"etag": "\"291d2-MpnSw7aHX5pHA1PhqxIRc2TrFLc\"",
-		"mtime": "2026-09-20T08:08:27.154Z",
-		"size": 168402,
-		"path": "../public/Single-Axis-CNC.jpg"
 	},
 	"/Vithuran_Sadagopan_Resume.pdf": {
 		"type": "application/pdf",
@@ -85,10 +78,31 @@ var public_assets_data_default = {
 		"size": 54020,
 		"path": "../public/Vithuran_Sadagopan_Resume.pdf"
 	},
+	"/Single-Axis-CNC.jpg": {
+		"type": "image/jpeg",
+		"etag": "\"291d2-MpnSw7aHX5pHA1PhqxIRc2TrFLc\"",
+		"mtime": "2026-09-20T08:08:27.154Z",
+		"size": 168402,
+		"path": "../public/Single-Axis-CNC.jpg"
+	},
+	"/_build/assets/entry-client-CSx3sOGP.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"5571-rZQUttbKCgTaHK/xiSLJAYl69zk\"",
+		"mtime": "2026-10-07T21:02:51.692Z",
+		"size": 21873,
+		"path": "../public/_build/assets/entry-client-CSx3sOGP.js"
+	},
+	"/_build/assets/Contact-CUNcwxRq.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"158fc-b+SvbNalt/yVR8IozMf1ohaBYuc\"",
+		"mtime": "2026-10-07T21:02:51.693Z",
+		"size": 88316,
+		"path": "../public/_build/assets/Contact-CUNcwxRq.js"
+	},
 	"/.vite/manifest.json": {
 		"type": "application/json",
 		"etag": "\"29e-YqIJQMx/zIbBsxQiY42MfrROT/c\"",
-		"mtime": "2026-10-07T20:45:01.861Z",
+		"mtime": "2026-10-07T21:02:51.695Z",
 		"size": 670,
 		"path": "../public/.vite/manifest.json"
 	},
@@ -99,24 +113,10 @@ var public_assets_data_default = {
 		"size": 146,
 		"path": "../public/fonts/info.txt"
 	},
-	"/_build/assets/Contact-CUNcwxRq.js": {
-		"type": "text/javascript; charset=utf-8",
-		"etag": "\"158fc-b+SvbNalt/yVR8IozMf1ohaBYuc\"",
-		"mtime": "2026-10-07T20:45:01.861Z",
-		"size": 88316,
-		"path": "../public/_build/assets/Contact-CUNcwxRq.js"
-	},
-	"/_build/assets/entry-client-CSx3sOGP.js": {
-		"type": "text/javascript; charset=utf-8",
-		"etag": "\"5571-rZQUttbKCgTaHK/xiSLJAYl69zk\"",
-		"mtime": "2026-10-07T20:45:01.859Z",
-		"size": 21873,
-		"path": "../public/_build/assets/entry-client-CSx3sOGP.js"
-	},
 	"/_build/assets/index-BADjBvI4.js": {
 		"type": "text/javascript; charset=utf-8",
 		"etag": "\"7c2-nzlAGWdtQRhIdmMYewor4FW6oGE\"",
-		"mtime": "2026-10-07T20:45:01.859Z",
+		"mtime": "2026-10-07T21:02:51.692Z",
 		"size": 1986,
 		"path": "../public/_build/assets/index-BADjBvI4.js"
 	},
@@ -130,7 +130,7 @@ var public_assets_data_default = {
 	"/_build/assets/entry-client-DsQFOrPr.css": {
 		"type": "text/css; charset=utf-8",
 		"etag": "\"5875-VypAYFvwjQ5dad6lFarsLcKG2jE\"",
-		"mtime": "2026-10-07T20:45:01.861Z",
+		"mtime": "2026-10-07T21:02:51.694Z",
 		"size": 22645,
 		"path": "../public/_build/assets/entry-client-DsQFOrPr.css"
 	},
