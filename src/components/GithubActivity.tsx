@@ -1,7 +1,16 @@
 import { createResource, For } from "solid-js";
 import type { Component } from "solid-js";
 
-const fetchRepos = async () => {
+interface GithubRepo {
+  name: string;
+  html_url: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+  visibility?: string;
+}
+
+const fetchRepos = async (): Promise<GithubRepo[]> => {
   const res = await fetch(
     "https://api.github.com/users/vithop/repos?sort=updated&per_page=4"
   );
@@ -60,7 +69,7 @@ const GithubActivity: Component = () => {
 
         {repos() && (
           <For each={repos()}>
-            {(repo: any) => (
+            {(repo) => (
               <a
                 href={repo.html_url}
                 target="_blank"
