@@ -155,14 +155,3 @@ export interface FooterContent {
   location: string;
   edition: string;
 }
-
-export interface SiteContent {
-  socials: SocialLinks;
-  nav: NavContent;
-  hero: HeroContent;
-  experience: ExperienceContent;
-  skills: SkillsContent;
-  projects: ProjectsContent;
-  contact: ContactContent;
-  footer: FooterContent;
-}

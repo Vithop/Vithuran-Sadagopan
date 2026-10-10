@@ -12,7 +12,6 @@ import type {
   HeroContent,
   NavContent,
   ProjectsContent,
-  SiteContent,
   SkillsContent,
   SocialLinks,
 } from "./types";
@@ -439,20 +438,3 @@ export const footerContent: FooterContent = {
   location: "VANCOUVER, BRITISH COLUMBIA, CANADA",
   edition: "LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE TYPEFACE",
 };
-
-/* ==========================================================================
-   Unified Content Manifest
-   ========================================================================== */
-
-export const siteContent: SiteContent = {
-  socials: socialsContent,
-  nav: navContent,
-  hero: heroContent,
-  experience: experienceContent,
-  skills: skillsContent,
-  projects: projectsContent,
-  contact: contactContent,
-  footer: footerContent,
-};
-
-export default siteContent;
