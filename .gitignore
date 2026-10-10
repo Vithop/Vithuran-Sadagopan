@@ -13,6 +13,8 @@ dist-ssr
 .output
 *.local
 .playwright-mcp
+*.timestamp_*.js
+app.config.timestamp_*
 
 # Editor directories and files
 .vscode/*
