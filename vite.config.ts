@@ -17,9 +17,9 @@ export default defineConfig({
     nitro({
       prerender: {
         routes: [base],
-        crawlLinks: true
-      }
-    })
+        crawlLinks: true,
+      },
+    }),
   ],
   base,
 });

@@ -27,42 +27,9 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
     >
       <div>
         {/* Top Meta Bar */}
-        <div
-          style={{
-            display: "flex",
-            "justify-content": "space-between",
-            "align-items": "center",
-            "margin-bottom": "1.25rem",
-            "border-bottom": "2px solid var(--grid-hairline)",
-            "padding-bottom": "0.75rem",
-          }}
-        >
-          <span
-            style={{
-              "font-family": "var(--font-telemetry)",
-              "font-size": "0.75rem",
-              color: "var(--ink-primary)",
-              "font-weight": "700",
-              background: "var(--concrete-slab)",
-              padding: "0.2rem 0.65rem",
-              "border-radius": "9999px",
-              border: "1px solid var(--grid-hairline)",
-            }}
-          >
-            {p().year}
-          </span>
-          <span
-            style={{
-              "font-family": "var(--font-telemetry)",
-              "font-size": "0.7rem",
-              color: "var(--ink-secondary)",
-              background: "var(--concrete-slab)",
-              padding: "0.25rem 0.6rem",
-              "border-radius": "9999px",
-            }}
-          >
-            {p().category}
-          </span>
+        <div class="card-meta-bar">
+          <span class="telemetry-badge">{p().year}</span>
+          <span class="telemetry-category">{p().category}</span>
         </div>
 
         <h3
@@ -134,38 +101,13 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
               decoding="async"
               width="400"
               height="180"
-              style={{
-                width: "100%",
-                height: "180px",
-                "object-fit": "cover",
-                display: "block",
-                filter: "grayscale(40%)",
-                transition: "filter 0.3s ease, transform 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.filter = "grayscale(0%)";
-                e.currentTarget.style.transform = "scale(1.02)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.filter = "grayscale(40%)";
-                e.currentTarget.style.transform = "scale(1)";
-              }}
+              class="archive-card-image"
             />
           </div>
         )}
 
         {/* Highlights Bullet Box */}
-        <div
-          style={{
-            background: "var(--bg-concrete)",
-            padding: "1rem 1.25rem",
-            "border-radius": "16px",
-            border: "1px solid var(--grid-hairline)",
-            "font-family": "var(--font-telemetry)",
-            "font-size": "0.75rem",
-            "margin-bottom": "1rem",
-          }}
-        >
+        <div class="spec-box" style={{ "margin-bottom": "1rem" }}>
           <div
             style={{
               color: "var(--ink-primary)",
@@ -232,13 +174,11 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
               href={p().demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="pill-button"
+              class="pill-button pill-button-primary"
               aria-label={`View live demo for ${p().title}`}
               style={{
                 padding: "0.4rem 0.9rem",
                 "font-size": "0.75rem",
-                background: "var(--grid-border)",
-                color: "#fff",
               }}
             >
               {archivePageContent.cardLabels.demoButton}

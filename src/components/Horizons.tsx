@@ -65,16 +65,8 @@ const Horizons: Component = () => {
               <div>
                 {/* Pillar Meta Header */}
                 <div
-                  style={{
-                    display: "flex",
-                    "justify-content": "space-between",
-                    "align-items": "center",
-                    "margin-bottom": "1.25rem",
-                    "border-bottom": "2px solid var(--grid-hairline)",
-                    "padding-bottom": "0.75rem",
-                    "flex-wrap": "wrap",
-                    gap: "0.5rem",
-                  }}
+                  class="card-meta-bar"
+                  style={{ "flex-wrap": "wrap", gap: "0.5rem" }}
                 >
                   <div
                     style={{
@@ -83,29 +75,14 @@ const Horizons: Component = () => {
                       gap: "0.75rem",
                     }}
                   >
-                    <span
-                      style={{
-                        "font-family": "var(--font-telemetry)",
-                        "font-size": "0.78rem",
-                        color: "var(--ink-primary)",
-                        "font-weight": "700",
-                      }}
-                    >
-                      {pillar.code}
-                    </span>
+                    <span class="telemetry-badge">{pillar.code}</span>
                   </div>
 
                   <span
+                    class="telemetry-category"
                     style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.68rem",
-                      "letter-spacing": "0.08em",
                       "font-weight": "700",
-                      padding: "0.25rem 0.65rem",
-                      "border-radius": "9999px",
                       border: "1px solid var(--grid-border)",
-                      background: "var(--concrete-slab)",
-                      color: "var(--ink-primary)",
                     }}
                   >
                     {pillar.statusBadge}

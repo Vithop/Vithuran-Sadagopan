@@ -95,23 +95,7 @@ const Hero: Component<HeroProps> = (props) => {
                 fallback={
                   <a
                     href={item.href}
-                    style={{
-                      color:
-                        item.id === "about"
-                          ? "var(--ink-primary)"
-                          : "var(--ink-secondary)",
-                      "font-weight": item.id === "about" ? "700" : "600",
-                      transition: "color 0.2s",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--ink-primary)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color =
-                        item.id === "about"
-                          ? "var(--ink-primary)"
-                          : "var(--ink-secondary)")
-                    }
+                    class={`nav-link ${item.id === "about" ? "active" : ""}`}
                   >
                     {item.number
                       ? `${item.number} // ${item.label}`
@@ -122,24 +106,7 @@ const Hero: Component<HeroProps> = (props) => {
                 <button
                   onClick={() => props.onOpenArchive?.()}
                   aria-label="View chronological project archive"
-                  style={{
-                    background: "none",
-                    border: "none",
-                    padding: "0",
-                    color: "var(--ink-secondary)",
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.85rem",
-                    "font-weight": "600",
-                    "letter-spacing": "0.08em",
-                    cursor: "pointer",
-                    transition: "color 0.2s",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--ink-primary)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--ink-secondary)")
-                  }
+                  class="nav-link"
                 >
                   {item.label}
                 </button>
@@ -233,20 +200,8 @@ const Hero: Component<HeroProps> = (props) => {
                 download="Vithuran_Sadagopan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="pill-button"
+                class="pill-button pill-button-primary"
                 aria-label="Download Resume / CV (PDF)"
-                style={{
-                  background: "var(--grid-border)",
-                  color: "#ffffff",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--ink-secondary)";
-                  e.currentTarget.style.color = "#ffffff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "var(--grid-border)";
-                  e.currentTarget.style.color = "#ffffff";
-                }}
               >
                 {heroContent.actions.viewResume}
               </a>

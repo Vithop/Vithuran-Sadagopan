@@ -47,16 +47,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
             >
               <div>
                 {/* Card Meta Bar */}
-                <div
-                  style={{
-                    display: "flex",
-                    "justify-content": "space-between",
-                    "align-items": "center",
-                    "margin-bottom": "1.25rem",
-                    "border-bottom": "2px solid var(--grid-hairline)",
-                    "padding-bottom": "0.75rem",
-                  }}
-                >
+                <div class="card-meta-bar">
                   <div
                     style={{
                       display: "flex",
@@ -64,16 +55,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                       gap: "0.5rem",
                     }}
                   >
-                    <span
-                      style={{
-                        "font-family": "var(--font-telemetry)",
-                        "font-size": "0.75rem",
-                        color: "var(--ink-primary)",
-                        "font-weight": "700",
-                      }}
-                    >
-                      {item.code}
-                    </span>
+                    <span class="telemetry-badge">{item.code}</span>
                     <span
                       style={{
                         "font-family": "var(--font-telemetry)",
@@ -89,18 +71,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                     </span>
                   </div>
 
-                  <span
-                    style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.7rem",
-                      color: "var(--ink-secondary)",
-                      background: "var(--concrete-slab)",
-                      padding: "0.25rem 0.6rem",
-                      "border-radius": "9999px",
-                    }}
-                  >
-                    {item.category}
-                  </span>
+                  <span class="telemetry-category">{item.category}</span>
                 </div>
 
                 <h3
@@ -155,16 +126,7 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                 </p>
 
                 {/* Technical Specifications List */}
-                <div
-                  style={{
-                    background: "var(--bg-concrete)",
-                    padding: "1rem 1.25rem",
-                    "border-radius": "16px",
-                    border: "1px solid var(--grid-hairline)",
-                    "font-family": "var(--font-telemetry)",
-                    "font-size": "0.75rem",
-                  }}
-                >
+                <div class="spec-box">
                   <div
                     style={{
                       color: "var(--ink-primary)",
@@ -269,21 +231,11 @@ const Portfolio: Component<PortfolioProps> = (props) => {
 
         <button
           onClick={() => props.onOpenArchive?.()}
-          class="pill-button"
+          class="pill-button pill-button-primary"
           style={{
             padding: "0.85rem 2rem",
             "font-size": "0.9rem",
-            background: "var(--grid-border)",
-            color: "#ffffff",
             "white-space": "normal",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "var(--ink-secondary)";
-            e.currentTarget.style.color = "#ffffff";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "var(--grid-border)";
-            e.currentTarget.style.color = "#ffffff";
           }}
         >
           {projectsContent.archiveBanner.cta}

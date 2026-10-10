@@ -41,26 +41,8 @@ const Skills: Component = () => {
               }}
             >
               <div>
-                <div
-                  style={{
-                    display: "flex",
-                    "justify-content": "space-between",
-                    "align-items": "center",
-                    "margin-bottom": "1.25rem",
-                    "border-bottom": "2px solid var(--grid-hairline)",
-                    "padding-bottom": "0.75rem",
-                  }}
-                >
-                  <span
-                    style={{
-                      "font-family": "var(--font-telemetry)",
-                      "font-size": "0.75rem",
-                      color: "var(--ink-primary)",
-                      "font-weight": "700",
-                    }}
-                  >
-                    {module.moduleCode}
-                  </span>
+                <div class="card-meta-bar">
+                  <span class="telemetry-badge">{module.moduleCode}</span>
                   <span
                     style={{
                       width: "8px",

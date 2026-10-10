@@ -74,26 +74,8 @@ const App: Component = () => {
       </main>
 
       {/* Foundational Plinth Architectural Footer */}
-      <footer
-        role="contentinfo"
-        style={{
-          padding: "clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem)",
-          "background-color": "var(--concrete-slab)",
-          "border-top": "2px solid var(--grid-border)",
-          "font-family": "var(--font-telemetry)",
-          "font-size": "0.85rem",
-          color: "var(--ink-secondary)",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            "justify-content": "space-between",
-            "align-items": "flex-start",
-            "flex-wrap": "wrap",
-            gap: "2rem",
-          }}
-        >
+      <footer role="contentinfo" class="site-footer">
+        <div class="site-footer-inner">
           <div>
             <div
               style={{

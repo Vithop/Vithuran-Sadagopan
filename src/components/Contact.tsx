@@ -198,20 +198,9 @@ const Contact: Component = () => {
 
           <a
             href={`mailto:${socialsContent.email}`}
-            class="pill-button"
+            class="pill-button pill-button-accent"
             style={{
-              background: "var(--grid-border)",
-              color: "#fff",
-              "border-color": "var(--grid-border)",
               "font-size": "0.95rem",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "var(--concrete-pylon-hover)";
-              e.currentTarget.style.color = "var(--ink-primary)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "var(--grid-border)";
-              e.currentTarget.style.color = "#fff";
             }}
           >
             {contactContent.portal.sendAction}
