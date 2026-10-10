@@ -262,7 +262,7 @@ export const archiveProjects: ArchiveProject[] = [
       "Low-power sleep state cycles maximizing remote battery life",
       "AWS IoT Core MQTT broker publishing sub-second environmental telemetry",
     ],
-    img: "GardenGnomePrototype1.jpg",
+    img: "GardenGnomePrototype1.webp",
     githubUrl: "https://github.com/Vithop/gnome-app-api",
   },
   {
@@ -277,7 +277,7 @@ export const archiveProjects: ArchiveProject[] = [
       "Parametric 3D-printed chassis with vibration-dampened linear rails",
       "Embedded real-time limit switches preventing sudden assistive arm overtravel",
     ],
-    img: "Single-Axis-CNC-prototype.gif",
+    img: "Single-Axis-CNC-prototype.webp",
   },
   {
     id: "mac-image-decompressor",
@@ -305,7 +305,7 @@ export const archiveProjects: ArchiveProject[] = [
       "8-channel medical-grade electromyography signal processing",
       "Real-time gesture recognition mapped to an 8x8x8 volumetric LED matrix",
     ],
-    img: "Wearable-BioSensor.gif",
+    img: "Wearable-BioSensor.webp",
     githubUrl: "https://github.com/Vithop/RGB_Cube",
   },
 ];
