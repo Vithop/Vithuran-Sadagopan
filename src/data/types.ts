@@ -61,12 +61,23 @@ export interface ExperienceItem {
   tech: string[];
 }
 
+export interface EducationCredential {
+  tier: string;
+  degree: string;
+  institution: string;
+  period: string;
+  location: string;
+  honorsOrFocus: string;
+  certifications: string[];
+}
+
 export interface ExperienceContent {
   sectionNumber: string;
   sectionTitle: string;
   sectorTag: string;
   milestonesTitle: string;
   items: ExperienceItem[];
+  education: EducationCredential;
 }
 
 export interface SkillItem {

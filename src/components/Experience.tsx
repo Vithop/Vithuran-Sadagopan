@@ -57,7 +57,9 @@ const Experience: Component = () => {
                 class="erickson-lantern"
                 style={{
                   padding: "clamp(1.5rem, 5vw, 2.75rem)",
-                  "margin-left": isMobile() ? "0" : `${index() * 2.5}rem`,
+                  "margin-left": isMobile()
+                    ? "0"
+                    : `clamp(0rem, ${index() * 1.8}vw, ${index() * 2.5}rem)`,
                   "border-radius": "32px",
                   "border-left": "8px solid var(--grid-border)",
                   "border-color": isActive()
@@ -283,6 +285,150 @@ const Experience: Component = () => {
             );
           }}
         </For>
+
+        {/* Academic Foundation & Certifications Plinth */}
+        <div
+          class="erickson-lantern"
+          style={{
+            padding: "clamp(1.5rem, 5vw, 2.5rem)",
+            "border-radius": "32px",
+            "border-left": "8px solid var(--reflecting-pool)",
+            background: "var(--concrete-pylon)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              "justify-content": "space-between",
+              "align-items": "center",
+              "flex-wrap": "wrap",
+              gap: "1rem",
+              "border-bottom": "2px solid var(--grid-hairline)",
+              "padding-bottom": "1.1rem",
+              "margin-bottom": "1.5rem",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                "align-items": "center",
+                gap: "1rem",
+                "flex-wrap": "wrap",
+              }}
+            >
+              <span
+                style={{
+                  "font-family": "var(--font-telemetry)",
+                  "font-size": "0.75rem",
+                  "font-weight": "700",
+                  color: "var(--ink-primary)",
+                  background: "var(--concrete-slab)",
+                  padding: "0.35rem 0.85rem",
+                  "border-radius": "9999px",
+                  border: "1px solid var(--grid-border)",
+                }}
+              >
+                {experienceContent.education.tier}
+              </span>
+              <span
+                style={{
+                  "font-family": "var(--font-telemetry)",
+                  "font-size": "0.8rem",
+                  color: "var(--ink-secondary)",
+                }}
+              >
+                {experienceContent.education.location}
+              </span>
+            </div>
+
+            <div
+              style={{
+                "font-family": "var(--font-telemetry)",
+                "font-size": "0.85rem",
+                "font-weight": "700",
+                color: "var(--ink-primary)",
+                "letter-spacing": "0.05em",
+              }}
+            >
+              {experienceContent.education.institution} //{" "}
+              {experienceContent.education.period}
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              "grid-template-columns": "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "2rem",
+              "align-items": "center",
+            }}
+          >
+            <div>
+              <h3
+                style={{
+                  "font-size": "clamp(1.35rem, 4vw, 1.75rem)",
+                  color: "var(--ink-primary)",
+                  "margin-bottom": "0.75rem",
+                }}
+              >
+                {experienceContent.education.degree}
+              </h3>
+              <p
+                style={{
+                  "font-size": "1rem",
+                  color: "var(--ink-secondary)",
+                  "line-height": "1.6",
+                }}
+              >
+                {experienceContent.education.honorsOrFocus}
+              </p>
+            </div>
+
+            <div class="spec-box">
+              <div
+                style={{
+                  color: "var(--ink-primary)",
+                  "font-weight": "700",
+                  "margin-bottom": "0.6rem",
+                  "letter-spacing": "0.08em",
+                }}
+              >
+                CERTIFICATIONS &amp; TRAINING:
+              </div>
+              <ul
+                style={{
+                  "list-style": "none",
+                  display: "flex",
+                  "flex-direction": "column",
+                  gap: "0.45rem",
+                  color: "var(--ink-secondary)",
+                }}
+              >
+                <For each={experienceContent.education.certifications}>
+                  {(cert) => (
+                    <li
+                      style={{
+                        display: "flex",
+                        gap: "0.65rem",
+                        "align-items": "flex-start",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "var(--reflecting-pool)",
+                          "font-weight": "700",
+                        }}
+                      >
+                        ▪
+                      </span>
+                      <span>{cert}</span>
+                    </li>
+                  )}
+                </For>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
