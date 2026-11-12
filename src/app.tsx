@@ -36,7 +36,7 @@ export default function Root() {
 
           <Link
             rel="preload"
-            href="/fonts/Maqive-q2gn2.ttf"
+            href={`${import.meta.env.BASE_URL}fonts/Maqive-q2gn2.ttf`}
             as="font"
             type="font/ttf"
             crossorigin="anonymous"
@@ -57,6 +57,7 @@ export default function Root() {
       )}
     >
       <Route path="/" component={App} />
+      <Route path="*404" component={App} />
     </Router>
   );
 }

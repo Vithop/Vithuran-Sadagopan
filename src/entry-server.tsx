@@ -7,7 +7,11 @@ export default createHandler(() => (
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9" />
+          <link
+            rel="icon"
+            type="image/svg+xml"
+            href={`${import.meta.env.BASE_URL}favicon.svg?v=9`}
+          />
           {assets}
         </head>
         <body>
