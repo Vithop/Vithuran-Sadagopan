@@ -5,7 +5,7 @@
 ## Profile Telemetry
 - **Name**: Vithuran Sadagopan
 - **Current Role**: Software Development Engineer II — Amazon (Global Payments Experience Platform)
-- **Locations**: Vancouver, BC & Toronto, ON (Pacific Time / `America/Vancouver`)
+- **Locations**: Toronto, ON & Vancouver, BC (EST / `America/Toronto`)
 - **Education**: B.Eng., Computer Engineering (Co-op) — McMaster University, Hamilton, ON (2017 – 2021)
 - **Email**: vithuran.sada@gmail.com
 - **GitHub**: https://github.com/vithop

@@ -19,8 +19,8 @@ const structuredDataJson = JSON.stringify({
     email: "mailto:vithuran.sada@gmail.com",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Vancouver",
-      addressRegion: "BC",
+      addressLocality: "Toronto",
+      addressRegion: "ON",
       addressCountry: "CA",
     },
     sameAs: [

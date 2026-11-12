@@ -36,10 +36,10 @@ export const socialsContent: SocialLinks = {
 export const navContent: NavContent = {
   brand: {
     name: "VITHURAN SADAGOPAN",
-    location: "VANCOUVER, BC ⇄ TORONTO, ON",
+    location: "TORONTO, ON ⇄ VANCOUVER, BC",
   },
-  timeZoneLabel: "PACIFIC TIME",
-  timeZone: "America/Vancouver",
+  timeZoneLabel: "EST",
+  timeZone: "America/Toronto",
   items: [
     { id: "about", number: "01", label: "ABOUT", href: "#about" },
     {
@@ -419,13 +419,13 @@ export const projectsContent: ProjectsContent = {
 export const contactContent: ContactContent = {
   sectionNumber: "06",
   sectionTitle: "CONTACT",
-  sectorTag: "DIRECT CHANNEL // VANCOUVER, BC",
+  sectorTag: "DIRECT CHANNEL // TORONTO, ON",
   headline: {
     first: "INITIATE",
     second: "TRANSMISSION",
   },
   description:
-    "Open to senior engineering roles, distributed systems consulting, and high-craft UI/UX collaborations. Based in Vancouver, BC (Pacific Time).",
+    "Open to senior engineering roles, distributed systems consulting, and high-craft UI/UX collaborations. Based in Toronto, ON (EST).",
   emailAction: {
     copyLabel: "COPY",
     copiedLabel: "COPIED TO CLIPBOARD!",
@@ -447,7 +447,7 @@ export const contactContent: ContactContent = {
     title: "AVAILABLE CHANNELS",
     description:
       "Reach out via email or LinkedIn for technical inquiries, architecture design reviews, or distributed systems opportunities. Responses typically within 24 hours.",
-    location: "LOCATION: VANCOUVER, BC",
+    location: "LOCATION: TORONTO, ON",
     status: "STATUS: ACTIVE TRANSMISSION",
     sendAction: "SEND DIRECT MESSAGE ✉",
   },
@@ -459,6 +459,6 @@ export const contactContent: ContactContent = {
 
 export const footerContent: FooterContent = {
   tagline: "DISTRIBUTED SYSTEMS & EXPERIMENTAL CLIENT ARCHITECTURES",
-  location: "VANCOUVER, BRITISH COLUMBIA, CANADA",
+  location: "TORONTO, ONTARIO, CANADA",
   edition: "LIGHT-CONCRETE BRUTALIST EDITION // MAQIVE TYPEFACE",
 };
