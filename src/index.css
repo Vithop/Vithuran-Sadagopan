@@ -7,39 +7,22 @@
 }
 
 :root {
-  /* Light-Concrete Brutalist Palette */
   --bg-concrete: #eae5dc;
-  --bg-canvas: #f0ede6;
   --concrete-pylon: #f6f3ec;
   --concrete-pylon-hover: #fffdf8;
   --concrete-slab: #e2ded5;
-
-  /* High-Contrast Architectural Inks (WCAG AA & AAA Compliant) */
   --ink-primary: #1c1e1d;
   --ink-secondary: #383b36;
   --ink-muted: #4a4e49;
-  --ink-dim: #525651;
-
-  /* Warm Sunbeam & Tungsten Lantern Accents */
   --lantern-amber: #d98236;
   --lantern-amber-ink: #8a3e08;
-  --lantern-rim: rgba(217, 130, 54, 0.45);
   --reflecting-pool: #175e57;
-  --pool-tint: rgba(23, 94, 87, 0.12);
-
-  /* Architectural Grid & Sharp Shadow Depth */
   --grid-border: #1c1e1d;
   --grid-hairline: rgba(28, 30, 29, 0.26);
   --shadow-hard-sm: 6px 6px 0px var(--grid-border);
   --shadow-hard-md: 12px 12px 0px var(--grid-border);
-  --shadow-hard-lg: 16px 16px 0px var(--grid-border);
-  --shadow-stepped: 18px 18px 0px var(--grid-border);
-
-  /* Emissive Warm Tungsten Light Source */
   --lantern-glow:
     0 0 0 2px var(--lantern-amber), 16px 16px 0px var(--grid-border);
-
-  /* Typography Tokens */
   --font-monumental: "Maqive", "Space Grotesk", sans-serif;
   --font-structural:
     "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -124,16 +107,6 @@ section {
   position: relative;
 }
 
-@media (max-width: 768px) {
-  .app-container::before {
-    display: none;
-  }
-
-  section {
-    padding: 3rem 1.25rem;
-  }
-}
-
 /* Top Post-and-Beam Header Lintel */
 .site-header-lintel {
   padding: 1rem clamp(1rem, 4vw, 2.5rem);
@@ -216,26 +189,26 @@ h4 {
   z-index: 5;
 }
 
-.grid-crosshair::before {
+.grid-crosshair::before,
+.grid-crosshair::after {
   content: "";
   position: absolute;
-  top: 7px;
-  left: 0;
-  width: 16px;
-  height: 2px;
   background: var(--grid-border);
   opacity: 0.5;
 }
 
+.grid-crosshair::before {
+  top: 7px;
+  left: 0;
+  width: 16px;
+  height: 2px;
+}
+
 .grid-crosshair::after {
-  content: "";
-  position: absolute;
   top: 0;
   left: 7px;
   width: 2px;
   height: 16px;
-  background: var(--grid-border);
-  opacity: 0.5;
 }
 
 /* Emissive Architectural Lantern (Light Source) */
@@ -244,31 +217,8 @@ h4 {
   border: 2px solid var(--grid-border);
   border-radius: 24px;
   box-shadow: var(--shadow-hard-sm);
-  transition:
-    background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .erickson-lantern:hover,
-  .erickson-lantern:focus-within {
-    background-color: var(--concrete-pylon-hover);
-    border-color: var(--lantern-amber);
-    box-shadow: var(--lantern-glow);
-    transform: translate(-4px, -4px);
-    z-index: 10;
-  }
-
-  /* Sibling Occlusion: When hovering inside a cluster, unhovered siblings dim slightly */
-  .interactive-cluster:hover .erickson-lantern:not(:hover) {
-    opacity: 0.88;
-    filter: brightness(0.97);
-    box-shadow: 2px 2px 0px var(--grid-border);
-    transform: translate(0, 0);
-  }
 }
 
 /* Rounded Pill Button */
@@ -290,49 +240,19 @@ h4 {
   cursor: pointer;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .pill-button:hover {
-    background-color: var(--concrete-pylon-hover);
-    box-shadow: var(--shadow-hard-md);
-    transform: translate(-3px, -3px);
-    color: var(--ink-primary);
-  }
-}
-
-/* Primary Dark Pill Button */
-.pill-button-primary {
-  background-color: var(--grid-border);
-  color: #ffffff;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .pill-button-primary:hover {
-    background-color: var(--ink-secondary);
-    color: #ffffff;
-  }
-}
-
-/* Accent Contact Pill Button */
+/* Primary & Accent Dark Pill Buttons */
+.pill-button-primary,
 .pill-button-accent {
   background-color: var(--grid-border);
   color: #ffffff;
   border-color: var(--grid-border);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .pill-button-accent:hover {
-    background-color: var(--concrete-pylon-hover);
-    color: var(--ink-primary);
-  }
-}
-
 /* Navigation Links */
 .nav-link {
   color: var(--ink-secondary);
   font-weight: 600;
-  transition:
-    color 0.2s,
-    background-color 0.2s;
+  transition: all 0.2s;
   background: none;
   border: none;
   padding: 0.35rem 0.55rem;
@@ -364,12 +284,43 @@ h4 {
   object-fit: cover;
   display: block;
   filter: grayscale(40%);
-  transition:
-    filter 0.3s ease,
-    transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .erickson-lantern:hover,
+  .erickson-lantern:focus-within {
+    background-color: var(--concrete-pylon-hover);
+    border-color: var(--lantern-amber);
+    box-shadow: var(--lantern-glow);
+    transform: translate(-4px, -4px);
+    z-index: 10;
+  }
+
+  .interactive-cluster:hover .erickson-lantern:not(:hover) {
+    opacity: 0.88;
+    filter: brightness(0.97);
+    box-shadow: 2px 2px 0px var(--grid-border);
+    transform: translate(0, 0);
+  }
+
+  .pill-button:hover {
+    background-color: var(--concrete-pylon-hover);
+    box-shadow: var(--shadow-hard-md);
+    transform: translate(-3px, -3px);
+    color: var(--ink-primary);
+  }
+
+  .pill-button-primary:hover {
+    background-color: var(--ink-secondary);
+    color: #ffffff;
+  }
+
+  .pill-button-accent:hover {
+    background-color: var(--concrete-pylon-hover);
+    color: var(--ink-primary);
+  }
+
   .archive-card-image:hover {
     filter: grayscale(0%);
     transform: scale(1.02);
@@ -437,6 +388,14 @@ h4 {
 
 /* Mobile Interaction States */
 @media (max-width: 768px) {
+  .app-container::before {
+    display: none;
+  }
+
+  section {
+    padding: 3rem 1.25rem;
+  }
+
   .pill-button {
     width: 100%;
     margin-bottom: 0.5rem;
@@ -484,11 +443,7 @@ h4 {
 }
 
 /* Accessible High-Contrast Focus Indicators */
-:focus-visible {
-  outline: 2px solid var(--grid-border);
-  outline-offset: 3px;
-}
-
+:focus-visible,
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
@@ -518,5 +473,27 @@ input:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Architectural Dossier Print Layout */
+@media print {
+  body,
+  .app-container {
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .skip-link,
+  .grid-crosshair,
+  .app-container::before,
+  .site-header-lintel nav {
+    display: none !important;
+  }
+
+  .erickson-lantern {
+    box-shadow: none !important;
+    break-inside: avoid;
   }
 }

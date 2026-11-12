@@ -24,6 +24,15 @@ export default function Root() {
             content="Software Development Engineer building highly available distributed systems, deterministic state machines, and tactile interfaces."
           />
           <Meta property="og:type" content="website" />
+          <Meta
+            property="og:url"
+            content="https://vithop.github.io/Vithuran-Sadagopan/"
+          />
+          <Meta
+            property="og:site_name"
+            content="Vithuran Sadagopan // Software Development Engineer"
+          />
+          <Meta property="og:locale" content="en_CA" />
           <Meta name="twitter:card" content="summary" />
           <Meta
             name="twitter:title"
@@ -32,6 +41,10 @@ export default function Root() {
           <Meta
             name="twitter:description"
             content="Software Development Engineer building highly available distributed systems and tactile interfaces."
+          />
+          <Link
+            rel="canonical"
+            href="https://vithop.github.io/Vithuran-Sadagopan/"
           />
 
           <Link
