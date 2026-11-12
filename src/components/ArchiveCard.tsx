@@ -90,7 +90,7 @@ const ArchiveCard: Component<ArchiveCardProps> = (props) => {
               "border-radius": "16px",
               overflow: "hidden",
               "margin-bottom": "1.5rem",
-              background: "#000",
+              background: "var(--concrete-slab)",
               "box-shadow": "var(--shadow-hard-sm)",
             }}
           >

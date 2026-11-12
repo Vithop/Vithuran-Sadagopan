@@ -14,6 +14,7 @@ interface HeroProps {
 
 const Hero: Component<HeroProps> = (props) => {
   const [time, setTime] = createSignal("");
+  const [activeSection, setActiveSection] = createSignal("about");
 
   onMount(() => {
     const updateTime = () => {
@@ -30,27 +31,37 @@ const Hero: Component<HeroProps> = (props) => {
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
-    onCleanup(() => clearInterval(interval));
+
+    const sectionIds = navContent.items
+      .filter((item) => !item.isArchiveTrigger && item.id)
+      .map((item) => item.id);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.target.id) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-25% 0px -60% 0px", threshold: 0 }
+    );
+
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    onCleanup(() => {
+      clearInterval(interval);
+      observer.disconnect();
+    });
   });
 
   return (
-    <div id="about">
+    <>
       {/* Top Post-and-Beam Header Lintel */}
-      <header
-        style={{
-          padding: "1.25rem clamp(1rem, 5vw, 2.5rem)",
-          display: "flex",
-          "justify-content": "space-between",
-          "align-items": "center",
-          "flex-wrap": "wrap",
-          gap: "1.25rem",
-          "border-bottom": "2px solid var(--grid-border)",
-          "background-color": "var(--concrete-slab)",
-          "font-family": "var(--font-telemetry)",
-          "font-size": "0.85rem",
-          "letter-spacing": "0.08em",
-        }}
-      >
+      <header class="site-header-lintel">
         <div
           style={{
             display: "flex",
@@ -83,7 +94,7 @@ const Hero: Component<HeroProps> = (props) => {
           aria-label="Main Navigation"
           style={{
             display: "flex",
-            gap: "1.5rem",
+            gap: "clamp(0.4rem, 1.2vw, 1rem)",
             "align-items": "center",
             "flex-wrap": "wrap",
           }}
@@ -95,7 +106,11 @@ const Hero: Component<HeroProps> = (props) => {
                 fallback={
                   <a
                     href={item.href}
-                    class={`nav-link ${item.id === "about" ? "active" : ""}`}
+                    onClick={() => setActiveSection(item.id)}
+                    aria-current={
+                      activeSection() === item.id ? "location" : undefined
+                    }
+                    class={`nav-link ${activeSection() === item.id ? "active" : ""}`}
                   >
                     {item.number
                       ? `${item.number} // ${item.label}`
@@ -125,13 +140,13 @@ const Hero: Component<HeroProps> = (props) => {
           }}
         >
           <span>
-            {navContent.timeZoneLabel} {time() || "12:00:00"}
+            {navContent.timeZoneLabel} {time() || "--:--:--"}
           </span>
         </div>
       </header>
 
       {/* Main About Me Section */}
-      <section>
+      <section id="about">
         <div class="grid-crosshair" style={{ top: "1.5rem", left: "1.5rem" }} />
         <div
           class="grid-crosshair"
@@ -139,9 +154,14 @@ const Hero: Component<HeroProps> = (props) => {
         />
 
         <div class="section-header-beam">
-          <div class="section-header-title">
-            <span>{heroContent.sectionTitle}</span>
-          </div>
+          <h2
+            class="section-header-title"
+            style={{ "font-size": "inherit", margin: "0" }}
+          >
+            <span>
+              {heroContent.sectionNumber} // {heroContent.sectionTitle}
+            </span>
+          </h2>
           <div class="section-telemetry-tag">{heroContent.sectorTag}</div>
         </div>
 
@@ -310,7 +330,7 @@ const Hero: Component<HeroProps> = (props) => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

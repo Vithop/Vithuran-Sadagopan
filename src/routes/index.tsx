@@ -19,17 +19,30 @@ const App: Component = () => {
     "home"
   );
 
+  const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  };
+
   const navigateTo = (hash: string) => {
     window.location.hash = hash;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTop();
   };
 
   onMount(() => {
     const handleHashChange = () => {
+      const prev = currentRoute();
       if (window.location.hash === "#/archive") {
         setCurrentRoute("archive");
+        if (prev !== "archive") scrollToTop();
       } else {
         setCurrentRoute("home");
+        if (prev === "archive") scrollToTop();
       }
     };
 

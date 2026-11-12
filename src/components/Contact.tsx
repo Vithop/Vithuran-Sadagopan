@@ -1,14 +1,24 @@
-import { createSignal, For, type Component } from "solid-js";
+import { createSignal, onCleanup, For, type Component } from "solid-js";
 import { contactContent, socialsContent } from "../data/content";
 
 const Contact: Component = () => {
   const [copied, setCopied] = createSignal(false);
+  let copyTimer: ReturnType<typeof setTimeout> | undefined;
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(socialsContent.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(socialsContent.email);
+      setCopied(true);
+      if (copyTimer) clearTimeout(copyTimer);
+      copyTimer = setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${socialsContent.email}`;
+    }
   };
+
+  onCleanup(() => {
+    if (copyTimer) clearTimeout(copyTimer);
+  });
 
   return (
     <section id="contact">
@@ -38,7 +48,7 @@ const Contact: Component = () => {
       >
         {/* Left Column: Contact Philosophy & Details */}
         <div>
-          <div
+          <h3
             style={{
               "font-family": "var(--font-monumental)",
               "font-size": "clamp(2.5rem, 5vw, 4.5rem)",
@@ -52,7 +62,7 @@ const Contact: Component = () => {
             {contactContent.headline.first}
             <br />
             {contactContent.headline.second}
-          </div>
+          </h3>
 
           <p
             style={{

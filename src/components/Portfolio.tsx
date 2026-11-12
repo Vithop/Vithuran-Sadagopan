@@ -158,6 +158,8 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                   display: "flex",
                   "justify-content": "space-between",
                   "align-items": "center",
+                  "flex-wrap": "wrap",
+                  gap: "0.75rem",
                 }}
               >
                 <span
@@ -169,19 +171,36 @@ const Portfolio: Component<PortfolioProps> = (props) => {
                 >
                   {projectsContent.cardLabels.publicRepo}
                 </span>
-                <a
-                  href={item.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pill-button"
-                  aria-label={`View GitHub repository for ${item.title}`}
-                  style={{
-                    padding: "0.4rem 0.95rem",
-                    "font-size": "0.75rem",
-                  }}
-                >
-                  {projectsContent.cardLabels.viewRepo}
-                </a>
+                <div style={{ display: "flex", gap: "0.6rem" }}>
+                  <a
+                    href={item.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pill-button"
+                    aria-label={`View GitHub repository for ${item.title}`}
+                    style={{
+                      padding: "0.4rem 0.95rem",
+                      "font-size": "0.75rem",
+                    }}
+                  >
+                    {projectsContent.cardLabels.viewRepo}
+                  </a>
+                  {item.demoUrl && (
+                    <a
+                      href={item.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="pill-button pill-button-primary"
+                      aria-label={`View live demo for ${item.title}`}
+                      style={{
+                        padding: "0.4rem 0.95rem",
+                        "font-size": "0.75rem",
+                      }}
+                    >
+                      LIVE DEMO ↗
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           )}

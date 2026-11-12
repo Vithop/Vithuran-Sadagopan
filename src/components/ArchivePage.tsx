@@ -1,4 +1,12 @@
-import { createSignal, createMemo, For, type Component } from "solid-js";
+import {
+  createSignal,
+  createMemo,
+  onMount,
+  onCleanup,
+  Show,
+  For,
+  type Component,
+} from "solid-js";
 import {
   archiveProjects,
   archiveCategories,
@@ -16,20 +24,61 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
     createSignal<FilterCategory>("All");
   const [searchQuery, setSearchQuery] = createSignal("");
 
+  const categoryCounts = createMemo(() => {
+    const counts: Record<FilterCategory, number> = {
+      All: archiveProjects.length,
+      "Distributed & Cloud": 0,
+      "Systems & Runtimes": 0,
+      "Assistive & Hardware": 0,
+      "Client & Web": 0,
+    };
+    for (const p of archiveProjects) {
+      counts[p.category] = (counts[p.category] || 0) + 1;
+    }
+    return counts;
+  });
+
   const filteredProjects = createMemo(() => {
     const cat = selectedCategory();
-    const query = searchQuery().toLowerCase().trim();
+    const rawQuery = searchQuery().toLowerCase().trim();
+    const queryTerms =
+      rawQuery === "wasm"
+        ? ["wasm", "webassembly"]
+        : rawQuery === "webassembly"
+          ? ["webassembly", "wasm"]
+          : rawQuery
+            ? [rawQuery]
+            : [];
 
     return archiveProjects.filter((p) => {
       const matchesCategory = cat === "All" || p.category === cat;
       const matchesQuery =
-        !query ||
-        p.title.toLowerCase().includes(query) ||
-        p.description.toLowerCase().includes(query) ||
-        p.stack.some((s) => s.toLowerCase().includes(query)) ||
-        p.year.includes(query);
+        queryTerms.length === 0 ||
+        queryTerms.some(
+          (q) =>
+            p.title.toLowerCase().includes(q) ||
+            p.description.toLowerCase().includes(q) ||
+            p.category.toLowerCase().includes(q) ||
+            p.stack.some((s) => s.toLowerCase().includes(q)) ||
+            p.highlights.some((h) => h.toLowerCase().includes(q)) ||
+            p.year.toLowerCase().includes(q)
+        );
       return matchesCategory && matchesQuery;
     });
+  });
+
+  onMount(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (searchQuery()) {
+          setSearchQuery("");
+        } else if (selectedCategory() !== "All") {
+          setSelectedCategory("All");
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    onCleanup(() => window.removeEventListener("keydown", handleKeyDown));
   });
 
   return (
@@ -102,7 +151,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
           >
             <span>{archivePageContent.sectionTitle}</span>
           </h2>
-          <div class="section-telemetry-tag">
+          <div class="section-telemetry-tag" aria-live="polite">
             {filteredProjects().length} {archivePageContent.systemsSuffix}
           </div>
         </div>
@@ -148,7 +197,12 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
         >
           {/* Search Box */}
           <div
-            style={{ display: "flex", gap: "1rem", "align-items": "center" }}
+            style={{
+              display: "flex",
+              gap: "1rem",
+              "align-items": "center",
+              "flex-wrap": "wrap",
+            }}
           >
             <label
               for="archive-search-input"
@@ -164,13 +218,13 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
             </label>
             <input
               id="archive-search-input"
-              type="text"
+              type="search"
               aria-label={archivePageContent.filterQueryLabel}
               placeholder={archivePageContent.searchPlaceholder}
               value={searchQuery()}
               onInput={(e) => setSearchQuery(e.currentTarget.value)}
               style={{
-                flex: "1",
+                flex: "1 1 220px",
                 padding: "0.6rem 1rem",
                 "font-family": "var(--font-telemetry)",
                 "font-size": "0.85rem",
@@ -195,7 +249,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
           {/* Category Chips */}
           <div
             role="group"
-            aria-label="Filter archive projects by discipline"
+            aria-labelledby="discipline-filter-label"
             style={{
               display: "flex",
               "flex-wrap": "wrap",
@@ -237,7 +291,7 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
                       transition: "all 0.2s",
                     }}
                   >
-                    {cat}
+                    {cat} ({categoryCounts()[cat]})
                   </button>
                 );
               }}
@@ -245,19 +299,68 @@ const ArchivePage: Component<ArchivePageProps> = (props) => {
           </div>
         </div>
 
-        {/* Chronological Timeline Grid */}
-        <div
-          style={{
-            display: "grid",
-            "grid-template-columns": "repeat(auto-fill, minmax(340px, 1fr))",
-            gap: "2.5rem",
-          }}
-          class="interactive-cluster"
+        {/* Chronological Timeline Grid or Empty Search State */}
+        <Show
+          when={filteredProjects().length > 0}
+          fallback={
+            <div
+              class="erickson-lantern"
+              style={{
+                padding: "3rem 2rem",
+                "text-align": "center",
+                "border-radius": "28px",
+                display: "flex",
+                "flex-direction": "column",
+                "align-items": "center",
+                gap: "1.25rem",
+              }}
+            >
+              <span class="telemetry-badge">
+                0 RECORDED SYSTEMS MATCHING QUERY
+              </span>
+              <h3
+                style={{ "font-size": "1.6rem", color: "var(--ink-primary)" }}
+              >
+                NO MATCHING ARCHIVE RECORDS FOUND
+              </h3>
+              <p
+                style={{
+                  color: "var(--ink-secondary)",
+                  "max-width": "520px",
+                  "font-size": "0.95rem",
+                }}
+              >
+                No systems matched &ldquo;{searchQuery()}&rdquo; in{" "}
+                {selectedCategory()}. Reset the active search or discipline
+                filter to view all {archiveProjects.length} recorded systems.
+              </p>
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory("All");
+                }}
+                class="pill-button pill-button-primary"
+                style={{ padding: "0.65rem 1.5rem", "font-size": "0.8rem" }}
+              >
+                RESET ALL FILTERS
+              </button>
+            </div>
+          }
         >
-          <For each={filteredProjects()}>
-            {(project) => <ArchiveCard project={project} />}
-          </For>
-        </div>
+          <div
+            style={{
+              display: "grid",
+              "grid-template-columns":
+                "repeat(auto-fill, minmax(min(100%, 340px), 1fr))",
+              gap: "2.5rem",
+            }}
+            class="interactive-cluster"
+          >
+            <For each={filteredProjects()}>
+              {(project) => <ArchiveCard project={project} />}
+            </For>
+          </div>
+        </Show>
 
         {/* Bottom Return Button */}
         <div style={{ "margin-top": "4rem", "text-align": "center" }}>
